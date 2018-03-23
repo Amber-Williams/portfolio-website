@@ -1,0 +1,113 @@
+div.ESWuserButton0{
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/but0_off1.png');
+}
+div.ESWuserButton0:hover {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/but0_on1.png');
+}
+div.ESWuserButton1{
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/but1_off1.png');
+}
+div.ESWuserButton1:hover {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/but1_on1.png');
+}
+#top {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/top.png');
+}
+#bg {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale', src='img/middle.png');
+}
+#bottom {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/bottom.png');
+}
+#top_pr {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/top_pr.png');
+}
+#bg_pr {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale', src='img/middle_pr.png');
+}
+#bottom_pr {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/bottom_pr.png');
+}
+#zak1 {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/zak1.png');
+} 
+#zak2 {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/zak2.png');
+}
+#zak3 {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/zak3.png');
+}
+#ead {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/head1.png');
+}
+#emblem {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/emblem.png');
+}
+#pic1 {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/pic1.png');
+}
+#pic2 {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/pic2.png');
+}
+#pic3 {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/pic3.png');
+}
+#pic4 {
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/pic4.png');
+}
+#pr{
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/pr.png');
+}
+#rt{
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/tr.png');
+}
+#tr1{
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/tr.png');
+}
+#fruct{
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/fruct.png');
+}
+#lin{
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/lin.png');
+}
+#lin1{
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/lin.png');
+}
+#lin2{
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/lin2.png');
+}
+#lin3{
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/lin2.png');
+}
+#lin4{
+	background-image: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop', src='img/lin2.png');
+}
+ img.draggable { fakeprop: expression( _IE6PNGImgFix(this) ); }  div.ESWuserButton0, div.ESWuserButton1 { fakeprop: expression( _IE6PNGDivFix(this) ); } 
