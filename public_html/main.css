@@ -3,10 +3,11 @@ body {
   font-family: 'Overpass', sans-serif;
   margin: 0;
   padding: 0;
+  width: 100vw;
 }
 
 .page-container {
-  /* intentionally left blank */
+  max-width: 100vw;
 }
 
 /* Header */
@@ -450,6 +451,7 @@ height: auto;
   background-color: #3f5491;
   padding-right:-10%;
   height: 300px;
+  overflow: hidden;
 }
 .row-entry-2col .responsiveImg-2 {
     position: static;
