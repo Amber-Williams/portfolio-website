@@ -780,6 +780,27 @@ height: auto;
 }
 }
 
+/* NEW Block 5 & 6 */
+.new-row-container{
+  display: flex;
+  flex-direction: row;
+}
+.square-5 {
+  width: 50%;
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+}
+.square-5 div {
+  background-color: #3f5491;
+  width: 273px;
+  height: 249px;
+}
+.square-6 {
+  width: 50%;
+  height: 250px;
+  background-color: #91408a;
+}
 
 
 /* Quote */
