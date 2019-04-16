@@ -851,14 +851,15 @@ height: auto;
 .square-6-img{
   z-index: 1;
   height: 150px;
-  margin-top: 50px;
+  margin-top: 134px;
   margin-left: -10px;
+  border: black solid 2px;
 }
 
 .square-6 div {
   background-color: white;
-  width: 273px;
-  height: 249px;
+  width: 260px;
+  height: 242px;
   z-index: 0;
   margin: 33px 0px 0px 73px;
   display: flex;
