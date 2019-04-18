@@ -785,6 +785,7 @@ height: auto;
   display: flex;
   flex-direction: row;
 }
+
 .square-5 {
   width: 50%;
   height: 300px;
@@ -837,8 +838,6 @@ height: auto;
   border-radius: 50px;
   border:none;
 }
-
-
 
 .square-6 {
   width: 50%;
@@ -893,6 +892,31 @@ height: auto;
   padding: 4px 21px;
   border-radius: 50px;
   border:none;
+}
+
+@media screen and (max-width: 875px) {
+  .new-row-container {
+    flex-direction: column-reverse;
+  }
+  .square-5 {
+    width: 100%;
+    align-self: center;
+    justify-content: center;
+  }
+  .square-6 {
+    width: 100%;
+    align-self: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .square-5-img {
+    height: 50%;
+  }
+  .square-6-img {
+    height: 50%;
+  }
 }
 
 /* Quote */
