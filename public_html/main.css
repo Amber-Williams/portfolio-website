@@ -912,10 +912,26 @@ height: auto;
 
 @media screen and (max-width: 550px) {
   .square-5-img {
-    height: 50%;
+    height: 35%;
+    margin: 179px -40px 0 0;
   }
   .square-6-img {
-    height: 50%;
+    height: 40%;
+  }
+  .square-5 div {
+    margin: 4% 4% 0 0;
+  }
+  .square-6 div {
+    margin: 4% 0 0 8%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .square-5-img {
+    height: 35%;
+  }
+  .square-6-img {
+    height: 35%;
   }
 }
 
