@@ -4,10 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../main.css">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 </head>
 
 <body>
@@ -22,7 +21,7 @@
           <li class="nav-item"><a href="../index.html#about">About</a></li> 
           <li class="nav-item"><a href="../index.html#resume">Resume</a></li>  
           <li class="nav-item"><a href="../index.html#services">Services</a></li> 
-          <li class="nav-item"><a href="../index.html#contact">Contact</a></li> 
+          <li class="nav-item"><a href="mailto:amberwilliamsdev@gmail.com?Subject=Lets%20chat" target="_top">Contact</a></li> 
          </ul> 
     </div>
     <div class="nav-right-drop-menu-group"> 
@@ -32,7 +31,7 @@
               <a href="../index.html#about">About</a>
               <a href="../index.html#resume">Resume</a>
               <a href="../index.html#services">Services</a>
-              <a href="../index.html#contact">Contact</a>
+              <a href="mailto:amberwilliamsdev@gmail.com?Subject=Lets%20chat">Contact</a>
             </div>
     </div> 
   </div> 
@@ -53,7 +52,7 @@
   <p>During our user testing there were valuable findings that concluded we need to change some of our UX design. For example, we noticed two users were understanding they could pay to be helped, but did not quite understand that they could also help others as well. Thus having an emphasis on not just asking questions, but also performing help requests for other’s questions was implemented into the design.</p>
 
   <p>All the while, we were forming a data model that would be used in our relational database. We really wanted to trim the fat, sort of speak, from the model and have something left that was very lean and clear to use.</p>
-  <!-- <h1>DATA MODEL HERE</h1> -->
+  <center><img src="img/datamodel.png" width="50%"/></center>
 
   <p>Following this we created end points the front-end and back end would connect through using <a href="https://jsquestions.docs.apiary.io/#">apiary (Linked here)</a>. This way we could work independently on each end until the integration of the two was stable enough to implement. </p>
   <center><img src="img/endpoints.png" width="50%"/></center>
@@ -76,16 +75,16 @@
   h2 {
     text-align: center;
   }
-
+  p {
+    margin: 20px;
+  }
   .footerText {  
   width:100%;
-  padding-top: 35px;
-  padding-top: 23px;
   background-color: black;
   color: white;
   text-align: center;
   margin-top:20px;
-}
+  }
 </style>
 <div id="footer">
   <footer>
