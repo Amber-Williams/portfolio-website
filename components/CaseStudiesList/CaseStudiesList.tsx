@@ -1,39 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import { getAllProperties } from '../../data/gets'
+import React from 'react'
 import CaseStudyListItem from './CaseStudyListItem'
 import PageContainer from '../PageContainer/PageContainer'
+import { CaseStudyList } from '../../types/case-study'
 
-const CaseStudiesList: React.FC = () => {
-  const [CaseStudiesList, setCaseStudiesList]: any = useState(null)
-  let list = 'No properties are listed'
+const CaseStudiesList: React.FC<CaseStudyList> = ({ allCaseStudies }) => {
+  const list = allCaseStudies.map((study, index) => (
+    <CaseStudyListItem study={study} key={index} />
+  ))
 
-  useEffect(() => {
-    async function getAndSetCaseStudies() {
-      await getAllProperties().then((response) => {
-          if (response.statusCode === 200) {
-            const availableProperties = response.properties
-            
-            setCaseStudiesList(availableProperties)
-          } else {
-            setCaseStudiesList(response.error)
-          }
-        })
-        .catch((error) =>
-          // eslint-disable-next-line no-console
-          console.log(error)
-        )
-    }
-
-    getAndSetCaseStudies()
-  }, [])
-
-  if (CaseStudiesList) {
-    list = CaseStudiesList.map((property, index) => (
-      <CaseStudyListItem property={property} key={index} />
-    ))
-  }
-
-  return <PageContainer>{list}</PageContainer>
+  return <PageContainer>{list ? list : 'loading...'}</PageContainer>
 }
 
 export default CaseStudiesList

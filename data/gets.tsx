@@ -1,7 +1,5 @@
 import axios from 'axios'
 import { isEmpty } from 'lodash'
-import moment from 'moment'
-
 interface PropertyProps {
   id: number
   images: string[]
@@ -48,7 +46,7 @@ export const getAllProperties = async () => {
 export const getProperty = async (id) =>
   await axios.get(`http://localhost:5000/properties/${id}`).then(
     (response) => {
-      const data: object = response.data
+      const data: `Record<string, unknown>` = response.data
       const status: number = response.status
 
       return {

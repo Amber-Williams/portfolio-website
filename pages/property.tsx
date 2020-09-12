@@ -66,7 +66,7 @@ const Property: NextPage<Props> = ({ statusCode, property, error }) => {
 }
 
 Property.getInitialProps = async ({ query }) => {
-  let id = query.id as string
+  const id = query.id as string
   const { statusCode, property, error } = await getProperty(id)
 
   return {
