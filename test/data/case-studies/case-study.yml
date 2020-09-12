@@ -1,0 +1,4 @@
+path: fake-case-study
+order: 1
+template: case-study
+test: hi
