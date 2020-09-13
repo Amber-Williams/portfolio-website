@@ -9,7 +9,7 @@ interface CaseStudyListItemProps {
 const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
   study: { path, test },
 }) => (
-  <Link href={{ pathname: 'case-studies', query: { path } }}>
+  <Link href={{ pathname: `posts/${path}` }}>
     <div className="card m-3">
       <div className="d-flex flex-column flex-md-row align-items-center">
         <div className="col-md-5 p-0">
