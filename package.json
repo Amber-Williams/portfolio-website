@@ -1,0 +1,60 @@
+{
+  "name": "zoopla_coding_challenge",
+  "author": "Amber Williams [https://github.com/Amber-Williams]",
+  "license": "MIT",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc --pretty --noEmit",
+    "format": "prettier --write **/*.{js,ts,tsx}",
+    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "test": "jest",
+    "test-full": "yarn lint && yarn type-check && yarn test",
+    "db": "json-server --watch db.json --port 5000"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn run type-check"
+    }
+  },
+  "lint-staged": {
+    "*.@(ts|tsx)": [
+      "yarn lint",
+      "yarn format"
+    ]
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "js-yaml": "^3.14.0",
+    "lodash": "^4.17.15",
+    "momentjs": "^2.0.0",
+    "next": "latest",
+    "popper.js": "^1.16.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^10.0.1",
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.5",
+    "@types/react": "^16.9.27",
+    "@types/testing-library__react": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "@typescript-eslint/parser": "^4.1.0",
+    "babel-jest": "^25.2.3",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-react": "^7.20.6",
+    "husky": "^4.2.3",
+    "jest": "^25.2.3",
+    "jest-watch-typeahead": "^0.5.0",
+    "lint-staged": "^10.0.10",
+    "prettier": "^2.0.2",
+    "typescript": "^3.8.3"
+  }
+}

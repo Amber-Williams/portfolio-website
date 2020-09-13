@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CaseStudyImagesCarousel matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="carousel slide"
+    data-ride="carousel"
+    id="carouselExampleControls"
+  >
+    <div
+      class="carousel-inner"
+    >
+      <div
+        class="carousel-item null "
+      >
+        <img
+          alt="Image of propery 0"
+          class="d-block w-100"
+          src="www.img1.com"
+        />
+      </div>
+      <div
+        class="carousel-item active "
+      >
+        <img
+          alt="Image of propery 1"
+          class="d-block w-100"
+          src="www.img2.com"
+        />
+      </div>
+      <div
+        class="carousel-item null "
+      >
+        <img
+          alt="Image of propery 2"
+          class="d-block w-100"
+          src="www.img3.com"
+        />
+      </div>
+    </div>
+    <a
+      class="carousel-control-prev"
+      data-slide="prev"
+      href="#carouselExampleControls"
+      role="button"
+    >
+      <span
+        aria-hidden="true"
+        class="carousel-control-prev-icon"
+      />
+      <span
+        class="sr-only"
+      >
+        Previous
+      </span>
+    </a>
+    <a
+      class="carousel-control-next"
+      data-slide="next"
+      href="#carouselExampleControls"
+      role="button"
+    >
+      <span
+        aria-hidden="true"
+        class="carousel-control-next-icon"
+      />
+      <span
+        class="sr-only"
+      >
+        Next
+      </span>
+    </a>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`CaseStudyListedDate matches snapshot 1`] = `
+<DocumentFragment>
+  <p
+    class="date--listed col-12 p-3 m-0 w-100"
+  >
+    Listed on: 30-5-2020
+  </p>
+</DocumentFragment>
+`;
+
+exports[`CaseStudySubNav matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <nav>
+      <div
+        class="nav nav-tabs m-3"
+        id="nav-tab"
+        role="tablist"
+      >
+        <a
+          aria-controls="nav-info"
+          aria-selected="true"
+          class="nav-item nav-link active"
+          data-toggle="tab"
+          href="#nav-info"
+          id="nav-info-tab"
+          role="tab"
+        >
+          Info
+        </a>
+        <a
+          aria-controls="nav-features"
+          aria-selected="false"
+          class="nav-item nav-link"
+          data-toggle="tab"
+          href="#nav-features"
+          id="nav-features-tab"
+          role="tab"
+        >
+          Features
+        </a>
+        <a
+          aria-controls="nav-description"
+          aria-selected="false"
+          class="nav-item nav-link"
+          data-toggle="tab"
+          href="#nav-description"
+          id="nav-description-tab"
+          role="tab"
+        >
+          Description
+        </a>
+      </div>
+    </nav>
+    <div
+      class="tab-content p-3"
+      id="nav-tabContent"
+    >
+      <div
+        aria-labelledby="nav-info-tab"
+        class="tab-pane fade show active"
+        id="nav-info"
+        role="tabpanel"
+      >
+        <h2
+          class="primary-font"
+        >
+          Guide price
+        </h2>
+        <h1>
+          £100,000
+        </h1>
+        <h3>
+          Bedrooms: 1
+        </h3>
+        <p>
+          100 blah blah road
+        </p>
+      </div>
+      <div
+        aria-labelledby="nav-features-tab"
+        class="tab-pane fade"
+        id="nav-features"
+        role="tabpanel"
+      >
+        <ul>
+          <li>
+            <p>
+              big
+            </p>
+          </li>
+          <li>
+            <p>
+              nice
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div
+        aria-labelledby="nav-description-tab"
+        class="tab-pane fade"
+        id="nav-description"
+        role="tabpanel"
+      >
+        <p>
+          blah blah blah
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Property matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      Oops
+    </h1>
+    <p>
+      Property listing is unaviable with that id
+    </p>
+  </div>
+</DocumentFragment>
+`;
