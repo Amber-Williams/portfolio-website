@@ -1,4 +1,25 @@
 path: sushi-website
-order: 2
+order: 4
 template: case-study
-test: hi
+title: Redesign for sushi restaurant
+preview_image: /images/sushi-website/sushi-preview.png
+tech_stack: CSS, HTML, JavaScript
+content: 
+  - |
+    A Sushi restaurant wanted a new one page website that was on brand, easy to understand contact and hours section, easy to find via Google Maps API, as well as consolidating a large menu that could be accessed effortlessly per subsections.
+
+    Outside of the clients wants, I noticed a need for Google Analytics to be implemented for the owners to track their customer demographics and future online campaigns. Leading to pivoting towards different marketing strategies.
+
+  - link_: /documents/sushi-wireframe.pdf
+    text: wireframe
+  - link_: /documents/sushi-mockdesign.pdf
+    text: design mock
+
+  - |  
+    We started with a wireframe that the client could adjust, change elements as they pleased. The website was created to be fully responsive throughout any given device, screen or browser. After the wireframe was agreed upon. We moved to the design phase where the wireframe was decorated and vector images such as the title swords were created.
+    
+    Moving forward to the development stage, the website framework was built utilizing Flexbox. Flexbox is a CSS built layout mode that is intended to accommodate different screen sizes.
+    
+    After development stage was completely built out, the client wanted to add a seprate section for their many delivery options as delivery was a major souce of revenue. Prior to the upload of this site, I took a back up from their current site incase the owners should ever want it. <a href="http://umiaustin.com/" target="_blank" rel="noreferrer">(Click to view final uploaded website here)</a>
+
+  - /images/sushi-website/before-after.png

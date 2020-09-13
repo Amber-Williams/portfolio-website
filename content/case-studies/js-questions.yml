@@ -1,0 +1,41 @@
+path: js-questions
+order: 1
+template: case-study
+title: Micro-tutoring platform
+preview_image: /images/js-questions/preview.gif
+tech_stack: React, Redux, React-Spring, Node, Koa, PostGreSQL, Docker
+content: 
+  - /images/js-questions/preview-screenshots.png
+  - |
+    With the issue of being stuck on a coding challenge, problem or understanding a concept that all developers face from time to time…JS Questions was born.
+    
+    A team of five formed with a two week timeline. We decided to create the micro-tutoring platform known as JS Questions which allows developers of all skill levels to give and receive live help when they are stuck on a problem.
+    
+    In the design phase we first created an information architecture of how the user flow would work.
+  
+  - /images/js-questions/information-architecture.png
+
+  - |
+    Then created a rough wireframe in Sketch and as they came together added high-fidelity vector graphics on top. Following this, we imported our design slides into Figma to create a prototype <a href="https://www.figma.com/proto/CvLuv0pjVBgH3EdxdpteRjl4/landing-pages?node-id=0%3A1&scaling=min-zoom" target="_blank" rel="noreferrer">( link here to prototype)</a> that was later used to perform user testing.
+
+    During our user testing there were valuable findings that concluded we need to change some of our UX design. For example, we noticed two users were understanding they could pay to be helped, but did not quite understand that they could also help others as well. Thus having an emphasis on not just asking questions, but also performing help requests for other’s questions was implemented into the design.
+
+    All the while, we were forming a data model that would be used in our relational database. We really wanted to trim the fat, sort of speak, from the model and have something left that was very lean and clear to use.
+
+  - /images/js-questions/datamodel.png
+
+  - |
+    Following this we created end points the front-end and back end would connect through using apiary <a href="https://jsquestions.docs.apiary.io/#" target="_blank" rel="noreferrer">(Linked here). This way we could work independently on each end until the integration of the two was stable enough to implement.
+
+  - /images/js-questions/endpoints.png
+
+  - |
+    During the build out, we had daily stand up meetings in the morning and assigned who would work on what that day from an organized todo list on Trello.
+
+    Within the back-end development, we created a server using Node and Koa that utilized Socket.io and RESTful API to communicate with the front end. For the security layer JSON web token was used. For the database design, Sequelize was used with a PostGreSQL database.
+
+    As for the front-end development, we used React, Redux, SASS and React Spring. We also used the local and session storages to have persistent data for the user as well as add a security layer.
+
+    We later containerized our back-end and front-end with Docker in separate containers. Lastly we added a seed file of mock data to pre-populate the database for testing.
+
+    We as a team worked well in an organized fashion and completed our MVP goal in less then two weeks time. <a href="https://jsq-client.herokuapp.com/" target="_blank" rel="noreferrer">Have a click around on a live prototype of the JS questions project here. </a>

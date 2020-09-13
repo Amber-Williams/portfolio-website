@@ -1,7 +1,7 @@
 import React from 'react'
 import CaseStudyListItem from './CaseStudyListItem'
 import PageContainer from '../PageContainer/PageContainer'
-import { CaseStudyListProps } from '../../types/case-study'
+import { CaseStudyListProps } from '../../types/case-study-types'
 
 const CaseStudiesList: React.FC<CaseStudyListProps> = ({ allCaseStudies }) => {
   const list = allCaseStudies.map((study, index) => (

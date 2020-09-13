@@ -1,4 +1,26 @@
 path: clinical-tracking-app
-order: 1
+order: 2
 template: case-study
-test: hi
+title: Clinical skin tracker mobile application
+preview_image: /images/clinical-tracking-app/faceoverlay.png
+tech_stack: CSS, HTML, JavaScript, iOS, Android, MySQL
+content: 
+  - |
+    Client wanted to build out a clinical mobile application that would create consistency in result images for shown clinical efficacy. There was also an emphasis to have app-users complete questionnaires that backend-users would collect data from clinical studies on.
+
+    To create consistency with result images,I needed to create image overlays for the app-user to line up their body part with (such as a hand or face).
+    
+  - /images/clinical-tracking-app/faceoverlay.png
+  - /images/clinical-tracking-app/handoverlay.png
+  - |
+    #### A information architecture was created so that the developers would understand the app page progression.
+    
+  - /images/clinical-tracking-app/results-screen.png
+    
+  - |
+    #### Finally
+    A back-end needed to be created that the clinical physicians would use to collect app-user results and create new questionnaire studies for the app-users. <a href="https://xd.adobe.com/view/99398140-35d4-4794-a12e-371df116b26a/" target="_blank" rel="noreferrer">Link to backend database prototype made with Adobe Experience Design</a>.
+
+    Once the prototype was completed and the developers understood the scope of the build out we worked to create the mobile application. Throughout the build out I worked to perform quality assurance testing on all features and functions. This ensured that the app-user would not run into issues on launch.
+    
+    We soft launched the mobile application and it is currently in use for 3+ different clinical studies since its creation.

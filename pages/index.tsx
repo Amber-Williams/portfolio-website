@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../components/Header/Header'
 import CaseStudiesList from '../components/CaseStudiesList/CaseStudiesList'
 import { getAllPosts } from '../lib/api'
-import { CaseStudyListProps } from '../types/case-study'
+import { CaseStudyListProps } from '../types/case-study-types'
 
 const Home: React.FC<CaseStudyListProps> = ({
   allCaseStudies,
