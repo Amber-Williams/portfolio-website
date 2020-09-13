@@ -1,7 +1,6 @@
 {
   "name": "zoopla_coding_challenge",
   "author": "Amber Williams [https://github.com/Amber-Williams]",
-  "homepage": "/out/index.html",
   "license": "MIT",
   "version": "1.0.0",
   "scripts": {
