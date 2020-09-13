@@ -1,14 +1,39 @@
 import React from 'react'
 import { NextPage } from 'next'
+import Markdown from 'markdown-to-jsx'
 import { getAllPosts, getAPost } from '../../lib/api'
 import Header from '../../components/Header/Header'
 // import CaseStudyImagesCarousel from '../../components/CaseStudyPage/CaseStudyImagesCarousel'
 // import CaseStudySubNav from '../../components/CaseStudyPage/CaseStudySubNav'
 import PageContainer from '../../components/PageContainer/PageContainer'
-import { CaseStudyProps } from '../../types/case-study'
+import { CaseStudyProps } from '../../types/case-study-types'
 
 interface Props {
   study: CaseStudyProps
+}
+
+const getImage = (img) => <img src={`${img}`} className="w-50" />
+
+const getDocLink = (link, text) => (
+  <a href={link} target="_blank" rel="noreferrer">
+    {text}
+  </a>
+)
+
+const getContent = (contents) => {
+  return contents.map((content, i) => {
+    return (
+      <React.Fragment key={i}>
+        {typeof content === 'string' && content.indexOf('/images/') > -1 ? (
+          getImage(content)
+        ) : typeof content === 'string' ? (
+          <Markdown>{content}</Markdown>
+        ) : (
+          getDocLink(content.link_, content.text)
+        )}
+      </React.Fragment>
+    )
+  })
 }
 
 const CaseStudy: NextPage<Props> = ({ study }) => {
@@ -18,19 +43,22 @@ const CaseStudy: NextPage<Props> = ({ study }) => {
 
   return (
     <PageContainer>
-      <Header />
-      <main>
-        {/* <CaseStudyImagesCarousel images={images} />
-        <CaseStudySubNav
-          numberBedrooms={numberBedrooms}
-          address={address}
-          price={price}
-          description={description}
-          features={features}
-        /> */}
-        {study.test}
-      </main>
-      <footer></footer>
+      <div className="CaseStudy">
+        <Header />
+        <main>
+          {/* <CaseStudyImagesCarousel images={images} />
+          <CaseStudySubNav
+            numberBedrooms={numberBedrooms}
+            address={address}
+            price={price}
+            description={description}
+            features={features}
+          /> */}
+          <h1>{study.title}</h1>
+          {getContent(study.content)}
+        </main>
+        <footer></footer>
+      </div>
     </PageContainer>
   )
 }

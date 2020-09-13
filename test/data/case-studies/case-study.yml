@@ -1,4 +1,10 @@
 path: fake-case-study
 order: 1
 template: case-study
-test: hi
+title: fake
+preview_image: /clinical-tracking-app/faceoverlay.png
+tech_stack: blah, blah, blah
+content: 
+  - |
+    md//
+    blah blah

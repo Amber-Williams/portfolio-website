@@ -32,6 +32,7 @@
     "jquery": "^3.5.1",
     "js-yaml": "^3.14.0",
     "lodash": "^4.17.15",
+    "markdown-to-jsx": "^7.0.0",
     "momentjs": "^2.0.0",
     "next": "latest",
     "popper.js": "^1.16.1",
