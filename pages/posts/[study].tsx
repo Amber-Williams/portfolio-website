@@ -46,19 +46,19 @@ export function getStaticProps({ params }) {
 
   return {
     props: {
-      study,
+      study: study || null,
     },
   }
 }
 
 export function getStaticPaths() {
-  const posts = getAllPosts(['slug'])
+  const posts = getAllPosts(['slug']) || null
 
   return {
     paths: posts.map((post) => {
       return {
         params: {
-          study: post.slug,
+          study: post.slug || null,
         },
       }
     }),
