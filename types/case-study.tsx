@@ -1,10 +1,10 @@
-export interface CaseStudy {
+export interface CaseStudyProps {
   path: string
   order: number
   template: string
   test: string
 }
 
-export interface CaseStudyList {
-  allCaseStudies: CaseStudy[]
+export interface CaseStudyListProps {
+  allCaseStudies: CaseStudyProps[]
 }

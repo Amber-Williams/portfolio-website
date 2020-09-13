@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { isEmpty } from 'lodash'
+
 interface PropertyProps {
   id: number
   images: string[]
@@ -42,26 +43,3 @@ export const getAllProperties = async () => {
     }
   )
 }
-
-export const getProperty = async (id) =>
-  await axios.get(`http://localhost:5000/properties/${id}`).then(
-    (response) => {
-      const data: `Record<string, unknown>` = response.data
-      const status: number = response.status
-
-      return {
-        statusCode: status,
-        property: data,
-        error: null,
-      }
-    },
-    (error) => {
-      // eslint-disable-next-line no-console
-      console.log(error)
-      return {
-        statusCode: 500,
-        property: null,
-        error: error,
-      }
-    }
-  )

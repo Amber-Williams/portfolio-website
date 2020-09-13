@@ -1,9 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
-import { CaseStudy } from '../../types/case-study'
+import { CaseStudyProps } from '../../types/case-study'
 
 interface CaseStudyListItemProps {
-  study: CaseStudy
+  study: CaseStudyProps
 }
 
 const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
