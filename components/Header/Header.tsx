@@ -9,7 +9,7 @@ if (typeof window !== 'undefined') {
 
 const Header: React.FC = () => (
   <Head>
-    <title>Zoopla</title>
+    <title>Amber Williams Portfolio</title>
     <link rel="icon" href="/favicon.ico" />
   </Head>
 )
