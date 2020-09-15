@@ -25,7 +25,6 @@ export default function MyApp({ Component, pageProps }) {
         .page-container {
           max-width: 900px;
           margin: 0 auto;
-          padding: 20px;
           overflow: hidden;
         }
 

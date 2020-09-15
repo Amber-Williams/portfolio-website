@@ -7,6 +7,8 @@ import Header from '../../components/Header/Header'
 // import CaseStudySubNav from '../../components/CaseStudyPage/CaseStudySubNav'
 import PageContainer from '../../components/PageContainer/PageContainer'
 import { CaseStudyProps } from '../../types/case-study-types'
+import NavBar from '../../components/NavBar/NavBar'
+import Footer from '../../components/Footer/Footer'
 
 interface Props {
   study: CaseStudyProps
@@ -45,6 +47,7 @@ const CaseStudy: NextPage<Props> = ({ study }) => {
     <PageContainer>
       <div className="CaseStudy">
         <Header />
+        <NavBar />
         <main>
           {/* <CaseStudyImagesCarousel images={images} />
           <CaseStudySubNav
@@ -57,7 +60,7 @@ const CaseStudy: NextPage<Props> = ({ study }) => {
           <h1>{study.title}</h1>
           {getContent(study.content)}
         </main>
-        <footer></footer>
+        <Footer />
       </div>
     </PageContainer>
   )
