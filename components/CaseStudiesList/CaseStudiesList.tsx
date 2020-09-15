@@ -8,7 +8,32 @@ const CaseStudiesList: React.FC<CaseStudyListProps> = ({ allCaseStudies }) => {
     <CaseStudyListItem study={study} key={index} />
   ))
 
-  return <PageContainer>{list ? list : 'loading...'}</PageContainer>
+  return (
+    <React.Fragment>
+      <style jsx>
+        {`
+          .CaseStudiesList {
+            margin: 50px 0;
+          }
+
+          .CaseStudiesList h3 {
+            color: #0d3754;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 2px;
+            padding-bottom: 20px;
+          }
+        `}
+      </style>
+      <PageContainer>
+        <div className="CaseStudiesList">
+          <h3>CASE STUDIES</h3>
+          {list ? list : 'loading...'}
+        </div>
+      </PageContainer>
+    </React.Fragment>
+  )
 }
 
 export default CaseStudiesList
