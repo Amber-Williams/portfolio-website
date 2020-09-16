@@ -3,6 +3,7 @@ export interface CaseStudyProps {
   order: number
   template: string
   title: string
+  subtitle: string
   preview_image: string
   tech_stack: string
   content: Array<string>

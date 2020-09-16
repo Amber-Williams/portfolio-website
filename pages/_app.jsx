@@ -39,6 +39,10 @@ export default function MyApp({ Component, pageProps }) {
         .date--listed {
           border-top: 1px solid rgba(0,0,0,.125);
         }
+
+        .card {
+          box-shadow: -1px 0px 14px 0px rgba(0,0,0,.125);
+        }
       `}</style>
 
     </React.Fragment>
