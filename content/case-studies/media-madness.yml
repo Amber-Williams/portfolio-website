@@ -1,16 +1,31 @@
 path: media-madness
 order: 3
 template: case-study
+hero_image: /images/backgrounds/bg-plant-3.jpg
 title: Multi-screen party game
+tags: 
+  - React
+  - Redux
+  - Node
+  - Socket.io
+  - MongoDB
+  - Giphy API
+  - Docker
+  - Personal project
 subtitle: Placeholder content is here Placeholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is here Placeholder content is here
 preview_image: /images/media-madness/preview.png
 tech_stack: Node, React, Socket.io, MongoDB, and Giphy API
 content: 
   - |
-    #### <a href="https://mediamadness-client.herokuapp.com/user" target="_blank" rel="noreferrer">User link here</a> & <a href="https://mediamadness-client.herokuapp.com/central" target="_blank" rel="noreferrer">Central link here</a>
+    <div class="text-center mt-5">
+      ## <a href="https://mediamadness-client.herokuapp.com/user" target="_blank" rel="noreferrer">User link here</a> | <a href="https://mediamadness-client.herokuapp.com/central" target="_blank" rel="noreferrer">Central link here</a>
+    </div>
     First I planned out what screens I would need and how they would interact with through the information articture. I researched a bit for what the general layout should look like with other similar competitor products. Because I was on a tight schedule I did not put in much of the design phase as I normally would.
-
-    After this I looked up what open source data was available online to generate a lot of questions for my game. The site I ended up using is located <a href="https://crhallberg.com/cah/">here</a>. Considering this helped generate 688 of the type questions I need, I saved a LOAD of time rather then thinking of them myself.
+  - image: /images/media-madness/preview.png
+    classes: w-70 border my-5
+  
+  - |
+    After this I looked up what open source data was available online to generate a lot of questions for my game. The site I ended up using is located <a href="https://crhallberg.com/cah/">here</a>. Considering this helped generate 688 of the type questions I need, I saved a load of time rather then thinking of them myself.
     
     Following this I implemented Socket.io to communicate users to and from a central screen. After this was working, I added the GIPHY Search API so that user’s could search for a GIF to submit to the game round’s question. The API was pretty straight forward and renders 25 GIF’s per request and has many options for sizing and media type. I really liked the fact that they credit their sources per each GIF.
     

@@ -1,12 +1,22 @@
 path: js-questions
 order: 1
 template: case-study
+hero_image: /images/backgrounds/bg-plant-2.jpg
 title: Micro-tutoring platform
+tags: 
+  - React
+  - Redux
+  - Node
+  - Koa
+  - PostGreSQL
+  - Docker
+  - Teamwork
 subtitle: Placeholder content is here Placeholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is here Placeholder content is here
 preview_image: /images/js-questions/preview.gif
 tech_stack: React, Redux, React-Spring, Node, Koa, PostGreSQL, Docker
 content: 
-  - /images/js-questions/preview-screenshots.png
+  - image: /images/js-questions/preview-screenshots.png
+    classes: w-100 mb-5
   - |
     With the issue of being stuck on a coding challenge, problem or understanding a concept that all developers face from time to time…JS Questions was born.
     
@@ -14,7 +24,8 @@ content:
     
     In the design phase we first created an information architecture of how the user flow would work.
   
-  - /images/js-questions/information-architecture.png
+  - image: /images/js-questions/information-architecture.png
+    classes: w-70 border my-5
 
   - |
     Then created a rough wireframe in Sketch and as they came together added high-fidelity vector graphics on top. Following this, we imported our design slides into Figma to create a prototype <a href="https://www.figma.com/proto/CvLuv0pjVBgH3EdxdpteRjl4/landing-pages?node-id=0%3A1&scaling=min-zoom" target="_blank" rel="noreferrer">( link here to prototype)</a> that was later used to perform user testing.
@@ -23,12 +34,14 @@ content:
 
     All the while, we were forming a data model that would be used in our relational database. We really wanted to trim the fat, sort of speak, from the model and have something left that was very lean and clear to use.
 
-  - /images/js-questions/datamodel.png
+  - image: /images/js-questions/datamodel.png
+    classes: w-50 border my-5
 
   - |
     Following this we created end points the front-end and back end would connect through using apiary <a href="https://jsquestions.docs.apiary.io/#" target="_blank" rel="noreferrer">(Linked here). This way we could work independently on each end until the integration of the two was stable enough to implement.
 
-  - /images/js-questions/endpoints.png
+  - image: /images/js-questions/endpoints.png
+    classes: w-50 border my-5
 
   - |
     During the build out, we had daily stand up meetings in the morning and assigned who would work on what that day from an organized todo list on Trello.

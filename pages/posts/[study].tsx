@@ -14,20 +14,26 @@ interface Props {
   study: CaseStudyProps
 }
 
-const getImage = (img) => <img src={`${img}`} className="w-50" />
+const getImage = (img, classes) => (
+  <div className="center-content">
+    <img src={`${img}`} className={classes} />
+  </div>
+)
 
 const getDocLink = (link, text) => (
-  <a href={link} target="_blank" rel="noreferrer">
-    {text}
-  </a>
+  <h4>
+    <a href={link} target="_blank" rel="noreferrer">
+      {text}
+    </a>
+  </h4>
 )
 
 const getContent = (contents) => {
   return contents.map((content, i) => {
     return (
       <React.Fragment key={i}>
-        {typeof content === 'string' && content.indexOf('/images/') > -1 ? (
-          getImage(content)
+        {content.image && content.image.indexOf('/images/') > -1 ? (
+          getImage(content.image, content.classes)
         ) : typeof content === 'string' ? (
           <Markdown>{content}</Markdown>
         ) : (
@@ -44,25 +50,59 @@ const CaseStudy: NextPage<Props> = ({ study }) => {
   }
 
   return (
-    <PageContainer>
-      <div className="CaseStudy">
-        <Header />
-        <NavBar />
-        <main>
-          {/* <CaseStudyImagesCarousel images={images} />
-          <CaseStudySubNav
-            numberBedrooms={numberBedrooms}
-            address={address}
-            price={price}
-            description={description}
-            features={features}
-          /> */}
-          <h1>{study.title}</h1>
-          {getContent(study.content)}
-        </main>
-        <Footer />
-      </div>
-    </PageContainer>
+    <React.Fragment>
+      <style jsx>
+        {`
+          .CaseStudy h1 {
+            z-index: 1;
+            position: relative;
+            color: white;
+            margin-top: 80px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 1px 1px 12px black;
+          }
+
+          .CaseStudy__background__container {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            margin-top: 2px;
+            margin-bottom: 20px;
+          }
+
+          .CaseStudy__background {
+            width: 100%;
+            margin-top: 3px;
+            position: absolute;
+            z-index: 0;
+          }
+        `}
+      </style>
+      <PageContainer>
+        <div className="CaseStudy">
+          <Header />
+          <NavBar />
+          <main>
+            {/* <CaseStudyImagesCarousel images={images} />
+            <CaseStudySubNav
+              numberBedrooms={numberBedrooms}
+              address={address}
+              price={price}
+              description={description}
+              features={features}
+            /> */}
+            <div className="CaseStudy__background__container">
+              <img className="CaseStudy__background" src={study.hero_image} />
+              <h1>{study.title}</h1>
+            </div>
+
+            {getContent(study.content)}
+          </main>
+          <Footer />
+        </div>
+      </PageContainer>
+    </React.Fragment>
   )
 }
 

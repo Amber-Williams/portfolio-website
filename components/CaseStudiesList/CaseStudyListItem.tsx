@@ -1,13 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 import { CaseStudyProps } from '../../types/case-study-types'
+import Tags from '../Tags/Tags'
 
 interface CaseStudyListItemProps {
   study: CaseStudyProps
 }
 
 const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
-  study: { path, title, preview_image, subtitle },
+  study: { path, title, preview_image, subtitle, tags },
 }) => {
   return (
     <React.Fragment>
@@ -19,6 +20,10 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
 
           .CaseStudiesList {
             color: #0d3754;
+          }
+
+          .CaseStudiesList__card-bottom {
+            border-top: 1px solid rgba(0, 0, 0, 0.125);
           }
         `}
       </style>
@@ -32,11 +37,13 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
               <div className="col-md-8 mt-3">
                 <h4>{title}</h4>
                 <p>{subtitle}</p>
-                <h4>Read more &#8594;</h4>
               </div>
             </div>
 
-            <p className="date--listed col-12 p-3 m-0 w-100">[Tags, here]</p>
+            <div className="d-flex CaseStudiesList__card-bottom col-12 p-3 w-100 justify-content-between">
+              <Tags tags={tags} />
+              <p className="text-right">Read more &#8594;</p>
+            </div>
           </div>
         </Link>
       </div>

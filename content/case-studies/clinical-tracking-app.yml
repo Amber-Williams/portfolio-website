@@ -1,7 +1,12 @@
 path: clinical-tracking-app
 order: 2
 template: case-study
+hero_image: /images/backgrounds/bg-plant-1.jpg
 title: Clinical skin tracker mobile application
+tags: 
+  - UX/UI design
+  - Leadership
+  - Consulting
 subtitle: Placeholder content is here Placeholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is here Placeholder content is here
 preview_image: /images/clinical-tracking-app/faceoverlay.png
 tech_stack: CSS, HTML, JavaScript, iOS, Android, MySQL
@@ -9,14 +14,21 @@ content:
   - |
     Client wanted to build out a clinical mobile application that would create consistency in result images for shown clinical efficacy. There was also an emphasis to have app-users complete questionnaires that backend-users would collect data from clinical studies on.
 
-    To create consistency with result images,I needed to create image overlays for the app-user to line up their body part with (such as a hand or face).
     
-  - /images/clinical-tracking-app/faceoverlay.png
-  - /images/clinical-tracking-app/handoverlay.png
+  - image: /images/clinical-tracking-app/faceoverlay.png
+    classes:  w-70 border my-5
+  
+  - |
+    To create consistency with result images, I needed to create image overlays for the app-user to line up their body part with <b>(such as a hand or face)</b>.
+
+
+  - image: /images/clinical-tracking-app/handoverlay.png
+    classes:  w-50 border my-5
   - |
     #### A information architecture was created so that the developers would understand the app page progression.
     
-  - /images/clinical-tracking-app/results-screen.png
+  - image: /images/clinical-tracking-app/results-screen.png
+    classes: w-25 border my-5
     
   - |
     #### Finally
