@@ -36,8 +36,22 @@ export default function MyApp({ Component, pageProps }) {
           border-top: 3px solid #ffa500;
         }
 
-        .date--listed {
-          border-top: 1px solid rgba(0,0,0,.125);
+        .card {
+          box-shadow: -1px 0px 14px 0px rgba(0,0,0,.125);
+        }
+
+        .border {
+          border: 3px solid #ffa500;
+        }
+
+        .center-content {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .w-70 {
+          width: 70%;
         }
       `}</style>
 

@@ -21,6 +21,7 @@ const Hero: React.FC = () => (
         .Hero__profile-photo {
           border-radius: 50%;
           width: 215px;
+          height: 215px;
           margin: -107px 0 64px 0;
           border: white solid 3px;
           position: relative;
@@ -51,10 +52,58 @@ const Hero: React.FC = () => (
 
         @media only screen and (max-width: 790px) {
           .Hero__h1 {
+            font-size: 1.7rem;
             top: 30px;
+            text-shadow: none;
+            color: black;
           }
           .Hero__h2 {
+            font-size: 1.2rem;
             top: 84px;
+            text-shadow: none;
+            color: black;
+          }
+        }
+
+        @media only screen and (max-width: 575px) {
+          .Hero__h1 {
+            top: 362px;
+            position: absolute;
+          }
+
+          .Hero__h2 {
+            top: 400px;
+            position: absolute;
+          }
+
+          .Hero__profile-photo {
+            margin-bottom: 156px;
+          }
+        }
+
+        @media only screen and (max-width: 535px) {
+          .Hero__h1 {
+            top: 355px;
+          }
+
+          .Hero__h2 {
+            top: 400px;
+            width: 93%;
+          }
+
+          .Hero__profile-photo {
+            margin-bottom: 230px;
+          }
+        }
+
+        @media only screen and (max-width: 415px) {
+          .Hero__h1 {
+            display: none;
+          }
+
+          .Hero__h2 {
+            top: 300px;
+            width: 93%;
           }
         }
       `}

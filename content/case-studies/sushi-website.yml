@@ -1,7 +1,15 @@
 path: sushi-website
 order: 4
 template: case-study
+hero_image: /images/backgrounds/bg-plant-4.jpg
 title: Redesign for sushi restaurant
+tags: 
+  - UX/UI design
+  - HTML
+  - CSS
+  - JavaScript
+  - Consulting
+subtitle: Placeholder content is here Placeholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is here Placeholder content is here
 preview_image: /images/sushi-website/sushi-preview.png
 tech_stack: CSS, HTML, JavaScript
 content: 
@@ -11,15 +19,19 @@ content:
     Outside of the clients wants, I noticed a need for Google Analytics to be implemented for the owners to track their customer demographics and future online campaigns. Leading to pivoting towards different marketing strategies.
 
   - link_: /documents/sushi-wireframe.pdf
-    text: wireframe
-  - link_: /documents/sushi-mockdesign.pdf
-    text: design mock
-
+    text: Wireframe
   - |  
-    We started with a wireframe that the client could adjust, change elements as they pleased. The website was created to be fully responsive throughout any given device, screen or browser. After the wireframe was agreed upon. We moved to the design phase where the wireframe was decorated and vector images such as the title swords were created.
+    We started with a wireframe that the client could adjust, change elements as they pleased. The website was created to be fully responsive throughout any given device, screen or browser. After the wireframe was agreed upon.
+    
+  - link_: /documents/sushi-mockdesign.pdf
+    text: Design mock 
+  
+  - |  
+    We moved to the design phase where the wireframe was decorated and vector images such as the title swords were created.
     
     Moving forward to the development stage, the website framework was built utilizing Flexbox. Flexbox is a CSS built layout mode that is intended to accommodate different screen sizes.
     
     After development stage was completely built out, the client wanted to add a seprate section for their many delivery options as delivery was a major souce of revenue. Prior to the upload of this site, I took a back up from their current site incase the owners should ever want it. <a href="http://umiaustin.com/" target="_blank" rel="noreferrer">(Click to view final uploaded website here)</a>
 
-  - /images/sushi-website/before-after.png
+  - image: /images/sushi-website/before-after.png
+    classes: w-70 border my-5 p-2
