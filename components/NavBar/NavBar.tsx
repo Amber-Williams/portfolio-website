@@ -11,6 +11,7 @@ const NavBar: React.FC = () => (
         .NavBar__logo {
           width: 200px;
           margin: 10px;
+          cursor: pointer;
         }
       `}
     </style>
