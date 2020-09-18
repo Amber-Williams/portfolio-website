@@ -6,7 +6,13 @@ interface TagProps {
 
 const Tag: React.FC<TagProps> = ({ tags }) => {
   const tagList = tags.map((tag, i) =>
-    i !== tags.length - 1 ? <li className="">{tag},&nbsp;</li> : <li>{tag}</li>
+    i !== tags.length - 1 ? (
+      <li className="" key={i}>
+        {tag},&nbsp;
+      </li>
+    ) : (
+      <li key={i}>{tag}</li>
+    )
   )
 
   return (

@@ -27,14 +27,20 @@
     ]
   },
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^8.0.0",
     "jquery": "^3.5.1",
     "js-yaml": "^3.14.0",
     "lodash": "^4.17.15",
     "markdown-to-jsx": "^7.0.0",
     "momentjs": "^2.0.0",
     "next": "latest",
+    "next-compose-plugins": "^2.2.0",
+    "next-optimized-images": "^2.6.2",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
