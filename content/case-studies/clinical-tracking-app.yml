@@ -4,10 +4,11 @@ template: case-study
 hero_image: /images/backgrounds/bg-plant-1.jpg
 title: Clinical skin tracker mobile application
 tags: 
+  - Mobile
   - UX/UI design
   - Leadership
   - Consulting
-subtitle: Placeholder content is here Placeholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is here Placeholder content is here
+subtitle: Tracks skin treatment efficacy using custom image overlay to help image consistency and admin created custom questionnaires
 preview_image: /images/clinical-tracking-app/faceoverlay.png
 tech_stack: CSS, HTML, JavaScript, iOS, Android, MySQL
 content: 

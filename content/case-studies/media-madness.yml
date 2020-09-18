@@ -4,6 +4,7 @@ template: case-study
 hero_image: /images/backgrounds/bg-plant-3.jpg
 title: Multi-screen party game
 tags: 
+  - Web application
   - React
   - Redux
   - Node
@@ -12,7 +13,7 @@ tags:
   - Giphy API
   - Docker
   - Personal project
-subtitle: Placeholder content is here Placeholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is here Placeholder content is here
+subtitle: This party game allows users in a single room to interact with together through a centralized tv or computer screen and interact with their phones.
 preview_image: /images/media-madness/preview.png
 tech_stack: Node, React, Socket.io, MongoDB, and Giphy API
 content: 

@@ -4,6 +4,7 @@ template: case-study
 hero_image: /images/backgrounds/bg-plant-2.jpg
 title: Micro-tutoring platform
 tags: 
+  - Web application
   - React
   - Redux
   - Node
@@ -11,7 +12,7 @@ tags:
   - PostGreSQL
   - Docker
   - Teamwork
-subtitle: Placeholder content is here Placeholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is herePlaceholder content is here Placeholder content is here
+subtitle: A platform for JavaScript developers to ask and answer questions for rewards
 preview_image: /images/js-questions/preview.gif
 tech_stack: React, Redux, React-Spring, Node, Koa, PostGreSQL, Docker
 content: 
