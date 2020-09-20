@@ -1,10 +1,10 @@
 path: media-madness
-order: 3
+order: 4
 template: case-study
 hero_image: /images/backgrounds/bg-plant-3.jpg
 title: Multi-screen party game
 tags: 
-  - Web application
+  - Web app
   - React
   - Redux
   - Node
@@ -12,7 +12,6 @@ tags:
   - MongoDB
   - Giphy API
   - Docker
-  - Personal project
 subtitle: This party game allows users in a single room to interact with together through a centralized tv or computer screen and interact with their phones.
 preview_image: /images/media-madness/preview.png
 tech_stack: Node, React, Socket.io, MongoDB, and Giphy API

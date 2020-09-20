@@ -1,0 +1,52 @@
+path: portfolio
+order: 1
+template: case-study
+hero_image: /images/backgrounds/bg-plant-5.jpg
+title: My portfolio website
+tags: 
+  - Website
+  - NextJS
+  - TypeScript
+  - React
+  - ESLint / Prettier
+  - Amplify
+subtitle: Complete new tech redesign from old cPanel website with JS/CSS/HTML to NextJS TypeScript website with testing and code standardization tooling. Deployed with continuous deployement of master branch through AWS' Amplify.
+preview_image: /images/portfolio/portfolio-preview.png
+tech_stack: NextJS, TypeScript, React, ESLint, Prettier, Husky, Jest, NodeJS
+content: 
+  - |
+    #### 1. Planning
+      * Built for reusability, scalability, with testing in mind
+      * Git flow: Early on I wanted to create feature by feature commits squashed into one commit per feature -> PR -> merge to master and create new feature branches off the newest master to keep features clean
+      * Created a rough drawing mock up of how the app would work and components within each element
+  
+  - image: /images/portfolio/porfolio-stack.jpg
+    classes: w-70 border
+
+  - |
+    #### 2. Building
+      * Next.js created basic app with React then refactored it using Typescript 
+      * Added Airbnb’s strict linter, Prettier for formatting early on with pre-commit hooks to help with clean code and faster iteration. Also added pre-push hook to check if type script was up to standards via Prettier
+          * I would have liked to of added in a stricter linter for Typescript like TSLint
+      * Bootstrap was added to help minimize time spent on custom styling
+      * Following this I knew I wanted to have dynamic routing used for each of the case studies to A) fetch the yaml file and B) fetch the appropriate information needed for the request
+      * Created and styled case study component page
+      * Created and styled case studies list component for index page
+      * Testing backbone was created to run tests before pushing commits, though in the future I want this to be done in a CircleCi test that runs on the pushes and is needed to pass before merging a PR into master.
+    <br/>
+    
+    ####  3. Reproposing case study content from old version of webstie
+    <br/>
+  - |
+    #### 4. Connected domain to AWS Amplify for server hosting
+      * Amplify was connected to my portfolio-website repo’s master branch so continuous deploys are easy and seamless each update to master.
+
+  - image: /images/portfolio/amplify-continuous-deploy.png
+    classes: w-70 mb-5
+
+  - |
+    #### 5. Next up to dos:
+      * Creating articles section
+      * Adding analytics reporting
+      * Adding CircleCi
+      * Writing tests
