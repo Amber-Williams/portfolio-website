@@ -52,6 +52,12 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
               text-align: left !important;
             }
           }
+
+          @media only screen and (max-width: 790px) {
+            .CaseStudyListItem__preview img {
+              width: 100%;
+            }
+          }
         `}
       </style>
       <div className="CaseStudiesList">
