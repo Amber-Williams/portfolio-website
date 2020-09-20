@@ -54,14 +54,10 @@ const Hero: React.FC = () => (
           .Hero__h1 {
             font-size: 1.7rem;
             top: 30px;
-            text-shadow: none;
-            color: black;
           }
           .Hero__h2 {
             font-size: 1.2rem;
             top: 84px;
-            text-shadow: none;
-            color: black;
           }
         }
 
@@ -69,11 +65,15 @@ const Hero: React.FC = () => (
           .Hero__h1 {
             top: 362px;
             position: absolute;
+            color: black;
+            text-shadow: none;
           }
 
           .Hero__h2 {
             top: 400px;
             position: absolute;
+            color: black;
+            text-shadow: none;
           }
 
           .Hero__profile-photo {

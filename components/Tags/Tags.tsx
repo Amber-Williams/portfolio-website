@@ -2,9 +2,10 @@ import React from 'react'
 
 interface TagProps {
   tags: Array<string>
+  className: string
 }
 
-const Tag: React.FC<TagProps> = ({ tags }) => {
+const Tag: React.FC<TagProps> = ({ tags, className }) => {
   const tagList = tags.map((tag, i) =>
     i !== tags.length - 1 ? (
       <li className="" key={i}>
@@ -28,7 +29,7 @@ const Tag: React.FC<TagProps> = ({ tags }) => {
         `}
       </style>
 
-      <ul className="Tags m-0">[{tagList}]</ul>
+      <ul className={`Tags m-0 ${className}`}>[{tagList}]</ul>
     </React.Fragment>
   )
 }
