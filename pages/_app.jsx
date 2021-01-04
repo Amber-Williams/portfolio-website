@@ -22,12 +22,6 @@ export default function MyApp({ Component, pageProps }) {
           color: #ffa500;
         } 
 
-        .page-container {
-          max-width: 1200px;
-          margin: 0 auto;
-          overflow: hidden;
-        }
-
         .nav-link {
           color: #ffa500;
         }
