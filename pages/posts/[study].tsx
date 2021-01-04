@@ -9,6 +9,7 @@ import PageContainer from '../../components/PageContainer/PageContainer'
 import { CaseStudyProps } from '../../types/case-study-types'
 import NavBar from '../../components/NavBar/NavBar'
 import Footer from '../../components/Footer/Footer'
+import CaseStudyPageHero from '../../components/CaseStudyPageHero/CaseStudyPageHero'
 
 interface Props {
   study: CaseStudyProps
@@ -53,29 +54,8 @@ const CaseStudy: NextPage<Props> = ({ study }) => {
     <React.Fragment>
       <style jsx>
         {`
-          .CaseStudy h1 {
-            z-index: 1;
-            position: relative;
-            color: white;
-            margin-top: 80px;
-            text-align: center;
-            font-weight: bold;
-            text-shadow: 1px 1px 12px black;
-          }
-
-          .CaseStudy__background__container {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-            margin-top: 2px;
-            margin-bottom: 20px;
-          }
-
-          .CaseStudy__background {
-            width: 100%;
-            margin-top: 3px;
-            position: absolute;
-            z-index: 0;
+          .CaseStudy__content {
+            margin: 0 2rem;
           }
         `}
       </style>
@@ -83,7 +63,8 @@ const CaseStudy: NextPage<Props> = ({ study }) => {
         <div className="CaseStudy">
           <Header />
           <NavBar />
-          <main>
+          <CaseStudyPageHero study={study} />
+          <main className="CaseStudy__content">
             {/* <CaseStudyImagesCarousel images={images} />
             <CaseStudySubNav
               numberBedrooms={numberBedrooms}
@@ -92,10 +73,6 @@ const CaseStudy: NextPage<Props> = ({ study }) => {
               description={description}
               features={features}
             /> */}
-            <div className="CaseStudy__background__container">
-              <img className="CaseStudy__background" src={study.hero_image} />
-              <h1>{study.title}</h1>
-            </div>
 
             {getContent(study.content)}
           </main>

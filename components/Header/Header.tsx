@@ -34,6 +34,10 @@ const Header: React.FC = () => (
       color="#5bbad5"
     />
     <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="google-site-verification"
+      content="e6S2XJHU76CL79dp9TwDvxOdd7DIGk995DxPBXvYp2c"
+    />
   </Head>
 )
 
