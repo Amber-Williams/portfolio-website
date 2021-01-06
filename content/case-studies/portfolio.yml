@@ -35,7 +35,7 @@ content:
       * Testing backbone was created to run tests before pushing commits, though in the future I want this to be done in a CircleCi test that runs on the pushes and is needed to pass before merging a PR into master.
     <br/>
     
-    ####  3. Reproposing case study content from old version of webstie
+    ####  3. Reproposing case study content from old version of website
     <br/>
   - |
     #### 4. Connected domain to AWS Amplify for server hosting
