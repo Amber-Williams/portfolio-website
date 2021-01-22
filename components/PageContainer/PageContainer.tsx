@@ -10,7 +10,6 @@ const PageContainer: React.FC<{ children: React.ReactNode }> = ({
           .PageContainer {
             max-width: 1200px;
             margin: 0 auto;
-            overflow: hidden;
           }
         `}
       </style>

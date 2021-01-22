@@ -7,7 +7,7 @@ const Footer: React.FC = () => (
         .Footer {
           background-color: black;
           width: 100%;
-          margin-top: 0px;
+          margin-top: 12rem;
           padding: 16px;
           text-align: center;
           position: relative;

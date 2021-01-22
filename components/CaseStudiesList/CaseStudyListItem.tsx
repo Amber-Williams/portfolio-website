@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { CaseStudyProps } from '../../types/case-study-types'
 import Tags from '../Tags/Tags'
+import { gsap } from 'gsap/dist/gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 interface CaseStudyListItemProps {
   study: CaseStudyProps
@@ -10,6 +12,26 @@ interface CaseStudyListItemProps {
 const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
   study: { path, title, preview_image, subtitle, tags },
 }) => {
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+
+    gsap.fromTo(
+      `.CaseStudyListItem__${path}`,
+      { x: -3000, y: 0 },
+      {
+        scrollTrigger: {
+          trigger: `.CaseStudyListItem__${path}`,
+          start: '-=200 center',
+          end: `center center`,
+          markers: process.env.NODE_ENV === 'development' ? true : false,
+          scrub: true,
+        },
+        duration: 0.5,
+        x: 0,
+      }
+    )
+  }, [])
+
   return (
     <React.Fragment>
       <style jsx>
@@ -24,12 +46,12 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
             t
           }
 
-          .CaseStudiesList {
+          .CaseStudyListItem {
             color: #0d3754;
             cursor: pointer;
           }
 
-          .CaseStudiesList__card-bottom {
+          .CaseStudyListItem__card-bottom {
             border-top: 1px solid rgba(0, 0, 0, 0.125);
           }
 
@@ -43,11 +65,11 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
               display: flex;
               justify-content: center;
             }
-            .CaseStudiesList__card-bottom {
+            .CaseStudyListItem__card-bottom {
               flex-direction: column;
 
             }
-            .CaseStudiesList__card-bottom p {
+            .CaseStudyListItem__card-bottom p {
               margin: 6px 0;
               text-align: left !important;
             }
@@ -60,7 +82,10 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
           }
         `}
       </style>
-      <div className="CaseStudiesList">
+      <div
+        className={`CaseStudyListItem CaseStudyListItem__${path}`}
+        id={title}
+      >
         <Link href={{ pathname: `posts/${path}` }}>
           <div className="card m-5">
             <div className="d-flex flex-column flex-md-row">
@@ -73,7 +98,7 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
               </div>
             </div>
 
-            <div className="CaseStudiesList__card-bottom d-flex col-12 p-3 w-100 justify-content-between">
+            <div className="CaseStudyListItem__card-bottom d-flex col-12 p-3 w-100 justify-content-between">
               <Tags tags={tags} className="d-none d-md-flex" />
               <p className="text-right">Read more &#8594;</p>
             </div>
