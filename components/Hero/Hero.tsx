@@ -119,6 +119,7 @@ const Hero: React.FC = () => (
           grid-template-columns: 49% 49%;
           grid-gap: 2%;
           padding: 1rem 1rem 100px 1rem;
+          margin-top: 0.3rem;
         }
 
         .new--Hero h1 {
