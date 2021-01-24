@@ -1,1 +1,24 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
+/* 
+    How to use fonts:
+        font-family: 'PT Sans', sans-serif; // weights - 400
+        font-family: 'Open Sans', sans-serif; // weights - 800
+*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=PT+Sans&display=swap');
+
+/* Custom bootstraps */
+.bottom-0 {
+    bottom: 0;
+}
+
+.top-0 {
+    top: 0;
+}
+
+.left-0 {
+    left: 0;
+}
+
+.right-0 {
+    left: 0;
+}

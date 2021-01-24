@@ -6,7 +6,6 @@ const HeroProfileImage: React.FC = () => (
       {`
         .HeroProfileImage {
           position: relative;
-          background-color: #040d21;
           width: 500px;
           overflow: visible;
         }

@@ -16,16 +16,17 @@ const CaseStudiesList = dynamic(() =>
 const Home: React.FC<CaseStudyListProps> = ({
   allCaseStudies,
 }): JSX.Element => (
-  <PageContainer>
+  <React.Fragment>
     <Header />
     <NavBar />
     <Hero />
-    <About />
-
-    <CaseStudiesList allCaseStudies={allCaseStudies} />
+    <PageContainer>
+      <About />
+      <CaseStudiesList allCaseStudies={allCaseStudies} />
+    </PageContainer>
 
     <Footer />
-  </PageContainer>
+  </React.Fragment>
 )
 
 export default Home

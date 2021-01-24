@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
+import PageContainer from '../PageContainer/PageContainer'
+
 const NavBar: React.FC = () => (
   <React.Fragment>
     <style jsx>
@@ -16,9 +18,11 @@ const NavBar: React.FC = () => (
       `}
     </style>
     <div className="NavBar">
-      <Link href={{ pathname: `/` }}>
-        <img className="NavBar__logo" src="/images/logo.svg" />
-      </Link>
+      <PageContainer>
+        <Link href={{ pathname: `/` }}>
+          <img className="NavBar__logo" src="/images/logo.svg" />
+        </Link>
+      </PageContainer>
     </div>
   </React.Fragment>
 )
