@@ -1,4 +1,5 @@
 import React from 'react'
+// import HeroProfileImage from './HeroProfileImage'
 
 const Hero: React.FC = () => (
   <React.Fragment>
@@ -108,6 +109,7 @@ const Hero: React.FC = () => (
         }
       `}
     </style>
+    {/* <HeroProfileImage/> */}
     <div className="Hero">
       <h1 className="Hero__h1">Amber Williams</h1>
       <h2 className="Hero__h2">
