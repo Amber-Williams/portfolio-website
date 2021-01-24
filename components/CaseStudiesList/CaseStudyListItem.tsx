@@ -17,7 +17,14 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
 
     gsap.fromTo(
       `.CaseStudyListItem__${path}`,
-      { x: -3000, y: 0 },
+      {
+        x:
+          document.querySelector(`.CaseStudyListItem__${path}`).clientWidth *
+            -1 +
+          100,
+        y: 0,
+        opacity: 0.5,
+      },
       {
         scrollTrigger: {
           trigger: `.CaseStudyListItem__${path}`,
@@ -28,6 +35,21 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
         },
         duration: 0.5,
         x: 0,
+        opacity: 1,
+      }
+    )
+
+    gsap.fromTo(
+      `.CaseStudyListItem__${path} .card`,
+      { ['box-shadow']: 'none' },
+      {
+        scrollTrigger: {
+          trigger: `.CaseStudyListItem__${path}`,
+          start: '-=200 center',
+          end: `center center`,
+          scrub: true,
+        },
+        ['box-shadow']: '-1px 0px 14px 0px rgba(0,0,0,.125)',
       }
     )
   }, [])
@@ -43,7 +65,6 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
           .CaseStudyListItem__text {
             width: calc(100% - 300px);
             padding-right: 16px;
-            t
           }
 
           .CaseStudyListItem {
@@ -67,7 +88,6 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
             }
             .CaseStudyListItem__card-bottom {
               flex-direction: column;
-
             }
             .CaseStudyListItem__card-bottom p {
               margin: 6px 0;
