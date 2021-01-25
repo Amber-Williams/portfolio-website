@@ -41,11 +41,7 @@ const HeroProfileImage: React.FC = () => (
     </style>
     <div className="HeroProfileImage">
       <div className="HeroProfileImage__gif">
-        <img
-          src="/images/amber-profile-artyfarty.gif"
-          width="500px"
-          height="667"
-        />
+        <img src="/images/hero-profile-gif.gif" width="500px" height="667" />
       </div>
       <img
         className="HeroProfileImage__swirl"
