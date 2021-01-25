@@ -1,4 +1,6 @@
 import React from 'react'
+import HeroProfileImage from './HeroProfileImage'
+import PageContainer from '../PageContainer/PageContainer'
 
 const Hero: React.FC = () => (
   <React.Fragment>
@@ -106,9 +108,62 @@ const Hero: React.FC = () => (
             width: 93%;
           }
         }
+
+        .new--Hero__background {
+          background-color: #040d21;
+          width: 100vw;
+        }
+
+        .new--Hero {
+          display: grid;
+          grid-template-columns: 49% 49%;
+          grid-gap: 2%;
+          padding: 1rem 1rem 100px 1rem;
+          margin-top: 0.3rem;
+        }
+
+        .new--Hero h1 {
+          font-weight: 800;
+          font-family: 'Open Sans', sans-serif;
+          color: white;
+          font-size: 3rem;
+        }
+
+        .new--Hero h2 {
+          font-weight: 400;
+          font-family: 'PT Sans', sans-serif;
+          color: white;
+          font-size: 1.5rem;
+        }
       `}
     </style>
-    <div className="Hero">
+    <div className="new--Hero__background position-relative">
+      <PageContainer>
+        <div className="new--Hero w-100">
+          <div className="d-flex flex-column justify-content-center">
+            <h1>Full-Stack Developer</h1>
+            <h2>
+              Hi name is <b>Amber Williams</b>, and I am passionate about
+              building exceptional software that improves lives. I specialize in
+              creating software for clients ranging from individuals to
+              businesses. <br /> <br /> Have a look around my site and feel free
+              to drop me an email even if just to say hi!
+            </h2>
+          </div>
+          <HeroProfileImage />
+        </div>
+      </PageContainer>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        preserveAspectRatio="none"
+        viewBox="0 0 1680 40"
+        className="position-absolute width-full z-1 bottom-0"
+      >
+        <path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" fill="#fff"></path>
+      </svg>
+    </div>
+    {/* <div className="Hero">
       <h1 className="Hero__h1">Amber Williams</h1>
       <h2 className="Hero__h2">
         Full-Stack Developer with an emphasis in Front-end
@@ -117,7 +172,7 @@ const Hero: React.FC = () => (
     </div>
     <div className="Hero__profile-photo__container">
       <img className="Hero__profile-photo" src="/images/profile-photo.png" />
-    </div>
+    </div> */}
   </React.Fragment>
 )
 

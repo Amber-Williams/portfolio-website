@@ -1,4 +1,5 @@
 import React from 'react'
+import PageContainer from '../PageContainer/PageContainer'
 
 const Footer: React.FC = () => (
   <React.Fragment>
@@ -33,7 +34,9 @@ const Footer: React.FC = () => (
     <footer>
       <div className="Footer">
         <img src="/images/footer-flower.png" />
-        <p>© 2020 AmberDevelops All Rights Reserved</p>
+        <PageContainer>
+          <p>© 2020 AmberDevelops All Rights Reserved</p>
+        </PageContainer>
       </div>
     </footer>
   </React.Fragment>
