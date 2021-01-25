@@ -145,9 +145,9 @@ const Hero: React.FC = () => (
             <h2>
               Hi name is <b>Amber Williams</b>, and I am passionate about
               building exceptional software that improves lives. I specialize in
-              creating software for clients ranging from individuals and
+              creating software for clients ranging from individuals to
               businesses. <br /> <br /> Have a look around my site and feel free
-              to drop me an email even just to say hi!
+              to drop me an email even if just to say hi!
             </h2>
           </div>
           <HeroProfileImage />
