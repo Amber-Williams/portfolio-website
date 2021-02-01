@@ -1,10 +1,44 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 /* 
     How to use fonts:
-        font-family: 'PT Sans', sans-serif; // weights - 400
-        font-family: 'Open Sans', sans-serif; // weights - 800
+        font-family: 'PT Sans', sans-serif;
+        font-family: 'Share Tech Mono', monospace;
 */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+    --primary-color: #040d21;
+    --secondary-color: #00ffff;
+    --primary-text-color: rgba(255,255,255, 0.5);
+    --secondary-text-color: rgba(255,255,255, 0.8);
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-text-color);
+    font-family: 'PT Sans';
+}
+
+h3 {
+    font-weight: bolder;
+    font-size: 4rem;
+    padding-bottom: 1rem;
+    font-family: 'Share Tech Mono';
+}
+
+.text-gradient-blue {
+    background: -webkit-linear-gradient(-70deg, #a2facf 0%, #64acff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+.text-monospace {
+    font-family: 'Share Tech Mono', monospace !important;
+}
+
 
 /* Custom bootstraps */
 .bottom-0 {
