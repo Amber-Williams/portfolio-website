@@ -37,6 +37,7 @@ const Hero: React.FC = () => {
             width: 100vw;
             height: 90vh;
             position: relative;
+            overflow: hidden;
           }
 
           .Hero {
@@ -98,13 +99,17 @@ const Hero: React.FC = () => {
                 web.
               </h2>
               <p className="py-3">
-                {' '}
                 I am a software engineer based in London that’s passionate about
                 building exceptional software which improves lives. I specialize
                 in creating software user interfaces for clients ranging from
                 individuals to businesses.
               </p>
-              <button className="text-monospace text-gradient-blue">
+              <button
+                className="text-monospace text-gradient-blue"
+                onClick={() =>
+                  (location.href = 'mailto:amberwilliamsdev@gmail.com')
+                }
+              >
                 Get in touch
               </button>
             </div>

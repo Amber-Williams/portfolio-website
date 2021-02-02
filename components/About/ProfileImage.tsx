@@ -6,8 +6,9 @@ const ProfileImage: React.FC = () => (
       {`
         .ProfileImage {
           position: relative;
-          width: 500px;
+          width: 350px;
           overflow: visible;
+          margin: 0 auto;
         }
 
         .ProfileImage__gif {
@@ -21,27 +22,27 @@ const ProfileImage: React.FC = () => (
           webkit-mask-size: 100%;
           mask-position: center;
           webkit-mask-position: center;
-          width: 500px;
+          width: 350px;
         }
 
         .ProfileImage__swirl {
           position: absolute;
-          top: 102px;
+          top: 35px;
           left: 0;
-          width: 200px;
+          width: 170px;
         }
 
         .ProfileImage__xx {
           position: absolute;
           bottom: 0;
-          right: 0;
-          width: 200px;
+          right: -25px;
+          width: 165px;
         }
       `}
     </style>
     <div className="ProfileImage">
       <div className="ProfileImage__gif">
-        <img src="/images/hero-profile-gif.gif" width="500px" height="667" />
+        <img src="/images/hero-profile-gif.gif" width="350px" height="435px" />
       </div>
       <img className="ProfileImage__swirl" src="/images/vectors/swirl.svg" />
       <img className="ProfileImage__xx" src="/images/vectors/xx.svg" />

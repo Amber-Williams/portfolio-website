@@ -13,9 +13,9 @@ const About: React.FC = () => (
 
         .new--About {
           display: grid;
-          grid-template-columns: 49% 49%;
+          grid-template-columns: 54% 44%;
           grid-gap: 2%;
-          padding: 1rem 1rem 100px 1rem;
+          padding: 3rem 6rem;
           border-top-left-radius: 3rem;
           border-top-right-radius: 3rem;
           border-color: 1px solid var(--primary-color);

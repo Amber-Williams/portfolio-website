@@ -8,7 +8,7 @@ const PageContainer: React.FC<{ children: React.ReactNode }> = ({
       <style jsx>
         {`
           .PageContainer {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
           }
         `}
