@@ -6,7 +6,7 @@ const Footer: React.FC = () => (
     <style jsx>
       {`
         .Footer {
-          background-color: black;
+          background-color: var(--primary-color);
           width: 100%;
           margin-top: 12rem;
           padding: 16px;
@@ -35,7 +35,9 @@ const Footer: React.FC = () => (
       <div className="Footer">
         <img src="/images/footer-flower.png" />
         <PageContainer>
-          <p>© 2020 AmberDevelops All Rights Reserved</p>
+          <p>
+            Made by <br /> Amber Williams with 💖
+          </p>
         </PageContainer>
       </div>
     </footer>

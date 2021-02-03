@@ -17,7 +17,7 @@ content:
 
     
   - image: /images/clinical-tracking-app/faceoverlay.png
-    classes:  w-70 border my-5
+    classes:  w-70 border my-5 
   
   - |
     To create consistency with result images, I needed to create image overlays for the app-user to line up their body part with <b>(such as a hand or face)</b>.

@@ -35,4 +35,4 @@ content:
     After development stage was completely built out, the client wanted to add a seprate section for their many delivery options as delivery was a major souce of revenue. Prior to the upload of this site, I took a back up from their current site incase the owners should ever want it. <a href="http://umiaustin.com/" target="_blank" rel="noreferrer">(Click to view final uploaded website here)</a>
 
   - image: /images/sushi-website/before-after.png
-    classes: w-70 border my-5 p-2
+    classes: w-70 border my-5 p-2 bg-white

@@ -54,18 +54,25 @@ const CaseStudy: NextPage<Props> = ({ study }) => {
     <React.Fragment>
       <style jsx>
         {`
+          .CaseStudy {
+            background-color: var(--primary-color);
+          }
           .CaseStudy__content {
             margin: 0 2rem;
           }
+
+          .CaseStudy__content p {
+            color: black !important;
+          }
         `}
       </style>
-      <PageContainer>
-        <div className="CaseStudy">
-          <Header />
-          <NavBar />
-          <CaseStudyPageHero study={study} />
-          <main className="CaseStudy__content">
-            {/* <CaseStudyImagesCarousel images={images} />
+
+      <div className="CaseStudy">
+        <Header />
+        <NavBar />
+        <CaseStudyPageHero study={study} />
+        <main className="CaseStudy__content">
+          {/* <CaseStudyImagesCarousel images={images} />
             <CaseStudySubNav
               numberBedrooms={numberBedrooms}
               address={address}
@@ -74,11 +81,10 @@ const CaseStudy: NextPage<Props> = ({ study }) => {
               features={features}
             /> */}
 
-            {getContent(study.content)}
-          </main>
-          <Footer />
-        </div>
-      </PageContainer>
+          <PageContainer>{getContent(study.content)}</PageContainer>
+        </main>
+        <Footer />
+      </div>
     </React.Fragment>
   )
 }

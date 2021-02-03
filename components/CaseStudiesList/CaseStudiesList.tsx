@@ -5,7 +5,7 @@ import { CaseStudyListProps } from '../../types/case-study-types'
 
 const CaseStudiesList: React.FC<CaseStudyListProps> = ({ allCaseStudies }) => {
   const list = allCaseStudies.map((study, index) => (
-    <CaseStudyListItem study={study} key={index} />
+    <CaseStudyListItem study={study} key={index} index={index} />
   ))
 
   return (
@@ -13,22 +13,23 @@ const CaseStudiesList: React.FC<CaseStudyListProps> = ({ allCaseStudies }) => {
       <style jsx>
         {`
           .CaseStudiesList {
-            margin: 50px 0;
+            padding: 50px 0;
+            background: var(--primary-color);
+            border-bottom-left-radius: 3rem;
+            border-bottom-right-radius: 3rem;
+            width: 100%;
+            overflow: hidden;
           }
-
           .CaseStudiesList h3 {
-            color: #0d3754;
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-            letter-spacing: 2px;
-            padding-bottom: 20px;
+            margin: 0 6rem;
           }
         `}
       </style>
       <PageContainer>
         <div className="CaseStudiesList">
-          <h3>CASE STUDIES</h3>
+          <h3 className="text-gradient-orange text-right">
+            Some things I&apos;ve built
+          </h3>
           {list ? list : 'loading...'}
         </div>
       </PageContainer>
