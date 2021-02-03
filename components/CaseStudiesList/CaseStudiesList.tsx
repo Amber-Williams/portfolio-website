@@ -18,7 +18,7 @@ const CaseStudiesList: React.FC<CaseStudyListProps> = ({ allCaseStudies }) => {
             border-bottom-left-radius: 3rem;
             border-bottom-right-radius: 3rem;
             width: 100%;
-            margin-left: 7px; // fixes offset bug
+            overflow: hidden;
           }
           .CaseStudiesList h3 {
             margin: 0 6rem;
