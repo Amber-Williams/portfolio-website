@@ -1,12 +1,16 @@
 import React from 'react'
 
-const ProfileImage: React.FC = () => {
-  function stop_gif(el: HTMLElement) {
+interface ProfileImageProps {
+  onClick: () => void
+}
+
+const ProfileImage: React.FC<ProfileImageProps> = () => {
+  function stop_gif(e) {
     const img_element = document.querySelector(
       '.ProfileImage__gif img'
     ) as HTMLImageElement
     img_element.src = '/images/profile-image.jpg'
-    el.style.opacity = '0'
+    e.target.style.opacity = '0'
   }
 
   return (
@@ -61,7 +65,10 @@ const ProfileImage: React.FC = () => {
             height="435px"
           />
         </div>
-        <p className="text-center" onClick={(e) => stop_gif(e.target)}>
+        <p
+          className="text-center"
+          onClick={(e: React.MouseEvent<HTMLElement>) => stop_gif(e)}
+        >
           click here to stop gif
         </p>
         <img className="ProfileImage__swirl" src="/images/vectors/swirl.svg" />
