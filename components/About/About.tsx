@@ -21,9 +21,6 @@ const About: React.FC = () => (
           border-color: 1px solid var(--primary-color);
           background-color: var(--primary-color);
           margin-top: 5rem; // TODO: remove once navbar is in
-          margin-bottom: 5rem; // TODO: remove once navbar is in
-          border-bottom-left-radius: 3rem; // TODO: remove once navbar is in
-          border-bottom-right-radius: 3rem; // TODO: remove once navbar is in
         }
 
         .new--About h1 {
@@ -108,7 +105,7 @@ const About: React.FC = () => (
       </PageContainer>
     </div>
 
-    <div className="About">
+    {/* <div className="About">
       <div>
         <img src="/images/design.svg" />
         <h3>Web/App/Software Design</h3>
@@ -135,7 +132,7 @@ const About: React.FC = () => (
           projects data and progress.
         </p>
       </div>
-    </div>
+    </div> */}
   </React.Fragment>
 )
 
