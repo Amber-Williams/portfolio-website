@@ -6,7 +6,7 @@ const Footer: React.FC = () => (
     <style jsx>
       {`
         .Footer {
-          background-color: black;
+          background-color: var(--primary-color);
           width: 100%;
           margin-top: 12rem;
           padding: 16px;
