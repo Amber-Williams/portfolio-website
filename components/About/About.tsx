@@ -88,16 +88,23 @@ const About: React.FC = () => (
           <div className="d-flex flex-column justify-content-center">
             <h3 className="text-gradient-blue">About me</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              I’m a self-taught engineer that has been in the professional
+              industry for X years, days, and minutes and seconds (april 19th
+              2017 8:30am Central time). As a kid growing up I always gravitated
+              towards computers, internet of things and most mesmerizingly the
+              world wide web. So when I started to cultivate that passion after
+              university it grew into a career!
               <br />
               <br />
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
+              Often in my spare time I try to work on projects that use
+              technology I don’t normally use in my work stack. Currently, I’m
+              working on a custom productivity tracking application that I want
+              to collect data with and use to make some sweet graphs to learn
+              things about myself and look back on overtime.
+              <br />
+              <br />
+              When I’m not developing, I enjoy skiing, traveling, making pottery
+              and uncorking a bottle of wine.
             </p>
           </div>
           <HeroProfileImage />
