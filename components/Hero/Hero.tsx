@@ -71,16 +71,19 @@ const Hero: React.FC = () => {
 
           .Hero__bg--1 {
             position: absolute;
-            top: -125px;
+            top: -225px;
             left: -367px;
             width: 718px;
+            opacity: 0.8;
           }
 
           .Hero__bg--2 {
             position: absolute;
-            top: -200px;
-            right: -224px;
-            width: 700px;
+            bottom: -400px;
+            right: -324px;
+            width: 900px;
+            height: 1600px;
+            opacity: 0.8;
           }
         `}
       </style>
