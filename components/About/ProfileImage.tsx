@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProfileImage: React.FC<ProfileImageProps> = () => {
+const ProfileImage: React.FC = () => {
   function stop_gif(e) {
     const img_element = document.querySelector(
       '.ProfileImage__gif img'
