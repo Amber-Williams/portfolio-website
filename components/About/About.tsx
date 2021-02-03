@@ -107,11 +107,10 @@ const About: React.FC = () => {
               <h3 className="text-gradient-blue">About me</h3>
               <p>
                 I’m a self-taught engineer that has been in the professional
-                industry for <span className="developer_since"></span>. As a kid
-                growing up I always gravitated towards computers, internet of
-                things and most mesmerizingly the world wide web. So when I
-                started to cultivate that passion after university it grew into
-                a career!
+                industry for <span className="developer_since"></span>. Growing
+                up I always gravitated towards computers, internet of things and
+                most mesmerizingly the world wide web. So when I started to
+                cultivate that passion after university it grew into a career!
                 <br />
                 <br />
                 Often in my spare time I try to work on projects that use
