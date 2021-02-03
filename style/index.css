@@ -14,9 +14,13 @@
     --secondary-text-color: rgba(255,255,255, 0.8);
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p, h1, h2, h3, h4, h5, h6, li {
     color: var(--primary-text-color);
     font-family: 'PT Sans';
+}
+
+.text-dark {
+    color: var(--primary-color);
 }
 
 h3 {

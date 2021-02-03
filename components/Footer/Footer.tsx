@@ -35,7 +35,9 @@ const Footer: React.FC = () => (
       <div className="Footer">
         <img src="/images/footer-flower.png" />
         <PageContainer>
-          <p>© 2020 AmberDevelops All Rights Reserved</p>
+          <p>
+            Made by <br /> Amber Williams with 💖
+          </p>
         </PageContainer>
       </div>
     </footer>

@@ -45,8 +45,5 @@ content:
     classes: w-70 mb-5
 
   - |
-    #### 5. Next up to dos:
-      * Creating articles section
-      * Adding analytics reporting
-      * Adding CircleCi
-      * Writing tests
+    #### 5. Redesign
+      * I'm currently in the process of a v3 redesign that involves much more dynamic features with a modern design. Some of which you'll notice is live currently!

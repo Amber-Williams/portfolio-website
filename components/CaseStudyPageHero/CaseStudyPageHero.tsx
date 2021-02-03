@@ -23,13 +23,12 @@ const CaseStudyPageHero: React.FC<Props> = ({ study }) => (
           height: 200px;
           overflow: hidden;
           position: relative;
-          margin-top: 2px;
           margin-bottom: 20px;
         }
 
         .CaseStudyPageHero__background {
           width: 100%;
-          margin-top: 3px;
+          border-top: 6px solid white;
           position: absolute;
           z-index: 0;
         }
