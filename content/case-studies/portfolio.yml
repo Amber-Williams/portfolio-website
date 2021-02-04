@@ -10,7 +10,7 @@ tags:
   - React
   - ESLint / Prettier
   - Amplify
-subtitle: Complete new tech redesign from old cPanel website with JS/CSS/HTML to NextJS TypeScript website with testing and code standardization tooling. Deployed with continuous deployement of master branch through AWS' Amplify.
+subtitle: Complete repurpose and gradual redesign from old cPanel hosted website with only HTML, CSS and some JavaScript to a AWS Amplify hosted website built with NextJS TypeScript with robust testing and linting. Also makes use of continuous deployment of git’s master branch for my portfolio’s repository.
 preview_image: /images/portfolio/portfolio-preview.png
 tech_stack: NextJS, TypeScript, React, ESLint, Prettier, Husky, Jest, NodeJS
 content: 

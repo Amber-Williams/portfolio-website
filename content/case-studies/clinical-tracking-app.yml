@@ -8,7 +8,7 @@ tags:
   - UX/UI design
   - Leadership
   - Consulting
-subtitle: Tracks skin treatment efficacy using custom image overlay to help image consistency and admin created custom questionnaires
+subtitle: Tracks skin treatment efficacy. The administrators of the study have access to manipulate questionnaires for uses to submit through an admin interface. The user interface is accessible via mobile application that makes use of completing questionnaires and capturing target spots such as the face. These target spots are made consistent with custom image overlay feature that administrators also have access to manipulate.
 preview_image: /images/clinical-tracking-app/faceoverlay.png
 tech_stack: CSS, HTML, JavaScript, iOS, Android, MySQL
 content: 

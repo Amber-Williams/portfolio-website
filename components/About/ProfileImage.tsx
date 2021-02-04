@@ -50,6 +50,7 @@ const ProfileImage: React.FC = () => {
 
           .ProfileImage p {
             transition: opacity 1s ease;
+            cursor: pointer;
           }
         `}
       </style>
