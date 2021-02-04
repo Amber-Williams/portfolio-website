@@ -12,7 +12,7 @@ tags:
   - MongoDB
   - Giphy API
   - Docker
-subtitle: This party game allows users in a single room to interact with together through a centralized tv or computer screen and interact with their phones.
+subtitle: This party game allows users in a single room to play with together through prompts via a centralized screen that everyone can see and submit answers with their phones. Each game has its own allocated room so many users globally can play at a time.
 preview_image: /images/media-madness/preview.png
 tech_stack: Node, React, Socket.io, MongoDB, and Giphy API
 content: 
