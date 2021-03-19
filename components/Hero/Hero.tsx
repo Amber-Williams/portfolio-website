@@ -91,6 +91,56 @@ const Hero: React.FC = () => {
           .Hero__page-curve {
             bottom: -1px;
           }
+
+          @media only screen and (max-width: 1080px) {
+            .Hero {
+              max-width: 100vw;
+              margin-left: calc(50% - 200px);
+            }
+            .Hero h2,
+            .Hero h1 {
+              font-size: 3rem;
+            }
+          }
+
+          @media only screen and (max-width: 768px) {
+            .Hero {
+              margin-left: calc(30% - 100px);
+            }
+            .Hero h2,
+            .Hero h1 {
+              font-size: 2rem;
+            }
+            .Hero p {
+              max-width: calc(80vw - 100px);
+            }
+          }
+
+          @media only screen and (max-width: 450px) {
+            .Hero {
+              max-width: calc(100vw - 1rem);
+              margin-left: 0.5rem;
+              margin-right: 0.5rem;
+            }
+
+            .Hero p {
+              font-size: 0.8rem;
+              max-width: calc(100vw - 1rem);
+              margin-left: 0.5rem;
+              margin-right: 0.5rem;
+            }
+
+            .Hero h2,
+            .Hero h1 {
+              font-size: 1.2rem;
+              margin-right: 0.5rem;
+              margin-left: 0.5rem;
+            }
+
+            .Hero button {
+              padding: 8px;
+            }
+          }
         `}
       </style>
       <div className="Hero__background position-relative">
@@ -98,7 +148,7 @@ const Hero: React.FC = () => {
         <img src="/images/backgrounds/bg-hero-2.svg" className="Hero__bg--2" />
         <PageContainer>
           <div className="Hero w-100">
-            <div className="d-flex flex-column justify-content-center">
+            <div className="d-flex flex-column justify-content-center position-relative z-2">
               <p className="text-monospace text-gradient-blue">
                 Hi, my name is
               </p>
