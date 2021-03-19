@@ -23,6 +23,13 @@ const CaseStudiesList: React.FC<CaseStudyListProps> = ({ allCaseStudies }) => {
           .CaseStudiesList h3 {
             margin: 0 6rem;
           }
+
+          @media only screen and (max-width: 1450px) {
+            .CaseStudiesList {
+              width: calc(100% - 4rem);
+              margin: 0 auto;
+            }
+          }
         `}
       </style>
       <PageContainer>
