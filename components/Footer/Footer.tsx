@@ -12,15 +12,14 @@ const Footer: React.FC = () => (
           padding: 16px;
           text-align: center;
           position: relative;
-          height: 100px;
+          padding-top: 4rem;
         }
 
         .Footer img {
-          margin-top: -100px;
-          margin-right: 20px;
-          width: 50px;
-          height: auto;
-          float: right;
+          width: 100%;
+          transform: rotate(180deg);
+          right: 0;
+          top: -1px;
         }
 
         .Footer p {
@@ -33,7 +32,10 @@ const Footer: React.FC = () => (
     </style>
     <footer>
       <div className="Footer">
-        <img src="/images/footer-flower.png" />
+        <img
+          className="position-absolute z-1"
+          src="/images/vectors/page-curve.svg"
+        />
         <PageContainer>
           <p>
             Made by <br /> Amber Williams with 💖

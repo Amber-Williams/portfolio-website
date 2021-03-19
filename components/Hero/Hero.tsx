@@ -38,6 +38,8 @@ const Hero: React.FC = () => {
             height: 90vh;
             position: relative;
             overflow: hidden;
+            max-width: 100%;
+            overflow: hidden;
           }
 
           .Hero {
@@ -85,6 +87,10 @@ const Hero: React.FC = () => {
             height: 1600px;
             opacity: 0.8;
           }
+
+          .Hero__page-curve {
+            bottom: -1px;
+          }
         `}
       </style>
       <div className="Hero__background position-relative">
@@ -118,15 +124,10 @@ const Hero: React.FC = () => {
             </div>
           </div>
         </PageContainer>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          preserveAspectRatio="none"
-          viewBox="0 0 1680 40"
-          className="position-absolute width-full z-1 bottom-0"
-        >
-          <path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" fill="#fff"></path>
-        </svg>
+        <img
+          className="Hero__page-curve position-absolute width-full z-1"
+          src="/images/vectors/page-curve.svg"
+        />
       </div>
     </React.Fragment>
   )
