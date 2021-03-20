@@ -83,6 +83,30 @@ const ProfileImage: React.FC = () => {
               width: 132px;
             }
           }
+
+          @media only screen and (max-width: 500px) {
+            .ProfileImage__xx {
+              bottom: 40px;
+              right: 25vw;
+              width: 60px;
+            }
+
+            .ProfileImage__gif {
+              width: 50vw;
+              right: 0;
+              left: 14vw;
+            }
+
+            .ProfileImage__gif img {
+              width: 50vw;
+            }
+
+            .ProfileImage__swirl {
+              top: 25px;
+              left: 19vw;
+              width: 80px;
+            }
+          }
         `}
       </style>
       <div className="ProfileImage">

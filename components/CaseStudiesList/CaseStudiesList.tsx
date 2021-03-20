@@ -26,8 +26,26 @@ const CaseStudiesList: React.FC<CaseStudyListProps> = ({ allCaseStudies }) => {
 
           @media only screen and (max-width: 1450px) {
             .CaseStudiesList {
+              padding: 1rem;
               width: calc(100% - 4rem);
               margin: 0 auto;
+            }
+          }
+
+          @media only screen and (max-width: 1080px) {
+            .CaseStudiesList h3 {
+              font-size: 3rem;
+            }
+          }
+
+          @media only screen and (max-width: 768px) {
+            .CaseStudiesList {
+              width: calc(100% - 2rem);
+              padding: 2rem 2rem;
+            }
+
+            .CaseStudiesList h3 {
+              font-size: 2rem;
             }
           }
         `}
