@@ -91,11 +91,13 @@ const About: React.FC = () => {
             <div className="d-flex flex-column justify-content-center">
               <h3 className="text-gradient-blue">About me</h3>
               <p>
-                I’m a self-taught engineer that has been in the professional
-                industry for <span className="developer_since"></span>. Growing
-                up I always gravitated towards computers, internet of things and
-                most mesmerizingly the world wide web. So when I started to
-                cultivate that passion after university it grew into a career!
+                I’ve has been in the professional web development and software
+                development industry for{' '}
+                <span className="developer_since"></span>. Growing up I always
+                gravitated towards computers, internet of things and most
+                mesmerizingly the world wide web. I have a deep passion for
+                programming and feel like the beauty in it is that there’s so
+                many different ways to implement the same task.
                 <br />
                 <br />
                 Often in my spare time I try to work on projects that use
@@ -105,8 +107,8 @@ const About: React.FC = () => {
                 learn things about myself and optimize how I spend my time.
                 <br />
                 <br />
-                When I’m not developing, I enjoy skiing, traveling, making
-                pottery and uncorking a bottle of wine.
+                When I’m not in front of a computer, I enjoy traveling, DIY home
+                improvements, making pottery and uncorking a bottle of wine.
               </p>
             </div>
             <ProfileImage />
