@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import moment from 'moment'
-import HeroProfileImage from './ProfileImage'
+import ProfileImage from './ProfileImage'
 import PageContainer from '../PageContainer/PageContainer'
 
 const About: React.FC = () => {
@@ -25,11 +25,11 @@ const About: React.FC = () => {
     <React.Fragment>
       <style jsx>
         {`
-          .new--About__background {
+          .About__background {
             background-color: white;
           }
 
-          .new--About {
+          .About {
             display: grid;
             grid-template-columns: 54% 44%;
             grid-gap: 2%;
@@ -38,71 +38,56 @@ const About: React.FC = () => {
             border-top-right-radius: 3rem;
             border-color: 1px solid var(--primary-color);
             background-color: var(--primary-color);
-            margin-top: 5rem; // TODO: remove once navbar is in
+            margin-top: 5rem;
+            width: 100%;
           }
 
-          .new--About h1 {
+          .About h1 {
             font-weight: 800;
             font-family: 'Open Sans', sans-serif;
             color: white;
             font-size: 3rem;
           }
 
-          .new--About h2 {
+          .About h2 {
             font-weight: 400;
             font-family: 'PT Sans', sans-serif;
             color: white;
             font-size: 1.5rem;
           }
 
-          .About {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            margin: 20px;
-          }
-
-          .About p {
-            color: var(--primary-color);
-          }
-
-          @media only screen and (max-width: 900px) {
+          @media only screen and (max-width: 1450px) {
             .About {
-              grid-template-columns: 100% !important;
-              grid-template-rows: 1fr 1fr 1fr;
-              rid-gap: 42px;
-              max-width: 400px;
-              margin: 0 auto;
-              justify-content: center;
+              width: calc(100% - 4rem);
+              margin: 5rem auto 0 auto;
             }
           }
 
-          .About img {
-            width: 150px;
-            margin: 0 auto;
+          @media only screen and (max-width: 1080px) {
+            .About {
+              grid-template-columns: 100%;
+            }
+
+            .About h3 {
+              font-size: 3rem;
+            }
           }
 
-          .About div {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-          }
+          @media only screen and (max-width: 768px) {
+            .About {
+              width: calc(100% - 2rem);
+              padding: 2rem 2rem;
+            }
 
-          .About h3 {
-            font-size: 1.17em;
-            text-align: center;
-            margin: 16px 0;
-          }
-
-          .About p {
-            font-size: 18px;
-            margin: 10px;
-            text-align: justify;
+            .About h3 {
+              font-size: 2rem;
+            }
           }
         `}
       </style>
-      <div className="new--About__background position-relative">
+      <div className="About__background position-relative">
         <PageContainer>
-          <div className="new--About w-100">
+          <div className="About">
             <div className="d-flex flex-column justify-content-center">
               <h3 className="text-gradient-blue">About me</h3>
               <p>
@@ -124,39 +109,10 @@ const About: React.FC = () => {
                 pottery and uncorking a bottle of wine.
               </p>
             </div>
-            <HeroProfileImage />
+            <ProfileImage />
           </div>
         </PageContainer>
       </div>
-
-      {/* <div className="About">
-        <div>
-          <img src="/images/design.svg" />
-          <h3>Web/App/Software Design</h3>
-          <p>
-            Customized intuitive user experiences and designs based on your needs,
-            challenges and goals. Responsive designs across all browsers and
-            devices.
-          </p>
-        </div>
-        <div>
-          <img src="/images/development.svg" />
-          <h3>Development</h3>
-          <p>
-            Building out projects with the latest JavaScript technologies.
-            Implemented with longevity in mind so your project does not suffer
-            from software corrosion.
-          </p>
-        </div>
-        <div>
-          <img src="/images/usability.svg" />
-          <h3>Production</h3>
-          <p>
-            Launching projects featured with analytical software to analyze your
-            projects data and progress.
-          </p>
-        </div>
-      </div> */}
     </React.Fragment>
   )
 }

@@ -1,7 +1,8 @@
 import React from 'react'
 import PageContainer from '../PageContainer/PageContainer'
+import { FooterTypes } from '../../types/footer-types'
 
-const Footer: React.FC = () => (
+const Footer: React.FC<FooterTypes> = ({ reversed }) => (
   <React.Fragment>
     <style jsx>
       {`
@@ -12,15 +13,14 @@ const Footer: React.FC = () => (
           padding: 16px;
           text-align: center;
           position: relative;
-          height: 100px;
+          padding-top: 4rem;
         }
 
         .Footer img {
-          margin-top: -100px;
-          margin-right: 20px;
-          width: 50px;
-          height: auto;
-          float: right;
+          width: 100%;
+          transform: rotate(180deg);
+          right: 0;
+          top: -1px;
         }
 
         .Footer p {
@@ -29,11 +29,30 @@ const Footer: React.FC = () => (
           text-align: center;
           margin-top: 20px;
         }
+
+        .Footer--reversed {
+          background-color: #fff;
+        }
+
+        .Footer--reversed p {
+          color: var(--primary-color);
+        }
       `}
     </style>
     <footer>
-      <div className="Footer">
-        <img src="/images/footer-flower.png" />
+      <div className={reversed ? 'Footer Footer--reversed' : 'Footer'}>
+        {reversed ? (
+          <img
+            className="position-absolute z-1"
+            src="/images/vectors/page-curve--dark.svg"
+          />
+        ) : (
+          <img
+            className="position-absolute z-1"
+            src="/images/vectors/page-curve.svg"
+          />
+        )}
+
         <PageContainer>
           <p>
             Made by <br /> Amber Williams with 💖

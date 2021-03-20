@@ -13,7 +13,7 @@ const CaseStudiesList: React.FC<CaseStudyListProps> = ({ allCaseStudies }) => {
       <style jsx>
         {`
           .CaseStudiesList {
-            padding: 50px 0;
+            padding: 3rem 6rem;
             background: var(--primary-color);
             border-bottom-left-radius: 3rem;
             border-bottom-right-radius: 3rem;
@@ -22,6 +22,32 @@ const CaseStudiesList: React.FC<CaseStudyListProps> = ({ allCaseStudies }) => {
           }
           .CaseStudiesList h3 {
             margin: 0 6rem;
+          }
+
+          @media only screen and (max-width: 1450px) {
+            .CaseStudiesList {
+              padding: 1rem;
+              width: calc(100% - 4rem);
+              margin: 0 auto;
+            }
+          }
+
+          @media only screen and (max-width: 1080px) {
+            .CaseStudiesList h3 {
+              font-size: 3rem;
+              margin: 0;
+            }
+          }
+
+          @media only screen and (max-width: 768px) {
+            .CaseStudiesList {
+              width: calc(100% - 2rem);
+              padding: 2rem 2rem;
+            }
+
+            .CaseStudiesList h3 {
+              font-size: 2rem;
+            }
           }
         `}
       </style>

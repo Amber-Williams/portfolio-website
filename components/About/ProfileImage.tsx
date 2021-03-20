@@ -34,6 +34,11 @@ const ProfileImage: React.FC = () => {
             width: 350px;
           }
 
+          .ProfileImage__gif img {
+            width: 350px;
+            height: 435px;
+          }
+
           .ProfileImage__swirl {
             position: absolute;
             top: 35px;
@@ -52,15 +57,61 @@ const ProfileImage: React.FC = () => {
             transition: opacity 1s ease;
             cursor: pointer;
           }
+
+          @media only screen and (max-width: 768px) {
+            .ProfileImage__xx {
+              bottom: 17px;
+              right: 16px;
+              width: 116px;
+            }
+
+            .ProfileImage__gif {
+              width: 250px;
+              position: relative;
+              z-index: 0;
+              right: -65px;
+            }
+
+            .ProfileImage__gif img {
+              width: 250px;
+              height: auto;
+            }
+
+            .ProfileImage__swirl {
+              top: 35px;
+              left: 57px;
+              width: 132px;
+            }
+          }
+
+          @media only screen and (max-width: 500px) {
+            .ProfileImage__xx {
+              bottom: 40px;
+              right: 25vw;
+              width: 60px;
+            }
+
+            .ProfileImage__gif {
+              width: 50vw;
+              right: 0;
+              left: 14vw;
+            }
+
+            .ProfileImage__gif img {
+              width: 50vw;
+            }
+
+            .ProfileImage__swirl {
+              top: 25px;
+              left: 19vw;
+              width: 80px;
+            }
+          }
         `}
       </style>
       <div className="ProfileImage">
         <div className="ProfileImage__gif">
-          <img
-            src="/images/hero-profile-gif.gif"
-            width="350px"
-            height="435px"
-          />
+          <img src="/images/hero-profile-gif.gif" />
         </div>
         <p
           className="text-center"

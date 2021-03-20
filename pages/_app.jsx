@@ -8,6 +8,7 @@ export default function MyApp({ Component, pageProps }) {
       <style jsx global>{`
         html,
         body {
+          max-width: 100vw;
           padding: 0;
           margin: 0;
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,

@@ -111,9 +111,6 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
               margin: 6px 0;
               text-align: left !important;
             }
-          }
-
-          @media only screen and (max-width: 790px) {
             .CaseStudyListItem__preview img {
               width: 100%;
             }
