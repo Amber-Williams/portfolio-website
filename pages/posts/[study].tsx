@@ -83,7 +83,7 @@ const CaseStudy: NextPage<Props> = ({ study }) => {
 
           <PageContainer>{getContent(study.content)}</PageContainer>
         </main>
-        <Footer />
+        <Footer reversed />
       </div>
     </React.Fragment>
   )

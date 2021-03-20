@@ -1,0 +1,50 @@
+path: time-tracker
+order: 1
+template: case-study
+hero_image: /images/backgrounds/bg-plant-4.jpg
+title: Time tracking application
+tags: 
+  - Web app
+  - Full-stack
+  - Authentication
+  - Node
+  - React
+  - NoSQL
+  - Serverless
+subtitle: Track how you are spending your time daily with entry types like "Sleeping", "Working" or even "Dancing" and take a deep dive into how you can optimize your time in meaningful ways.
+preview_image: /images/time-tracker/app-icon.png
+tech_stack: React, Node, Express, Amplify Serverless
+content: 
+  - |
+    ## **Why the project was built**
+    <br/><br/>
+    I am a huge fan of tracking applications from financial tracking application Mint that helps break up how you spend your money to GitHub’s commit contribution history. So I had thought to create something similar to track how I spend my life in general. When I read the blog post from [samplesize.one](https://samplesize.one/blog/posts/my_year_in_data/), I felt like “Wow this is a great idea to understand how you are spending your time and help quantify where parts of your time need improvement”. The same idea works with Mint where it breaks down how you are spending your money and helps you improve your expenses and savings for the future. 
+
+    The only problem was that I really didn’t like the interface of using an excel sheet to collect my daily data. So being a full-stack developer I thought, I’ll just make a customized interface I can use. Then I figured why not extended it out to be built with proper authentication! This way so my friends could use it, since they like tracking their fitness and diets.
+
+    This is the app so far:
+
+  - image: /images/time-tracker/screenshot.png
+    classes: w-70 border mt-3 mb-5
+
+  - |
+    While its not pretty on the eyes or fully responsive yet, as a user I can create an account and customize my entry types, select an entry type and click the 15minute interval cells to track my time each day. Also as a user I can traverse through time and make alterations or see how I spend my time that day. Lastly, I also added a daily comment box that the user can use as a daily diary or use it how they wish. I personally like to make more detailed notes about how I spent each general category so I can split up that time into more specific entry types later.
+
+    I am planning to a views page soon where users can have an overview of how they are spending their time spent between selected time spans. Using differing graphs and charts to visualize the data in meaningful ways. 
+
+    I also have plans to have add on applications that the user can add to their admin interface if they want to go into deeper tracking. An example of this would be a water tracking application, to see how much water you are drinking over time. 
+
+    Later this year once I get the project’s code cleaned up and up to a higher standard, I hope to open source it to other developers and add small tasks to help grow the project and open source community. 
+
+    <br/><br/>
+    ## **How the project was built**
+
+    The application’s front end is built with React currently using React hooks. I have plans to update it with Redux to help keep a shared state across the application soon before complexity of the project grows further than what is built currently. 
+
+    Authentication uses Amazon's Cognito to create an easy to use log in interface which creates authentication tokens that are used to validate API endpoints. 
+
+    The back end is built with REST API endpoints that use Node and Express, these are separated through AWS Lambda functions to create a micro service type infrastructure though they all connect to the same NoSQL database. The database and each function is hosted via Amplify’s Serverless, which helps create a local, and branch specific environments (i.e. developer branch and production branch). This means each git push to my developer or production branch is built, served and hosted via Amplify which streamlines the release process and picks up the heavy lifting of DevOps side of things.
+
+    <br/><br/>
+    ## **Where to find the project**
+    The development version of the project can be found [here](https://develop.d34awydnyxufe7.amplifyapp.com/). Please note this is just a development version of the application as it is still under the build out process. Though if you want to actually use the project for everyday give me a shout at [my email](mailto:amberwilliamsdev@gmail.com)
