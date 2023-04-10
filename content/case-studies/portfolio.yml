@@ -4,15 +4,13 @@ template: case-study
 hero_image: /images/backgrounds/bg-plant-5.jpg
 title: My portfolio website
 tags: 
-  - Website
   - NextJS
   - TypeScript
   - React
-  - ESLint / Prettier
   - Amplify
 subtitle: Complete repurpose and gradual redesign from old cPanel hosted website with only HTML, CSS and some JavaScript to a AWS Amplify hosted website built with NextJS TypeScript with robust testing and linting. Also makes use of continuous deployment of git’s master branch for my portfolio’s repository.
 preview_image: /images/portfolio/portfolio-preview.png
-tech_stack: NextJS, TypeScript, React, ESLint, Prettier, Husky, Jest, NodeJS
+tech_stack: NextJS, TypeScript, React
 content: 
   - |
     #### 1. Planning

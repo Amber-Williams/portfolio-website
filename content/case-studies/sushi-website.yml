@@ -1,15 +1,12 @@
 path: sushi-website
-order: 6
+order: 7
 template: case-study
 hero_image: /images/backgrounds/bg-plant-4.jpg
 title: Redesign for sushi restaurant
 tags: 
-  - Website
-  - UX/UI design
   - HTML
   - CSS
   - JavaScript
-  - Consulting
 subtitle: Designed and developed a client's website that played into their fun and exciting ambiance for late night sushi
 preview_image: /images/sushi-website/sushi-preview.png
 tech_stack: CSS, HTML, JavaScript

@@ -157,14 +157,8 @@ const Hero: React.FC = () => {
                 I build <span className="Hero__things">things</span> for the
                 web.
               </h2>
-              <p className="py-3">
-                I am a software engineer based in London that’s passionate about
-                building exceptional software which improves lives. I specialize
-                in creating software user interfaces for clients ranging from
-                individuals to businesses.
-              </p>
               <button
-                className="text-monospace text-gradient-blue"
+                className="text-monospace text-gradient-blue mt-5"
                 onClick={() =>
                   (location.href = 'mailto:amberwilliamsdev@gmail.com')
                 }

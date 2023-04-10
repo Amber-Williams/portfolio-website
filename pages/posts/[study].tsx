@@ -1,10 +1,9 @@
 import React from 'react'
 import { NextPage } from 'next'
 import Markdown from 'markdown-to-jsx'
+
 import { getAllPosts, getAPost } from '../../lib/api'
 import Header from '../../components/Header/Header'
-// import CaseStudyImagesCarousel from '../../components/CaseStudyPage/CaseStudyImagesCarousel'
-// import CaseStudySubNav from '../../components/CaseStudyPage/CaseStudySubNav'
 import PageContainer from '../../components/PageContainer/PageContainer'
 import { CaseStudyProps } from '../../types/case-study-types'
 import NavBar from '../../components/NavBar/NavBar'
@@ -72,15 +71,6 @@ const CaseStudy: NextPage<Props> = ({ study }) => {
         <NavBar />
         <CaseStudyPageHero study={study} />
         <main className="CaseStudy__content">
-          {/* <CaseStudyImagesCarousel images={images} />
-            <CaseStudySubNav
-              numberBedrooms={numberBedrooms}
-              address={address}
-              price={price}
-              description={description}
-              features={features}
-            /> */}
-
           <PageContainer>{getContent(study.content)}</PageContainer>
         </main>
         <Footer reversed />
