@@ -4,14 +4,11 @@ template: case-study
 hero_image: /images/backgrounds/bg-plant-3.jpg
 title: Multi-screen party game
 tags: 
-  - Web app
+  - Web sockets
   - React
   - Redux
   - Node
-  - Socket.io
-  - MongoDB
-  - Giphy API
-  - Docker
+  - NoSQl
 subtitle: This party game allows users in a single room to play with together through prompts via a centralized screen that everyone can see and submit answers with their phones. Each game has its own allocated room so many users globally can play at a time.
 preview_image: /images/media-madness/preview.png
 tech_stack: Node, React, Socket.io, MongoDB, and Giphy API

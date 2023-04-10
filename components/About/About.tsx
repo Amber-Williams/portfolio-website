@@ -91,24 +91,23 @@ const About: React.FC = () => {
             <div className="d-flex flex-column justify-content-center">
               <h3 className="text-gradient-blue">About me</h3>
               <p>
-                I’ve has been in the professional web development and software
-                development industry for{' '}
-                <span className="developer_since"></span>. Growing up I always
-                gravitated towards computers, internet of things and most
-                mesmerizingly the world wide web. I have a deep passion for
-                programming and feel like the beauty in it is that there’s so
-                many different ways to implement the same task.
+                I've been drawn to the world of computers and the internet since
+                I was young and I've been professionally programming for{' '}
+                <span className="developer_since"></span>. My love for
+                programming and creative problem solving has only grown since
+                then, and I'm always looking for new challenges to tackle
                 <br />
                 <br />
-                Often in my spare time I try to work on projects that use
-                technology I don’t normally use in my work stack. Currently, I’m
-                working on a custom productivity tracking application that I
-                want to collect data with and use to make some sweet graphs to
-                learn things about myself and optimize how I spend my time.
+                Lately, I've been particularly excited about exploring projects
+                that incorporate machine learning models into a full stack
+                project. I believe that these types of projects represent the
+                future of software engineering, and I'm thrilled to be at the
+                forefront of this exciting field
                 <br />
                 <br />
-                When I’m not in front of a computer, I enjoy traveling, DIY home
-                improvements, making pottery and uncorking a bottle of wine.
+                When I'm not busy coding, you can find me bouldering around gyms
+                in London, brushing up my Italian, experimenting with new
+                recipes in the kitchen, or enjoying a nice bottle of red wine
               </p>
             </div>
             <ProfileImage />

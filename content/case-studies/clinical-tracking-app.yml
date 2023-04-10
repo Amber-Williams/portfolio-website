@@ -5,9 +5,8 @@ hero_image: /images/backgrounds/bg-plant-1.jpg
 title: Clinical skin tracker mobile application
 tags: 
   - Mobile
-  - UX/UI design
-  - Leadership
-  - Consulting
+  - iOS
+  - Android
 subtitle: Tracks skin treatment efficacy. The administrators of the study have access to manipulate questionnaires for uses to submit through an admin interface. The user interface is accessible via mobile application that makes use of completing questionnaires and capturing target spots such as the face. These target spots are made consistent with custom image overlay feature that administrators also have access to manipulate.
 preview_image: /images/clinical-tracking-app/faceoverlay.png
 tech_stack: CSS, HTML, JavaScript, iOS, Android, MySQL

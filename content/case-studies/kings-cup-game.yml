@@ -1,0 +1,16 @@
+path: kings-cup-game
+order: 6
+template: case-study
+hero_image: /images/backgrounds/bg-plant-1.jpg
+title: Kings cup game
+tags: 
+  - Javascript
+subtitle: Make my own version of the Kings cup drinking game
+preview_image: /images/kings-cup/KC-bottles.png
+tech_stack: Javascript
+content: 
+  - |
+    ## **Where to find the project**
+    [https://www.amberwilliams.io/kings-cup](https://www.amberwilliams.io/kings-cup)
+
+    This was one the first game I ever created
