@@ -4,14 +4,14 @@ import yaml from 'js-yaml'
 
 const postsDirectory = join(process.cwd(), 'content/case-studies')
 
-export function getPostSlugs(dir) {
+export const getPostSlugs = (dir: string) => {
   return fs.readdirSync(dir)
 }
 
-function JsonfromYaml(path) {
+function JsonfromYaml(path: string) {
   try {
-    let fileContents = fs.readFileSync(path, 'utf8')
-    let data = yaml.safeLoad(fileContents)
+    const fileContents = fs.readFileSync(path, 'utf8')
+    const data = yaml.safeLoad(fileContents)
 
     return data
   } catch (e) {
@@ -19,7 +19,7 @@ function JsonfromYaml(path) {
   }
 }
 
-function getPostBySlug(slug, fields = null) {
+function getPostBySlug(slug: string, fields = null) {
   const realSlug = slug.replace(/\.yml$/, '')
   const fullPath = join(postsDirectory, `${realSlug}.yml`)
   const data = JsonfromYaml(fullPath)
@@ -48,13 +48,12 @@ export function getAllPosts(fields = null) {
   const slugs = getPostSlugs(postsDirectory)
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
-    // sort posts by order in accending order
-    .sort((post1, post2) => (post1.order < post2.order ? '-1' : '1'))
+    .sort((post1: any, post2: any) => (post1.order < post2.order ? -1 : 1))
 
   return posts
 }
 
-export function getAPost(postName) {
+export function getAPost(postName: string) {
   const slugs = getPostSlugs(postsDirectory)
 
   const _post = slugs

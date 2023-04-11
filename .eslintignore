@@ -1,4 +1,4 @@
-**/node_modules/*
-**/out/*
-**/.next/*
-**/old_version/*
+node_modules
+out/
+dist/
+.next/

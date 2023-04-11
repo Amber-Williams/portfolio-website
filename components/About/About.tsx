@@ -91,22 +91,22 @@ const About: React.FC = () => {
             <div className="d-flex flex-column justify-content-center">
               <h3 className="text-gradient-blue">About me</h3>
               <p>
-                I've been drawn to the world of computers and the internet since
-                I was young and I've been professionally programming for{' '}
-                <span className="developer_since"></span>. My love for
+                I&apos;ve been drawn to the world of computers and the internet
+                since I was young and I&apos;ve been professionally programming
+                for <span className="developer_since"></span>. My love for
                 programming and creative problem solving has only grown since
-                then, and I'm always looking for new challenges to tackle
+                then, and I&apos;m always looking for new challenges to tackle
                 <br />
                 <br />
-                Lately, I've been particularly excited about exploring projects
-                that incorporate machine learning models into a full stack
-                project. I believe that these types of projects represent the
-                future of software engineering, and I'm thrilled to be at the
-                forefront of this exciting field
+                Lately, I&apos;ve been particularly excited about exploring
+                projects that incorporate machine learning models into a full
+                stack project. I believe that these types of projects represent
+                the future of software engineering, and I&apos;m thrilled to be
+                at the forefront of this exciting field
                 <br />
                 <br />
-                When I'm not busy coding, you can find me bouldering around gyms
-                in London, brushing up my Italian, experimenting with new
+                When I&apos;m not busy coding, you can find me bouldering around
+                gyms in London, brushing up my Italian, experimenting with new
                 recipes in the kitchen, or enjoying a nice bottle of red wine
               </p>
             </div>
