@@ -10,17 +10,33 @@
 :root {
     --primary-color: #040d21;
     --secondary-color: #a2facf;
-    --primary-text-color: rgba(255,255,255, 0.5);
+    --primary-text-color: rgb(161 160 160);
     --secondary-text-color: rgba(255,255,255, 0.8);
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.text-dark p, .text-dark h1, .text-dark h2, .text-dark h3, .text-dark h4, .text-dark h5, .text-dark h6, .text-dark li {
+    color: var(--primary-color);
 }
 
 p, h1, h2, h3, h4, h5, h6, li {
     color: var(--primary-text-color);
     font-family: 'PT Sans';
-}
-
-.text-dark {
-    color: var(--primary-color);
 }
 
 h3 {
