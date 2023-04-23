@@ -7,20 +7,28 @@ const NavBar: React.FC = () => (
     <style jsx>
       {`
         .NavBar {
-          background-color: #cdd3b4;
-          width: 100%;
+          width: fit-content;
+          margin-left: 2rem;
+          padding: 1rem;
         }
         .NavBar__logo {
-          width: 200px;
-          margin: 10px;
+          width: 50px;
           cursor: pointer;
+        }
+
+        .NavBar__logo-wrapper {
+          padding: 10px;
+          background-color: #ffffff;
+          border-radius: 3px;
         }
       `}
     </style>
     <div className="NavBar">
       <PageContainer>
         <Link href={{ pathname: `/` }}>
-          <img className="NavBar__logo" src="/images/logo.svg" />
+          <div className="NavBar__logo-wrapper">
+            <img className="NavBar__logo" src="/images/logo.gif" />
+          </div>
         </Link>
       </PageContainer>
     </div>

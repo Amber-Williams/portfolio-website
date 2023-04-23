@@ -9,23 +9,40 @@ tags:
   - Redux
   - Node
   - NoSQl
-subtitle: This party game allows users in a single room to play with together through prompts via a centralized screen that everyone can see and submit answers with their phones. Each game has its own allocated room so many users globally can play at a time.
+subtitle: Real-time multi-screen party game that allows users in a single room to play together through prompts via a centralized screen
 preview_image: /images/media-madness/preview.png
 tech_stack: Node, React, Socket.io, MongoDB, and Giphy API
 content: 
   - |
     <div class="text-center mt-5">
-      ## <a href="https://mediamadness-client.herokuapp.com/user" target="_blank" rel="noreferrer">User link here</a> | <a href="https://mediamadness-client.herokuapp.com/central" target="_blank" rel="noreferrer">Central link here</a>
+      ## <a href="https://github.com/Amber-Williams/Media-Madness" target="_blank" rel="noreferrer">Repo here </a>
     </div>
-    First I planned out what screens I would need and how they would interact with through the information articture. I researched a bit for what the general layout should look like with other similar competitor products. Because I was on a tight schedule I did not put in much of the design phase as I normally would.
+    ### Introduction
+    In this case study, we will discuss the development of a multi-screen party game that allows users in a single room to play together through prompts via a centralized screen that everyone can see and submit answers with their phones. The game has its own allocated room, so many users globally can play at a time. The project was built using Node, React, Socket.io, MongoDB, and Giphy API.
+
+
   - image: /images/media-madness/preview.png
     classes: w-70 border my-5 p-3 bg-white
   
   - |
-    After this I looked up what open source data was available online to generate a lot of questions for my game. The site I ended up using is located <a href="https://crhallberg.com/cah/">here</a>. Considering this helped generate 688 of the type questions I need, I saved a load of time rather then thinking of them myself.
-    
-    Following this I implemented Socket.io to communicate users to and from a central screen. After this was working, I added the GIPHY Search API so that user’s could search for a GIF to submit to the game round’s question. The API was pretty straight forward and renders 25 GIF’s per request and has many options for sizing and media type. I really liked the fact that they credit their sources per each GIF.
-    
-    I needed a way to track who was submitting which GIF’s which was easy through socket.id. However, I realized on disconnect, say I go to check my texts during the game and come back to the game, that the socket id changes. Storing the socket.id in the user’s localStorage and using that as verification was the way I could reestablish connection upon a “accidental” disconnect.
-    
-    Once this was completed, I set up a MongoDB database table to capture each GIF submission to later use for calculating winners/round stats. I also cleared the database table when all user’s disconnect from the room. This means that my database is really low cost and can stay low cost long term.
+    ### Planning and Research
+    During the planning and research phase, I focused on finding the best way to architect the application to work with live-time data for closed groups in game rooms, despite having a limited schedule. I conducted extensive research to determine the optimal information architecture and layout for the required screens, while also taking into account the needs of the target audience. The resulting design was intuitive and user-friendly, enabling users to easily navigate the application and engage with the game in a seamless manner.
+
+  - |
+    ### Implementation
+
+    I needed question prompts for users to submit GIFs to and they had to be humorous. I was able to generate [688 of the type questions](https://github.com/Amber-Williams/Media-Madness/blob/master/server/helpers/questions.json).
+
+    Next, I implemented Socket.io to facilitate communication between users and the central screen. Once this was working, I added the Giphy Search API to enable users to search for a GIF to submit to the game round's question. The API was user-friendly and rendered 25 GIFs per request, with many options for sizing and media type. I was pleased that the API credited its sources per each GIF.
+
+    I also needed to track who was submitting which GIFs, which was easy through the socket.id. However, I realized that if a user disconnected and then reconnected, their socket.id would change. To address this, I stored the socket.id in the user's localStorage and used that as verification to reestablish a connection upon an "accidental" disconnect.
+
+    Once the above was completed, I set up a MongoDB database table to capture each GIF submission to calculate winners/round stats. The database table was cleared when all users disconnected from the room, making it cost-effective
+
+  - |
+    ### Testing
+    I tested multi-user sessions and core game features using Selenium. I to test multi-user I spawned 3 screen contexts for each user. The tests were written in an E2E fashion where both client and the server were required to be running locally. This assisted in a 5x development speed over manually testing the application as features were added
+
+  - |
+    ### Go-live
+    I used the free tier of Heroku to host the dockerized version of the app. It was fun while it lasted, but unfortunately Herkou has put an end to [free tiers](https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq)

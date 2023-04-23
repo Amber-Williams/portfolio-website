@@ -1,5 +1,5 @@
 path: sushi-website
-order: 7
+order: null
 template: case-study
 hero_image: /images/backgrounds/bg-plant-4.jpg
 title: Redesign for sushi restaurant
@@ -18,13 +18,13 @@ content:
 
   - link_: /documents/sushi-wireframe.pdf
     text: Wireframe
-  - |  
+  - |
     We started with a wireframe that the client could adjust, change elements as they pleased. The website was created to be fully responsive throughout any given device, screen or browser. After the wireframe was agreed upon.
     
   - link_: /documents/sushi-mockdesign.pdf
     text: Design mock 
   
-  - |  
+  - |
     We moved to the design phase where the wireframe was decorated and vector images such as the title swords were created.
     
     Moving forward to the development stage, the website framework was built utilizing Flexbox. Flexbox is a CSS built layout mode that is intended to accommodate different screen sizes.

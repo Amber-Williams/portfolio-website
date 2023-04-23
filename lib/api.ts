@@ -49,6 +49,7 @@ export function getAllPosts(fields = null) {
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
     .sort((post1: any, post2: any) => (post1.order < post2.order ? -1 : 1))
+    .filter((post) => post.order !== null)
 
   return posts
 }

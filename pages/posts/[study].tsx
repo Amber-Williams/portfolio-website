@@ -35,7 +35,10 @@ const getContent = (contents) => {
         {content.image && content.image.indexOf('/images/') > -1 ? (
           getImage(content.image, content.classes)
         ) : typeof content === 'string' ? (
-          <Markdown>{content}</Markdown>
+          <div className="text-dark">
+            <Markdown>{content}</Markdown>
+            <br />
+          </div>
         ) : (
           getDocLink(content.link_, content.text)
         )}
@@ -57,11 +60,10 @@ const CaseStudy: NextPage<Props> = ({ study }) => {
             background-color: var(--primary-color);
           }
           .CaseStudy__content {
+            background-color: white;
             margin: 0 2rem;
-          }
-
-          .CaseStudy__content p {
-            color: black !important;
+            padding: 2rem;
+            border-radius: 6px;
           }
         `}
       </style>

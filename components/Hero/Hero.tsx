@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
           }
 
           .Hero h1 {
-            color: var(--secondary-text-color) !important;
+            color: var(--secondary-text-color);
             font-weight: bolder;
             font-size: 4rem;
           }
