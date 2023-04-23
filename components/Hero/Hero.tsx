@@ -1,31 +1,69 @@
 import React, { useEffect } from 'react'
+
 import PageContainer from '../PageContainer/PageContainer'
 
 const Hero: React.FC = () => {
-  const things = [
+  const nouns = [
     'things',
     'apps',
+    'PWAs',
     'websites',
     'APIs',
-    'tools',
-    'tests',
-    'hooks',
+    'tooling',
+    'systems',
     'graphs',
     'games',
+    'scripts',
+    'analytics',
+    'middleware',
+    'algorithms',
+    'user interfaces',
+    'libraries',
+    'platforms',
+    'microservices',
+  ]
+
+  const verbs = [
+    'code',
+    'debug',
+    'optimize',
+    'automate',
+    'collaborate',
+    'document',
+    'maintain',
+    'configure',
+    'secure',
+    'scale',
+    'monitor',
+    'integrate',
+    'build',
+    'make',
+    'create',
+    'design',
+    'develop',
+    'refactor',
+    'manage',
+    'test',
+    'deploy',
+    'ship',
   ]
 
   useEffect(() => {
-    const things_element = document.querySelector(
-      '.Hero__things'
-    ) as HTMLElement
-    let count = 0
+    const noun_element = document.querySelector('.Hero__noun') as HTMLElement
+    const verb_element = document.querySelector('.Hero__verb') as HTMLElement
 
-    const interval = setInterval(() => {
-      count++
-      things_element.innerText = things[count % things.length]
-    }, 700)
+    const nouns_interval = setInterval(() => {
+      noun_element.innerText = nouns[Math.floor(Math.random() * nouns.length)]
+    }, 1000)
 
-    return () => clearInterval(interval)
+    const verb_interval = setInterval(() => {
+      verb_element.innerText = verbs[Math.floor(Math.random() * verbs.length)]
+    }, 2000)
+
+    return () => {
+      clearInterval(nouns_interval)
+      clearInterval(verb_interval)
+    }
   }, [])
 
   return (
@@ -154,8 +192,8 @@ const Hero: React.FC = () => {
               </p>
               <h1>Amber Williams.</h1>
               <h2>
-                I build <span className="Hero__things">things</span> for the
-                web.
+                I <span className="Hero__verb">build</span> <span> </span>
+                <span className="Hero__noun">things</span>
               </h2>
               <button
                 className="text-monospace text-gradient-blue mt-5"
