@@ -190,9 +190,9 @@ const Hero: React.FC = () => {
               <p className="text-monospace text-gradient-blue">
                 Hi, my name is
               </p>
-              <h1>Amber Williams.</h1>
+              <h1>Amber</h1>
               <h2>
-                I <span className="Hero__verb">build</span> <span> </span>
+                and I <span className="Hero__verb">build</span> <span> </span>
                 <span className="Hero__noun">things</span>
               </h2>
               <button
