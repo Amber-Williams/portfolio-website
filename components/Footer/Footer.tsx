@@ -55,7 +55,7 @@ const Footer: React.FC<FooterTypes> = ({ reversed }) => (
 
         <PageContainer>
           <p>
-            Made by <br /> Amber Williams with 💖
+            Made by <br /> Amber with ☕️
           </p>
         </PageContainer>
       </div>
