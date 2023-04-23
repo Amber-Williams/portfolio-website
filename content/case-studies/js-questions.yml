@@ -12,41 +12,37 @@ subtitle: A platform for JavaScript developers to ask and answer questions for r
 preview_image: /images/js-questions/preview.gif
 tech_stack: React, Redux, React-Spring, Node, Koa, PostGreSQL, Docker
 content: 
+  - |
+    <div class="text-center mt-5">
+      ## <a href="https://github.com/js-questions" target="_blank" rel="noreferrer">Repo here </a>
+    </div>
+    ### Introduction
+
+    JS Questions is a micro-tutoring platform created by a team of five developers with the goal of providing live help to developers of all skill levels when they get stuck on a coding challenge or a concept.
+
   - image: /images/js-questions/preview-screenshots.png
     classes: w-100 mb-5
-  - |
-    With the issue of being stuck on a coding challenge, problem or understanding a concept that all developers face from time to time…JS Questions was born.
-    
-    A team of five formed with a two week timeline. We decided to create the micro-tutoring platform known as JS Questions which allows developers of all skill levels to give and receive live help when they are stuck on a problem.
-    
-    In the design phase we first created an information architecture of how the user flow would work.
-  
-  - image: /images/js-questions/information-architecture.png
-    classes: w-70 border my-5
 
   - |
-    Then created a rough wireframe in Sketch and as they came together added high-fidelity vector graphics on top. Following this, we imported our design slides into Figma to create a prototype <a href="https://www.figma.com/proto/CvLuv0pjVBgH3EdxdpteRjl4/landing-pages?node-id=0%3A1&scaling=min-zoom" target="_blank" rel="noreferrer">( link here to prototype)</a> that was later used to perform user testing.
+    ### Planning and Research
+    During the planning phase, we created an information architecture to map out the user flow. We also created wireframes using Sketch and added high-fidelity vector graphics to create a prototype in Figma, which was used for user testing. Based on the feedback received during testing, we made changes to the UX design to emphasize both asking and answering questions.
 
-    During our user testing there were valuable findings that concluded we need to change some of our UX design. For example, we noticed two users were understanding they could pay to be helped, but did not quite understand that they could also help others as well. Thus having an emphasis on not just asking questions, but also performing help requests for other’s questions was implemented into the design.
-
-    All the while, we were forming a data model that would be used in our relational database. We really wanted to trim the fat, sort of speak, from the model and have something left that was very lean and clear to use.
+    We also created a data model for our relational database, focusing on simplicity and clarity. We then created endpoints for the front-end and back-end using apiary, allowing us to work independently until integration was stable enough to implement.
 
   - image: /images/js-questions/datamodel.png
     classes: w-50 border my-5
 
   - |
-    Following this we created end points the front-end and back end would connect through using apiary <a href="https://jsquestions.docs.apiary.io/#" target="_blank" rel="noreferrer">(Linked here). This way we could work independently on each end until the integration of the two was stable enough to implement.
+    ### Implementation
+    During the implementation phase, we had daily stand-up meetings to discuss the progress and assign tasks from an organized to-do list on Trello. In the back-end development, we used Node and Koa to create a server that utilized Socket.io and RESTful API for communication with the front-end. JSON web tokens were used for the security layer, and Sequelize was used for the database design with a PostGreSQL database.
+
+    For the front-end development, we used React, Redux, SASS, and React Spring. We also used local and session storage for persistent data and added a security layer. We containerized the back-end and front-end separately using Docker and added a seed file of mock data to pre-populate the database for testing.
 
   - image: /images/js-questions/endpoints.png
     classes: w-50 border my-5
 
   - |
-    During the build out, we had daily stand up meetings in the morning and assigned who would work on what that day from an organized todo list on Trello.
+    ### Go-live
+    As a team, we worked in an organized fashion and completed our MVP goal in less than two weeks. The JS Questions micro-tutoring platform now provides live help to developers of all skill levels, emphasizing both asking and answering questions, and utilizes a simple and clear data model with a relational database design.
 
-    Within the back-end development, we created a server using Node and Koa that utilized Socket.io and RESTful API to communicate with the front end. For the security layer JSON web token was used. For the database design, Sequelize was used with a PostGreSQL database.
-
-    As for the front-end development, we used React, Redux, SASS and React Spring. We also used the local and session storages to have persistent data for the user as well as add a security layer.
-
-    We later containerized our back-end and front-end with Docker in separate containers. Lastly we added a seed file of mock data to pre-populate the database for testing.
-
-    We as a team worked well in an organized fashion and completed our MVP goal in less then two weeks time. <a href="https://jsq-client.herokuapp.com/" target="_blank" rel="noreferrer">Have a click around on a live prototype of the JS questions project here. </a>
+    We used the free tier of Heroku to host the dockerized version of the app. It was fun while it lasted, but unfortunately Herkou has put an end to [free tiers](https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq)

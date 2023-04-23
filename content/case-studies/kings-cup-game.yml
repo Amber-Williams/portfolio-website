@@ -10,7 +10,8 @@ preview_image: /images/kings-cup/KC-bottles.png
 tech_stack: Javascript
 content: 
   - |
-    ## **Where to find the project**
-    [https://www.amberwilliams.io/kings-cup](https://www.amberwilliams.io/kings-cup)
+    ### Introduction
+    This the first game I created and while the code isn't much to look at, I still enjoy the concept of how maintainable it is given it's vanilla JavaScript and timelessly brings life into parties.
 
-    This was one the first game I ever created
+    #### Where to find the project
+    [https://www.amberwilliams.io/kings-cup](https://www.amberwilliams.io/kings-cup)

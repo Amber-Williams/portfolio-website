@@ -8,40 +8,42 @@ tags:
   - TypeScript
   - React
   - Amplify
-subtitle: Complete repurpose and gradual redesign from old cPanel hosted website with only HTML, CSS and some JavaScript to a AWS Amplify hosted website built with NextJS TypeScript with robust testing and linting. Also makes use of continuous deployment of git’s master branch for my portfolio’s repository.
+subtitle: A continuous project to showcase my skills and expertise in a professional and polished portfolio website
 preview_image: /images/portfolio/portfolio-preview.png
 tech_stack: NextJS, TypeScript, React
 content: 
   - |
-    #### 1. Planning
-      * Built for reusability, scalability, with testing in mind
-      * Git flow: Early on I wanted to create feature by feature commits squashed into one commit per feature -> PR -> merge to master and create new feature branches off the newest master to keep features clean
-      * Created a rough drawing mock up of how the app would work and components within each element
-  
+    ### Introduction
+    The website is built with NextJS, TypeScript, and React and hosted on AWS Amplify, featuring robust testing and linting. The project involved repurposing an old cPanel hosted website with only HTML, CSS, and some JavaScript to a modern, scalable, and reusable website with dynamic features.
+
   - image: /images/portfolio/porfolio-stack.jpg
     classes: w-70 border
 
   - |
-    #### 2. Building
-      * Next.js created basic app with React then refactored it using Typescript 
-      * Added Airbnb’s strict linter, Prettier for formatting early on with pre-commit hooks to help with clean code and faster iteration. Also added pre-push hook to check if type script was up to standards via Prettier
-          * I would have liked to of added in a stricter linter for Typescript like TSLint
-      * Bootstrap was added to help minimize time spent on custom styling
-      * Following this I knew I wanted to have dynamic routing used for each of the case studies to A) fetch the yaml file and B) fetch the appropriate information needed for the request
-      * Created and styled case study component page
-      * Created and styled case studies list component for index page
-      * Testing backbone was created to run tests before pushing commits, though in the future I want this to be done in a CircleCi test that runs on the pushes and is needed to pass before merging a PR into master.
     <br/>
-    
-    ####  3. Reproposing case study content from old version of website
-    <br/>
+    ### Planning and Research
+    My portfolio website was built with reusability, scalability, and SEO in mind. To optimize browser caching and improve search engine visibility, I decided to generate the site statically using Next.js and YAML files for content management.
+
+    To further ensure the code quality and maintainability, I implemented Git flow early on in the project. I created feature branches for each new functionality, then merged them into the master branch after code review and testing.
+
+    To make development smoother and faster, I set up a strict linting system and pre-commit hooks to keep the code clean and consistent.
+
   - |
-    #### 4. Connected domain to AWS Amplify for server hosting
-      * Amplify was connected to my portfolio-website repo’s master branch so continuous deploys are easy and seamless each update to master.
+    ### Implementation
+    After creating a rough mockup of the website's structure and components, I started building the site using Next.js and React. I later migrated the codebase to TypeScript for better type safety and maintainability.
+
+    To improve site performance, I implemented dynamic routing for each case study to fetch data from YAML files. This not only optimized browser caching but also helped with SEO by allowing search engines to crawl and index the site's content more efficiently.
+
+    I also added Bootstrap to minimize the time spent on custom styling and created a testing backbone to run tests before pushing commits
 
   - image: /images/portfolio/amplify-continuous-deploy.png
     classes: w-70 mb-5
 
   - |
-    #### 5. Redesign
-      * I'm currently in the process of a v3 redesign that involves much more dynamic features with a modern design. Some of which you'll notice is live currently!
+    ### Go-live
+    To host the website, I connected it to AWS Amplify and set up continuous deployment from the master branch of the repository. This made updating the site seamless and easy.
+
+    Currently, the site is live and running smoothly. However, I am constantly working on improving it, and I am currently in the process of a v3 redesign that will involve even more dynamic features and a modern design.
+  - |
+    ### On going efforts
+    Currently, I'm not a fan of the styling in the app and will be replacing it with a design system in the future
