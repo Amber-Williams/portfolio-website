@@ -128,6 +128,7 @@ const Hero: React.FC = () => {
 
           .Hero__page-curve {
             bottom: -1px;
+            width: 100%;
           }
 
           @media only screen and (max-width: 1080px) {
