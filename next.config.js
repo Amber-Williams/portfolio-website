@@ -1,9 +1,5 @@
-module.exports = async () => {
-  /**
-   * @type {import('next').NextConfig}
-   */
-  const nextConfig = {
-    /* config options here */
-  }
-  return nextConfig
+module.exports = {
+  serverRuntimeConfig: {
+    HT_API_KEY: process.env.HT_API_KEY, // Pass through env variables
+  },
 }
