@@ -106,7 +106,7 @@ export default Blogs
 
 export async function getServerSideProps() {
   const res = await fetch(
-    `https://admin.holeytriangle.com/items/posts?filter={ "status": { "_eq": "Published" }}`,
+    `https://admin.holeytriangle.com/items/posts?filter={ "status": { "_eq": "published" }}`,
     {
       headers: {
         'Content-Type': 'application/json',
