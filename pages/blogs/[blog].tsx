@@ -64,7 +64,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const blogId = context.resolvedUrl.replace('/blogs/', '')
 
   const res = await fetch(
-    `https://admin.holeytriangle.com/items/posts/${blogId}?filter={ "status": { "_eq": "Published" }}`,
+    `https://admin.holeytriangle.com/items/posts/${blogId}?filter={ "status": { "_eq": "published" }}`,
     {
       headers: {
         'Content-Type': 'application/json',
