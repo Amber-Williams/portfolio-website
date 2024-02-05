@@ -1,11 +1,12 @@
 import Markdown from 'markdown-to-jsx'
 import { GetServerSidePropsContext, NextPage } from 'next'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 import NavBar from '../../components/NavBar/NavBar'
 import PageContainer from '../../components/PageContainer/PageContainer'
+import * as BlogLib from '../../lib/blog'
 
 interface IBlog {
   id: string
@@ -21,6 +22,13 @@ interface IBlogProps {
 }
 
 const Blog: NextPage<IBlogProps> = ({ blog }) => {
+  const contentRef = React.useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    BlogLib.parseMermaidCodeBlock(contentRef)
+    BlogLib.parseLinks(contentRef)
+  }, [contentRef])
+
   if (!blog) {
     return <div>loading</div>
   }
@@ -46,7 +54,7 @@ const Blog: NextPage<IBlogProps> = ({ blog }) => {
         <NavBar />
         <main className="Blog__content">
           <PageContainer>
-            <div className="text-dark">
+            <div className="text-dark" ref={contentRef}>
               <Markdown>{blog.content}</Markdown>
               <br />
             </div>
