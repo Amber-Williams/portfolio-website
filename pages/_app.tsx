@@ -11,8 +11,9 @@ export default function MyApp({ Component, pageProps }) {
           max-width: 100vw;
           padding: 0;
           margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+            sans-serif;
         }
 
         * {
@@ -21,7 +22,7 @@ export default function MyApp({ Component, pageProps }) {
 
         .primary-font {
           color: #ffa500;
-        } 
+        }
 
         .nav-link {
           color: #ffa500;
@@ -32,7 +33,7 @@ export default function MyApp({ Component, pageProps }) {
         }
 
         .card {
-          box-shadow: -1px 0px 14px 0px rgba(0,0,0,.125);
+          box-shadow: -1px 0px 14px 0px rgba(0, 0, 0, 0.125);
         }
 
         .border {
@@ -49,7 +50,6 @@ export default function MyApp({ Component, pageProps }) {
           width: 70%;
         }
       `}</style>
-
     </React.Fragment>
   )
 }

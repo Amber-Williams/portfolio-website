@@ -1,12 +1,13 @@
 import Markdown from 'markdown-to-jsx'
 import moment from 'moment'
 import type { NextPage } from 'next'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import NavBar from '../components/NavBar/NavBar'
 import PageContainer from '../components/PageContainer/PageContainer'
+import * as BlogLib from '../lib/blog'
 
 interface IBlog {
   id: string
@@ -22,9 +23,15 @@ interface IBlogs {
 }
 
 const Blogs: NextPage<IBlogs> = ({ blogs }) => {
+  const contentRef = React.useRef<HTMLDivElement>(null)
   const [openedContentId, setOpenedContentId] = React.useState<string | null>(
     null
   )
+
+  useEffect(() => {
+    BlogLib.parseMermaidCodeBlock(contentRef)
+    BlogLib.parseLinks(contentRef)
+  }, [openedContentId])
 
   const formatDate = (date: string) => {
     return moment(date).format('LL')
@@ -46,11 +53,11 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
     <React.Fragment>
       <style jsx>
         {`
-          .CaseStudy {
+          .Blog {
             background-color: var(--primary-color);
           }
 
-          .CaseStudy__card {
+          .Blog__card {
             background-color: white;
             margin: 2rem;
             padding: 2rem;
@@ -67,13 +74,13 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
         `}
       </style>
 
-      <div className="CaseStudy">
+      <div className="Blog">
         <Header />
         <NavBar />
         <main>
           <PageContainer>
             {blogs.map((blog) => (
-              <div key={blog.id} className="CaseStudy__card">
+              <div key={blog.id} className="Blog__card">
                 <div onClick={() => onBlogClick(blog.id)}>
                   <h4>{blog.title}</h4>
                   <p>Last edited: {formatDate(blog.date_created)}</p>
@@ -87,7 +94,7 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
                   )}
                 </div>
                 {openedContentId === blog.id && (
-                  <div className="text-dark">
+                  <div className="text-dark" ref={contentRef}>
                     <Markdown>{blog.content}</Markdown>
                     <br />
                   </div>
