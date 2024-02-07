@@ -1,5 +1,4 @@
 import Markdown from 'markdown-to-jsx'
-import moment from 'moment'
 import type { NextPage } from 'next'
 import React, { useEffect } from 'react'
 
@@ -32,10 +31,6 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
     BlogLib.parseMermaidCodeBlock(contentRef)
     BlogLib.parseLinks(contentRef)
   }, [openedContentId])
-
-  const formatDate = (date: string) => {
-    return moment(date).format('LL')
-  }
 
   const onBlogClick = (id: string) => {
     if (openedContentId === id) {
@@ -83,7 +78,7 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
               <div key={blog.id} className="Blog__card">
                 <div onClick={() => onBlogClick(blog.id)}>
                   <h4>{blog.title}</h4>
-                  <p>Last edited: {formatDate(blog.date_created)}</p>
+                  <p>Last edited: {BlogLib.formatDate(blog.date_updated)}</p>
                   {openedContentId === blog.id ? (
                     <>
                       <p className="text-right">&#8592; Close </p>
