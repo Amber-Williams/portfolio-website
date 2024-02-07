@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { gsap } from 'gsap/dist/gsap'
 import Link from 'next/link'
+import React, { useEffect } from 'react'
 import { CaseStudyProps } from '../../types/case-study-types'
 import Tags from '../Tags/Tags'
-import { gsap } from 'gsap/dist/gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 interface CaseStudyListItemProps {
   study: CaseStudyProps
@@ -135,7 +135,9 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
 
             <div className="CaseStudyListItem__card-bottom d-flex col-12 p-3 w-100 justify-content-between">
               <Tags tags={tags} className="d-none d-md-flex" />
-              <p className="text-right">Read more &#8594;</p>
+              <p className="font-weight-bold text-right text-uppercase">
+                Read more &#8594;
+              </p>
             </div>
           </div>
         </Link>

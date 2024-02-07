@@ -1,7 +1,7 @@
 import React from 'react'
-import CaseStudyListItem from './CaseStudyListItem'
-import PageContainer from '../PageContainer/PageContainer'
 import { CaseStudyListProps } from '../../types/case-study-types'
+import PageContainer from '../PageContainer/PageContainer'
+import CaseStudyListItem from './CaseStudyListItem'
 
 const CaseStudiesList: React.FC<CaseStudyListProps> = ({ allCaseStudies }) => {
   const list = allCaseStudies.map((study, index) => (
@@ -20,13 +20,9 @@ const CaseStudiesList: React.FC<CaseStudyListProps> = ({ allCaseStudies }) => {
             width: 100%;
             overflow: hidden;
           }
-          .CaseStudiesList h3 {
-            margin: 0 6rem;
-          }
 
           @media only screen and (max-width: 1450px) {
             .CaseStudiesList {
-              padding: 1rem;
               width: calc(100% - 4rem);
               margin: 0 auto;
             }
@@ -35,7 +31,6 @@ const CaseStudiesList: React.FC<CaseStudyListProps> = ({ allCaseStudies }) => {
           @media only screen and (max-width: 1080px) {
             .CaseStudiesList h3 {
               font-size: 3rem;
-              margin: 0;
             }
           }
 
@@ -53,7 +48,7 @@ const CaseStudiesList: React.FC<CaseStudyListProps> = ({ allCaseStudies }) => {
       </style>
       <PageContainer>
         <div className="CaseStudiesList">
-          <h3 className="text-gradient-orange text-right">
+          <h3 className="text-gradient-orange text-left">
             Some things I&apos;ve built
           </h3>
           {list ? list : 'loading...'}

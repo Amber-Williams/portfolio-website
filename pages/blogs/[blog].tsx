@@ -3,7 +3,6 @@ import { GetServerSidePropsContext, NextPage } from 'next'
 import React, { useEffect } from 'react'
 
 import Footer from '../../components/Footer/Footer'
-import Header from '../../components/Header/Header'
 import NavBar from '../../components/NavBar/NavBar'
 import PageContainer from '../../components/PageContainer/PageContainer'
 import * as BlogLib from '../../lib/blog'
@@ -50,7 +49,6 @@ const Blog: NextPage<IBlogProps> = ({ blog }) => {
       </style>
 
       <div className="Blog">
-        <Header />
         <NavBar />
         <main className="Blog__content">
           <PageContainer>

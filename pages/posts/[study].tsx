@@ -1,14 +1,13 @@
-import React from 'react'
-import { NextPage } from 'next'
 import Markdown from 'markdown-to-jsx'
+import { NextPage } from 'next'
+import React from 'react'
 
-import { getAllPosts, getAPost } from '../../lib/api'
-import Header from '../../components/Header/Header'
-import PageContainer from '../../components/PageContainer/PageContainer'
-import { CaseStudyProps } from '../../types/case-study-types'
-import NavBar from '../../components/NavBar/NavBar'
-import Footer from '../../components/Footer/Footer'
 import CaseStudyPageHero from '../../components/CaseStudyPageHero/CaseStudyPageHero'
+import Footer from '../../components/Footer/Footer'
+import NavBar from '../../components/NavBar/NavBar'
+import PageContainer from '../../components/PageContainer/PageContainer'
+import { getAllPosts, getAPost } from '../../lib/api'
+import { CaseStudyProps } from '../../types/case-study-types'
 
 interface Props {
   study: CaseStudyProps
@@ -69,7 +68,6 @@ const CaseStudy: NextPage<Props> = ({ study }) => {
       </style>
 
       <div className="CaseStudy">
-        <Header />
         <NavBar />
         <CaseStudyPageHero study={study} />
         <main className="CaseStudy__content">
