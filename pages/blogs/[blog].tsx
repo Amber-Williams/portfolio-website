@@ -55,6 +55,9 @@ const Blog: NextPage<IBlogProps> = ({ blog }) => {
         <main className="Blog__content">
           <PageContainer>
             <div className="text-dark" ref={contentRef}>
+              <h1>{blog.title}</h1>
+              <p>Last edited: {BlogLib.formatDate(blog.date_updated)}</p>
+              <hr />
               <Markdown>{blog.content}</Markdown>
               <br />
             </div>

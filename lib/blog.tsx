@@ -1,3 +1,4 @@
+import moment from 'moment'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
@@ -50,4 +51,8 @@ export const parseLinks = async (
       el.target = '_blank'
     })
   }
+}
+
+export const formatDate = (date: string) => {
+  return moment(date).format('LL')
 }
