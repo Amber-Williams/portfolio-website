@@ -3,7 +3,6 @@ import type { NextPage } from 'next'
 import React, { useEffect } from 'react'
 
 import Footer from '../components/Footer/Footer'
-import Header from '../components/Header/Header'
 import NavBar from '../components/NavBar/NavBar'
 import PageContainer from '../components/PageContainer/PageContainer'
 import * as BlogLib from '../lib/blog'
@@ -70,7 +69,6 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
       </style>
 
       <div className="Blog">
-        <Header />
         <NavBar />
         <main>
           <PageContainer>
@@ -81,11 +79,15 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
                   <p>Last edited: {BlogLib.formatDate(blog.date_updated)}</p>
                   {openedContentId === blog.id ? (
                     <>
-                      <p className="text-right">&#8592; Close </p>
+                      <p className="font-weight-bold text-uppercase text-right">
+                        &#8592; Close{' '}
+                      </p>
                       <hr />
                     </>
                   ) : (
-                    <p className="text-right">Read more &#8594;</p>
+                    <p className="font-weight-bold text-uppercase text-right">
+                      Read more &#8594;
+                    </p>
                   )}
                 </div>
                 {openedContentId === blog.id && (
