@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
 import moment from 'moment'
-import ProfileImage from './ProfileImage'
+import React, { useEffect } from 'react'
 import PageContainer from '../PageContainer/PageContainer'
+import ProfileImage from './ProfileImage'
 
 const About: React.FC = () => {
   useEffect(() => {
@@ -91,23 +91,24 @@ const About: React.FC = () => {
             <div className="d-flex flex-column justify-content-center">
               <h3 className="text-gradient-blue">About me</h3>
               <p>
-                I&apos;ve been drawn to the world of computers and the internet
-                since I was young and I&apos;ve been professionally programming
-                for <span className="developer_since"></span>. My love for
-                programming and creative problem solving has only grown since
-                then, and I&apos;m always looking for new challenges to tackle
+                I&apos;ve been professionally programming for{' '}
+                <span className="developer_since"></span>. During this period, I
+                have dedicated myself to the art of programming, honing my
+                skills in creative problem-solving and continually seeking out
+                complex challenges to enhance my expertise.
                 <br />
                 <br />
-                Lately, I&apos;ve been particularly excited about exploring
-                projects that incorporate machine learning models into a full
-                stack project. I believe that these types of projects represent
-                the future of software engineering, and I&apos;m thrilled to be
-                at the forefront of this exciting field
+                I&apos;ve concentrated on integrating machine learning into
+                full-stack projects, deploying them cost-effectively while
+                ensuring fault tolerance. Recently, I&apos;ve been blogging
+                about my experiences to demystify tech and make the project code
+                accessible to all. It&apos;s an exciting journey, pushing the
+                boundaries of technology and sharing insights along the way.
                 <br />
                 <br />
-                When I&apos;m not busy coding, you can find me bouldering around
-                gyms in London, brushing up my Italian, experimenting with new
-                recipes in the kitchen, or enjoying a nice bottle of red wine
+                When I&apos;m not coding, I enjoy bouldering, learning new plant
+                based recipes, travelling as a local and have been learning to
+                draw as well.
               </p>
             </div>
             <ProfileImage />
