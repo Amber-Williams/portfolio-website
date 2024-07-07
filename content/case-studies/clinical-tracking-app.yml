@@ -3,36 +3,36 @@ order: 4
 template: case-study
 hero_image: /images/backgrounds/bg-plant-1.jpg
 title: Clinical skin tracker mobile application
-tags: 
+tags:
   - Mobile
   - iOS
   - Android
 subtitle: iOS and Android application that enables clinicions to conduct clinical trials effectivity
 preview_image: /images/clinical-tracking-app/faceoverlay.png
 tech_stack: CSS, HTML, JavaScript, iOS, Android, MySQL
-content: 
+content:
   - |
-    ### Introduction
+    ## Introduction
     The client wanted to create a clinical mobile application that would allow for consistent result images for showing clinical efficacy. Additionally, the app was designed to enable app-users to complete questionnaires, which would be collected by clinical physicians for data analysis in clinical studies
 
   - |
-    ### Planning and Research
+    ## Planning and Research
     To ensure the successful implementation of the application, we first created an information architecture that would allow developers to understand the app page progression. To create consistency with result images, I designed custom image overlays, such as a hand or face, for app-users to line up their body parts. A back-end needed to be created that the clinical physicians would use to collect app-user results and create new questionnaire studies for the app-users. <a href="https://xd.adobe.com/view/99398140-35d4-4794-a12e-371df116b26a/" target="_blank" rel="noreferrer">Link to backend database prototype</a>.
 
   - image: /images/clinical-tracking-app/faceoverlay.png
-    classes:  w-70 border my-5
+    classes: w-70 border my-5
 
   - image: /images/clinical-tracking-app/handoverlay.png
-    classes:  w-50 border my-5
+    classes: w-50 border my-5
   - |
-    ### Implementation
+    ## Implementation
     After the planning and research phase, we created a back-end for the clinical physicians to collect app-user results and create new questionnaire studies for app-users. I led the team in developing a dynamic and robust case study creation tool, enabling clinicians to customize trialed studies to their specific needs. I also designed and tested a dynamic web admin interface that administrators could use to manipulate questionnaires for users to submit through the admin interface.
-    
+
   - image: /images/clinical-tracking-app/results-screen.png
     classes: w-25 border my-5
-    
+
   - |
-    #### Go-Live
+    ## Go-Live
     Once the prototype was completed, we performed quality assurance testing on all features and functions to ensure that app-users would not run into issues on launch.
-    
+
     We soft launched the mobile application and it is currently in use for clinical studies

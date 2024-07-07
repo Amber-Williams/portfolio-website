@@ -117,7 +117,7 @@ const ProfileImage: React.FC = () => {
           className="text-center"
           onClick={(e: React.MouseEvent<HTMLElement>) => stop_gif(e)}
         >
-          click here to stop gif
+          <small className="text-muted">click here to stop gif</small>
         </p>
         <img className="ProfileImage__swirl" src="/images/vectors/swirl.svg" />
         <img className="ProfileImage__xx" src="/images/vectors/xx.svg" />

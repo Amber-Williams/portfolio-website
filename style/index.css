@@ -1,17 +1,40 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
-/* 
-    How to use fonts:
-        font-family: 'PT Sans', sans-serif;
-        font-family: 'Share Tech Mono', monospace;
-*/
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 :root {
+    /* colors */
     --primary-color: #040d21;
     --secondary-color: #a2facf;
+    --accent-color: #ffb370;
+    --tri-color: #6105ff;
+    /* colors text */
     --primary-text-color: rgb(161 160 160);
     --secondary-text-color: rgba(255,255,255, 0.8);
+    /* colors extended */
+    --primary-color-100: #040d21;
+    --primary-color-90: #040d2190;
+    --primary-color-80: #040d2180;
+    --primary-color-70: #040d2170;
+    --primary-color-60: #040d2160;
+    --primary-color-50: #040d2150;
+    --primary-color-40: #040d2140;
+    --primary-color-30: #040d2130;
+    --primary-color-20: #040d2120;
+    --primary-color-10: #040d2110;
+    --accent-color-darker: #bf8451;
+
+    /* fonts */
+    --font-header: 'Share Tech Mono', monospace, serif;
+    --font-body: 'Source Sans 3', sans-serif;
+    --font-sans: var(--font-body);
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.75rem;
+    --font-size-h4: 1.5rem;
+    --font-size-h5: 1.25rem;
+    --font-size-h6: 1rem;
+    --font-size-p: 1rem;
 }
 
 a:link {
@@ -36,14 +59,14 @@ a:active {
 
 p, h1, h2, h3, h4, h5, h6, li {
     color: var(--primary-text-color);
-    font-family: 'PT Sans';
+    font-family: var(--font-body);
 }
 
 h3 {
     font-weight: bolder;
     font-size: 4rem;
     padding-bottom: 1rem;
-    font-family: 'Share Tech Mono';
+    font-family: var(--font-header);
 }
 
 .text-gradient-blue {

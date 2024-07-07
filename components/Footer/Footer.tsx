@@ -1,6 +1,6 @@
 import React from 'react'
-import PageContainer from '../PageContainer/PageContainer'
 import { FooterTypes } from '../../types/footer-types'
+import PageContainer from '../PageContainer/PageContainer'
 
 const Footer: React.FC<FooterTypes> = ({ reversed }) => (
   <React.Fragment>
@@ -8,12 +8,12 @@ const Footer: React.FC<FooterTypes> = ({ reversed }) => (
       {`
         .Footer {
           background-color: var(--primary-color);
-          width: 100%;
           margin-top: 12rem;
           padding: 16px;
           text-align: center;
-          position: relative;
+          width: 100vw;
           padding-top: 4rem;
+          position: relative;
         }
 
         .Footer img {
@@ -39,26 +39,24 @@ const Footer: React.FC<FooterTypes> = ({ reversed }) => (
         }
       `}
     </style>
-    <footer>
-      <div className={reversed ? 'Footer Footer--reversed' : 'Footer'}>
-        {reversed ? (
-          <img
-            className="position-absolute z-1"
-            src="/images/vectors/page-curve--dark.svg"
-          />
-        ) : (
-          <img
-            className="position-absolute z-1"
-            src="/images/vectors/page-curve.svg"
-          />
-        )}
+    <footer className={reversed ? 'Footer Footer--reversed' : 'Footer'}>
+      {reversed ? (
+        <img
+          className="position-absolute z-1"
+          src="/images/vectors/page-curve--dark.svg"
+        />
+      ) : (
+        <img
+          className="position-absolute z-1"
+          src="/images/vectors/page-curve.svg"
+        />
+      )}
 
-        <PageContainer>
-          <p>
-            Made by <br /> Amber with ☕️
-          </p>
-        </PageContainer>
-      </div>
+      <PageContainer>
+        <p>
+          Made by <br /> Amber with ☕️
+        </p>
+      </PageContainer>
     </footer>
   </React.Fragment>
 )

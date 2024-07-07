@@ -1,8 +1,8 @@
-import Markdown from 'markdown-to-jsx'
 import { NextPage } from 'next'
 import React from 'react'
 
 import CaseStudyPageHero from '../../components/CaseStudyPageHero/CaseStudyPageHero'
+import CustomMarkdown from '../../components/CustomMarkdown'
 import Footer from '../../components/Footer/Footer'
 import NavBar from '../../components/NavBar/NavBar'
 import PageContainer from '../../components/PageContainer/PageContainer'
@@ -34,10 +34,7 @@ const getContent = (contents) => {
         {content.image && content.image.indexOf('/images/') > -1 ? (
           getImage(content.image, content.classes)
         ) : typeof content === 'string' ? (
-          <div className="text-dark">
-            <Markdown>{content}</Markdown>
-            <br />
-          </div>
+          <CustomMarkdown>{content}</CustomMarkdown>
         ) : (
           getDocLink(content.link_, content.text)
         )}
@@ -48,7 +45,7 @@ const getContent = (contents) => {
 
 const CaseStudy: NextPage<Props> = ({ study }) => {
   if (!study) {
-    return <div> loading</div>
+    return <div>loading</div>
   }
 
   return (
@@ -70,9 +67,11 @@ const CaseStudy: NextPage<Props> = ({ study }) => {
       <div className="CaseStudy">
         <NavBar />
         <CaseStudyPageHero study={study} />
-        <main className="CaseStudy__content">
-          <PageContainer>{getContent(study.content)}</PageContainer>
-        </main>
+        <PageContainer>
+          <main className="CaseStudy__content">
+            {getContent(study.content)}
+          </main>
+        </PageContainer>
         <Footer reversed />
       </div>
     </React.Fragment>

@@ -1,7 +1,8 @@
-import Markdown from 'markdown-to-jsx'
 import { GetServerSidePropsContext, NextPage } from 'next'
 import React, { useEffect } from 'react'
 
+import Avatar from '../../components/Avatar'
+import CustomMarkdown from '../../components/CustomMarkdown'
 import Footer from '../../components/Footer/Footer'
 import NavBar from '../../components/NavBar/NavBar'
 import PageContainer from '../../components/PageContainer/PageContainer'
@@ -39,28 +40,47 @@ const Blog: NextPage<IBlogProps> = ({ blog }) => {
           .Blog {
             background-color: var(--primary-color);
           }
-          .Blog__content {
+          .Blog main {
             background-color: white;
             margin: 0 2rem;
             padding: 2rem;
             border-radius: 6px;
+          }
+
+          .Blog h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
           }
         `}
       </style>
 
       <div className="Blog">
         <NavBar />
-        <main className="Blog__content">
-          <PageContainer>
-            <div className="text-dark" ref={contentRef}>
-              <h1>{blog.title}</h1>
-              <p>Last edited: {BlogLib.formatDate(blog.date_updated)}</p>
+        <PageContainer>
+          <main>
+            <div ref={contentRef}>
+              <h1 className="text-dark">{blog.title}</h1>
+              <div className="d-flex flex-row align-items-center">
+                <div className="mr-3">
+                  <Avatar />
+                </div>
+                <div className="d-flex flex-column">
+                  <p className="mb-0">
+                    <b>Amber Williams</b>
+                  </p>
+                  <p className="mb-0">
+                    Last edited - {BlogLib.formatDate(blog.date_updated)}
+                  </p>
+                </div>
+              </div>
               <hr />
-              <Markdown>{blog.content}</Markdown>
+              <div className="Blog__content">
+                <CustomMarkdown>{blog.content}</CustomMarkdown>
+              </div>
               <br />
             </div>
-          </PageContainer>
-        </main>
+          </main>
+        </PageContainer>
         <Footer reversed />
       </div>
     </React.Fragment>
@@ -73,14 +93,20 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const blogId = context.resolvedUrl.replace('/blogs/', '')
 
   const res = await fetch(
-    `https://admin.holeytriangle.com/items/posts/${blogId}?filter={ "status": { "_eq": "published" }}`,
+    `${process.env.CMS_SERVER}/items/posts/${blogId}?filter={ "status": { "_eq": "published" }}`,
     {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.HT_API_KEY}`,
+        Authorization: `Bearer ${process.env.CMS_API_KEY}`,
       },
     }
   )
+  if (res.status === 401) {
+    console.error('Unauthorized access to API.')
+    return {
+      notFound: true,
+    }
+  }
   const data = await res.json()
 
   if (!data || data.errors) {
