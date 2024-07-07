@@ -1,7 +1,7 @@
-import Markdown from 'markdown-to-jsx'
 import type { NextPage } from 'next'
 import React, { useEffect } from 'react'
 
+import CustomMarkdown from '../components/CustomMarkdown'
 import Footer from '../components/Footer/Footer'
 import NavBar from '../components/NavBar/NavBar'
 import PageContainer from '../components/PageContainer/PageContainer'
@@ -49,6 +49,14 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
         {`
           .Blog {
             background-color: var(--primary-color);
+            min-height: 100vh;
+            position: relative;
+          }
+
+          .BlogFooter {
+            position: absolute;
+            bottom: 0;
+            pointer-events: none;
           }
 
           .Blog__card {
@@ -76,23 +84,28 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
               <div key={blog.id} className="Blog__card">
                 <div onClick={() => onBlogClick(blog.id)}>
                   <h4>{blog.title}</h4>
-                  <p>Last edited: {BlogLib.formatDate(blog.date_updated)}</p>
+                  <p>
+                    By Amber Williams | Last updated on{' '}
+                    {BlogLib.formatDate(blog.date_updated)}
+                  </p>
                   {openedContentId === blog.id ? (
                     <>
-                      <p className="font-weight-bold text-uppercase text-right">
+                      <p className="text-uppercase text-right">
                         &#8592; Close{' '}
                       </p>
                       <hr />
                     </>
                   ) : (
-                    <p className="font-weight-bold text-uppercase text-right">
+                    <p className="text-uppercase text-right">
                       Read more &#8594;
                     </p>
                   )}
                 </div>
                 {openedContentId === blog.id && (
-                  <div className="text-dark" ref={contentRef}>
-                    <Markdown>{blog.content}</Markdown>
+                  <div ref={contentRef}>
+                    <CustomMarkdown hideH1={true}>
+                      {blog.content}
+                    </CustomMarkdown>
                     <br />
                   </div>
                 )}
@@ -100,7 +113,9 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
             ))}
           </PageContainer>
         </main>
-        <Footer reversed />
+        <div className="BlogFooter">
+          <Footer reversed />
+        </div>
       </div>
     </React.Fragment>
   )
@@ -110,14 +125,20 @@ export default Blogs
 
 export async function getServerSideProps() {
   const res = await fetch(
-    `https://admin.holeytriangle.com/items/posts?filter={ "status": { "_eq": "published" }}`,
+    `${process.env.CMS_SERVER}/items/posts?filter={ "status": { "_eq": "published" }}`,
     {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.HT_API_KEY}`,
+        Authorization: `Bearer ${process.env.CMS_API_KEY}`,
       },
     }
   )
+  if (res.status === 401) {
+    console.error('Unauthorized access to API.')
+    return {
+      notFound: true,
+    }
+  }
   const data = await res.json()
 
   if (!data) {

@@ -42,20 +42,6 @@ const About: React.FC = () => {
             width: 100%;
           }
 
-          .About h1 {
-            font-weight: 800;
-            font-family: 'Open Sans', sans-serif;
-            color: white;
-            font-size: 3rem;
-          }
-
-          .About h2 {
-            font-weight: 400;
-            font-family: 'PT Sans', sans-serif;
-            color: white;
-            font-size: 1.5rem;
-          }
-
           @media only screen and (max-width: 1450px) {
             .About {
               width: calc(100% - 4rem);

@@ -3,46 +3,48 @@ order: 1
 template: case-study
 hero_image: /images/backgrounds/bg-plant-4.jpg
 title: Time tracking application
-tags: 
-  - Nextjs
-  - Node
+tags:
   - React
-  - NoSQL
-  - Serverless
-  - AWS Cognito
+  - Python
+  - Nextjs
   - FastAPI
-  - PostgreSQL
   - SQLAlchemy
 subtitle: Inspired by the book Deepwork, this app takes a deep dive into how you can optimize your time in meaningful ways
 preview_image: /images/time-tracker/app-icon.png
 tech_stack: Nextjs, React, Node, Express, Amplify Serverless, AWS Cognito, FastAPI, PostgreSQL, SQLAlchemy
-content: 
+content:
   - |
-    ### Introduction
+    ## Introduction
     The Time Tracking Application is designed to help users track their daily activities and gain insights into how they can optimize their time in meaningful ways. Users can track different entry types like "Sleeping", "Working" or even "Dancing" and visualize their progress over time.
 
-    #### Where to find the project
-    Development version of application is hosted [here](https://master.d7w45zzpmjkiw.amplifyapp.com/)
+    ## Where to find the project
+    <small>Habit tracking service is no longer hosted and won't load in the app.</small> 
+
+    <a href="https://master.d7w45zzpmjkiw.amplifyapp.com" class="button">View app</a>
+
     <br/>
-    username: `test-test-test`
     <br/>
-    pass: `OmgWow7117!`
+
+    - Username: `test-test-test`
+    - Password: `OmgWow7117!`
+    - <a href="https://github.com/Amber-Williams/cultivator">View tracking service code</a>
+    - <a href="https://github.com/Amber-Williams/time-tracker-api">View client code</a>
+
     <br/>
-    - note: Habit tracking feature isn't hosted so won't load in the development version of the app [Link to habit tracking service's code](https://github.com/Amber-Williams/time-tracker-api)
 
     The application is built using a Next.js and React frontend, with a Node and Express backend. It is deployed using the Amplify Serverless framework, with user authentication handled by AWS Cognito. The database uses a NoSQL approach, with FastAPI and PostgreSQL, along with SQLAlchemy, being used for the habit tracking feature.
-    
+
   - image: /images/time-tracker/demo.gif
     classes: w-70 border mt-3 mb-5
 
   - |
-    ### Planning and Research
+    ## Planning and Research
     The project began with determining the requirements and goals for the application, identifying the technologies that would be needed. Once this was done, then began research on each technology, identifying the best practices and optimal ways to integrate them into the project.
 
     Following this created a detailed project plan that outlined the tasks, timelines, and resources required for the development process. The plan was reviewed and revised multiple times to ensure that all aspects of the project were accounted for.
 
   - |
-    ### Implementation
+    ## Implementation
 
     The development process began with the creation of the frontend using Next.js and React. Then created the backend using Node and Express, with the Amplify Serverless framework used for deployment.
 
@@ -51,7 +53,7 @@ content:
     Using an agile development approach, with regular code reviews, testing, and continuous integration and deployment. This allowed for quick identification and resolution of any issues that arose during development.
 
   - |
-    ### Go-live
+    ## Go-live
     The application was deployed using the Amplify Serverless framework, with user authentication handled by AWS Cognito. Then conducted a user acceptance test, collecting feedback from a group of beta testers. The feedback was reviewed and used to make improvements to the application before an official launch.
 
     Here's how it looked at the time
@@ -60,5 +62,5 @@ content:
     classes: w-70 border mt-3 mb-5
 
   - |
-    ### Conclusion
+    ## Conclusion
     The app following launch was given a face lift and looks better today. However, since I've paused working on the project in place of other more interesting projects

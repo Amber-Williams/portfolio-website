@@ -1,5 +1,6 @@
 module.exports = {
   serverRuntimeConfig: {
-    HT_API_KEY: process.env.HT_API_KEY, // Pass through env variables
+    CMS_API_KEY: process.env.CMS_API_KEY,
+    CMS_SERVER: process.env.CMS_SERVER,
   },
 }

@@ -3,33 +3,27 @@ order: 5
 template: case-study
 hero_image: /images/backgrounds/bg-plant-3.jpg
 title: Multi-screen party game
-tags: 
+tags:
   - Web sockets
-  - React
-  - Redux
-  - Node
-  - NoSQl
 subtitle: Real-time multi-screen party game that allows users in a single room to play together through prompts via a centralized screen
 preview_image: /images/media-madness/preview.png
 tech_stack: Node, React, Socket.io, MongoDB, and Giphy API
-content: 
+content:
   - |
-    <div class="text-center mt-5">
-      ## <a href="https://github.com/Amber-Williams/Media-Madness" target="_blank" rel="noreferrer">Repo here </a>
-    </div>
-    ### Introduction
+    ## Introduction
     In this case study, we will discuss the development of a multi-screen party game that allows users in a single room to play together through prompts via a centralized screen that everyone can see and submit answers with their phones. The game has its own allocated room, so many users globally can play at a time. The project was built using Node, React, Socket.io, MongoDB, and Giphy API.
 
+    <a href="https://github.com/Amber-Williams/Media-Madness" class="button">View code</a>
 
   - image: /images/media-madness/preview.png
     classes: w-70 border my-5 p-3 bg-white
-  
+
   - |
-    ### Planning and Research
+    ## Planning and Research
     During the planning and research phase, I focused on finding the best way to architect the application to work with live-time data for closed groups in game rooms, despite having a limited schedule. I conducted extensive research to determine the optimal information architecture and layout for the required screens, while also taking into account the needs of the target audience. The resulting design was intuitive and user-friendly, enabling users to easily navigate the application and engage with the game in a seamless manner.
 
   - |
-    ### Implementation
+    ## Implementation
 
     I needed question prompts for users to submit GIFs to and they had to be humorous. I was able to generate [688 of the type questions](https://github.com/Amber-Williams/Media-Madness/blob/master/server/helpers/questions.json).
 
@@ -40,9 +34,9 @@ content:
     Once the above was completed, I set up a MongoDB database table to capture each GIF submission to calculate winners/round stats. The database table was cleared when all users disconnected from the room, making it cost-effective
 
   - |
-    ### Testing
+    ## Testing
     I tested multi-user sessions and core game features using Selenium. I to test multi-user I spawned 3 screen contexts for each user. The tests were written in an E2E fashion where both client and the server were required to be running locally. This assisted in a 5x development speed over manually testing the application as features were added
 
   - |
-    ### Go-live
-    I used the free tier of Heroku to host the dockerized version of the app. It was fun while it lasted, but unfortunately Herkou has put an end to [free tiers](https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq)
+    ## Go-live
+    I used the free tier of Heroku to host the dockerized version of the app. It was fun while it lasted, but unfortunately Herkou has put an end to [free tiers](https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq).

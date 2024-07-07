@@ -70,12 +70,12 @@ const BlogsSection: React.FC = () => {
               <h3 className="text-gradient-green">Blogs</h3>
               <a href="/blog">
                 <p>
-                  <small className="text-muted">
-                    This section is currently under construction, so the
-                    selection may be limited.
-                  </small>
+                  My personal blog, where I share my thoughts, experiences, and
+                  insights as a software engineer. Join me as I explore the
+                  latest trends, technologies, and best practices in the
+                  ever-evolving world of software development.
                 </p>
-                <p className="font-weight-bold text-uppercase text-right mt-3 bold text-gradient-green">
+                <p className="text-uppercase text-right mt-3 text-gradient-green">
                   Read more &#8594;
                 </p>
               </a>

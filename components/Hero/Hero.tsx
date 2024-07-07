@@ -91,11 +91,13 @@ const Hero: React.FC = () => {
             color: var(--secondary-text-color);
             font-weight: bolder;
             font-size: 4rem;
+            font-weight: 600;
           }
 
           .Hero h2 {
             font-weight: bolder;
             font-size: 4rem;
+            font-weight: 500;
           }
 
           .Hero p {
@@ -197,7 +199,7 @@ const Hero: React.FC = () => {
                 <span className="Hero__noun">things</span>
               </h2>
               <button
-                className="text-monospace text-gradient-blue mt-5"
+                className="text-monospace text-gradient-blue mt-5 text-uppercase"
                 onClick={() =>
                   (location.href = 'mailto:amberwilliamsdev@gmail.com')
                 }

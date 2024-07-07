@@ -9,21 +9,28 @@ export default function MyApp({ Component, pageProps }) {
       <Head>
         <title>Amber&apos;s portfolio</title>
       </Head>
-
-      <Component {...pageProps} />
+      <div className="App">
+        <Component {...pageProps} />
+      </div>
       <style jsx global>{`
         html,
         body {
-          max-width: 100vw;
           padding: 0;
           margin: 0;
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
+          max-width: 100vw;
+          height: 100%;
         }
 
         * {
           box-sizing: border-box;
+        }
+
+        #__next {
+          max-width: 100vw;
+          overflow-x: hidden;
         }
 
         .primary-font {

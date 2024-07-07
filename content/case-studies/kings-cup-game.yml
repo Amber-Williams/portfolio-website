@@ -3,15 +3,15 @@ order: 6
 template: case-study
 hero_image: /images/backgrounds/bg-plant-1.jpg
 title: Kings cup game
-tags: 
-  - Javascript
+tags:
+  -
 subtitle: Make my own version of the Kings cup drinking game
 preview_image: /images/kings-cup/KC-bottles.png
 tech_stack: Javascript
-content: 
+content:
   - |
-    ### Introduction
+    ## Introduction
     This the first game I created and while the code isn't much to look at, I still enjoy the concept of how maintainable it is given it's vanilla JavaScript and timelessly brings life into parties.
 
-    #### Where to find the project
-    [https://www.amberwilliams.io/kings-cup](https://www.amberwilliams.io/kings-cup)
+    <a href="https://www.amberwilliams.io/kings-cup" class="button">Play game in new tab</a>
+    <iframe src="https://www.amberwilliams.io/kings-cup" title="Kings Cup Game" class="w-100 border my-5" height="1000"></iframe>

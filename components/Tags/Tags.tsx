@@ -31,7 +31,7 @@ const Tag: React.FC<TagProps> = ({ tags, className }) => {
         `}
       </style>
 
-      <ul className={`Tags m-0 ${className}`}>[{tagList}]</ul>
+      <ul className={`Tags m-0 ${className}`}>{tagList}</ul>
     </React.Fragment>
   )
 }

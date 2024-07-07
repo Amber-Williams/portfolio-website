@@ -12,11 +12,11 @@ const CaseStudyPageHero: React.FC<Props> = ({ study }) => (
         .CaseStudyPageHero h1 {
           z-index: 1;
           position: relative;
-          color: white;
+          color: var(--primary-color);
           margin-top: 80px;
           text-align: center;
           font-weight: bold;
-          text-shadow: 1px 1px 12px black;
+          text-transform: uppercase;
         }
 
         .CaseStudyPageHero {
@@ -24,19 +24,19 @@ const CaseStudyPageHero: React.FC<Props> = ({ study }) => (
           overflow: hidden;
           position: relative;
           margin-bottom: 20px;
-          border-top: 3px solid white;
-          border-bottom: 3px solid white;
+          background-color: var(--primary-color);
         }
 
         .CaseStudyPageHero__background {
           width: 100%;
           position: absolute;
           z-index: 0;
-          opacity: 0.2;
+          opacity: 1;
+          filter: invert(1) blur(3px) opacity(0.7);
         }
       `}
     </style>
-    <div className="CaseStudyPageHero ">
+    <div className="CaseStudyPageHero">
       <img className="CaseStudyPageHero__background" src={study.hero_image} />
       <h1>{study.title}</h1>
     </div>

@@ -135,9 +135,7 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
 
             <div className="CaseStudyListItem__card-bottom d-flex col-12 p-3 w-100 justify-content-between">
               <Tags tags={tags} className="d-none d-md-flex" />
-              <p className="font-weight-bold text-right text-uppercase">
-                Read more &#8594;
-              </p>
+              <p className="text-right text-uppercase">Read more &#8594;</p>
             </div>
           </div>
         </Link>
