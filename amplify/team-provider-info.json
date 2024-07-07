@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-portfoliowebsite-dev-ec795-authRole",
+      "UnauthRoleArn": "arn:aws:iam::838197045453:role/amplify-portfoliowebsite-dev-ec795-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::838197045453:role/amplify-portfoliowebsite-dev-ec795-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-portfoliowebsite-dev-ec795-deployment",
+      "UnauthRoleName": "amplify-portfoliowebsite-dev-ec795-unauthRole",
+      "StackName": "amplify-portfoliowebsite-dev-ec795",
+      "StackId": "arn:aws:cloudformation:us-east-1:838197045453:stack/amplify-portfoliowebsite-dev-ec795/96169130-3ca0-11ef-a9cb-0ecdaabeb69b",
+      "AmplifyAppId": "dr1bq238y9vt5"
+    }
+  }
+}
