@@ -3808,10 +3808,10 @@
   resolved "https://registry.yarnpkg.com/@kamilkisiela/fast-url-parser/-/fast-url-parser-1.1.4.tgz#9d68877a489107411b953c54ea65d0658b515809"
   integrity sha512-gbkePEBupNydxCelHCESvFSFM8XPh1Zs/OAVRW/rKpEqPAl5PbOM90Si8mv9bvnR53uPD2s/FiRxdvSejpRJew==
 
-"@mb3r/component-library@1.4.1":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@mb3r/component-library/-/component-library-1.4.1.tgz#a926ce96a20913f4fc59e67c922970a4befb0bc3"
-  integrity sha512-ephuxOWlNeywp9fTJBpDuvuCp2FmE7yNIbvbcGX3X9pjgRTKNXeCyY3aRS9mcHZsoXjIefDgKgxK8f0tILOEFA==
+"@mb3r/component-library@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@mb3r/component-library/-/component-library-1.5.0.tgz#071b4b697e5b7977648f4e35b4def763529d0cfd"
+  integrity sha512-b7Aahe1sEMPGKweWFXaOKOuW42tyCMVixuoY4Drn6uwto+ERyYDwtLd5MMdVj1l8OYQrtDlbSY+wCubObxyvvw==
   dependencies:
     "@emotion/react" "11.11.4"
     "@emotion/styled" "11.11.5"

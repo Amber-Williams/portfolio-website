@@ -1,3 +1,4 @@
+import { Lib } from '@mb3r/component-library'
 import { NextPage } from 'next'
 import React from 'react'
 
@@ -44,6 +45,8 @@ const getContent = (contents) => {
 }
 
 const CaseStudy: NextPage<Props> = ({ study }) => {
+  const breakpointSize = Lib.useGetMediaQuerySize()
+
   if (!study) {
     return <div>loading</div>
   }
@@ -57,8 +60,10 @@ const CaseStudy: NextPage<Props> = ({ study }) => {
           }
           .CaseStudy__content {
             background-color: white;
-            margin: 0 2rem;
-            padding: 2rem;
+            margin: 0;
+            margin-left: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
+            margin-right: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
+            padding: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
             border-radius: 6px;
           }
         `}

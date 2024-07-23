@@ -1,3 +1,4 @@
+import { Lib } from '@mb3r/component-library'
 import type { NextPage } from 'next'
 import React, { useEffect } from 'react'
 
@@ -21,6 +22,7 @@ interface IBlogs {
 }
 
 const Blogs: NextPage<IBlogs> = ({ blogs }) => {
+  const breakpointSize = Lib.useGetMediaQuerySize()
   const contentRef = React.useRef<HTMLDivElement>(null)
   const [openedContentId, setOpenedContentId] = React.useState<string | null>(
     null
@@ -61,8 +63,8 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
 
           .Blog__card {
             background-color: white;
-            margin: 2rem;
-            padding: 2rem;
+            margin: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
+            padding: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
             border-radius: 6px;
           }
 
@@ -113,9 +115,11 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
             ))}
           </PageContainer>
         </main>
-        <div className="BlogFooter">
-          <Footer reversed />
-        </div>
+        {['md', 'lg', 'xl'].includes(breakpointSize) && (
+          <div className="BlogFooter">
+            <Footer reversed />
+          </div>
+        )}
       </div>
     </React.Fragment>
   )
