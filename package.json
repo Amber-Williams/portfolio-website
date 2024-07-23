@@ -11,7 +11,7 @@
     "lint": "eslint . --ext ts --ext tsx --ext js"
   },
   "dependencies": {
-    "@mb3r/component-library": "1.4.1",
+    "@mb3r/component-library": "1.5.0",
     "aws-amplify": "^6.0.13",
     "axios": "0.21.1",
     "bootstrap": "4.5.0",
