@@ -1,3 +1,4 @@
+import { Lib } from '@mb3r/component-library'
 import Markdown from 'markdown-to-jsx'
 
 const createHeaderAncorId = (children: string[]) => {
@@ -21,6 +22,8 @@ const H1 = ({ children }: { children: string }) => {
 }
 
 const H2 = ({ children }: { children: string[] }) => {
+  const childrenStringList = children.join(' ').split(' ')
+
   return (
     <h2
       id={createHeaderAncorId(children)}
@@ -29,12 +32,20 @@ const H2 = ({ children }: { children: string[] }) => {
         fontSize: 'var(--font-size-h2)',
         margin: '2rem 0 1rem 0',
         fontFamily: 'var(--font-header)',
-        backgroundImage:
-          'linear-gradient(hsla(0, 0%, 100%, 0) 55%, var(--secondary-color) 45%)',
-        width: 'fit-content',
       }}
     >
-      {children.map((child) => child)}
+      {childrenStringList.map((child, index) => (
+        <span
+          key={index}
+          style={{
+            backgroundImage:
+              'linear-gradient(hsla(0, 0%, 100%, 0) 55%, var(--secondary-color) 45%)',
+            width: 'fit-content',
+          }}
+        >
+          {child}{' '}
+        </span>
+      ))}
     </h2>
   )
 }
@@ -113,13 +124,22 @@ const P = ({ children }: { children: string }) => {
 }
 
 const Ul = ({ children }) => {
+  const breakpointSize = Lib.useGetMediaQuerySize()
+
   return (
     <ul
       style={{
         listStyleType: 'none',
-        paddingLeft: '1.5rem',
-        marginLeft: '3rem',
-        marginRight: '4.5rem', // marginLeft + paddingLeft
+        paddingLeft:
+          breakpointSize === 'sm' || breakpointSize === 'md'
+            ? '0.8rem'
+            : '1.5rem',
+        marginLeft:
+          breakpointSize === 'sm' || breakpointSize === 'md' ? '1rem' : '3rem',
+        marginRight:
+          breakpointSize === 'sm' || breakpointSize === 'md'
+            ? '1.2rem'
+            : '4.5rem', // marginLeft + paddingLeft
         fontFamily: 'var(--font-body)',
       }}
     >
@@ -240,6 +260,9 @@ const InlineCode = ({ children }: { children: string }) => {
     if (fencedLangs.includes(lang)) {
       let codeBlock: any = children.split('\n')
       codeBlock.shift()
+      if (lang === 'json') {
+        codeBlock = codeBlock.map((line: string) => line.replace(/ {4}/g, '  '))
+      }
       codeBlock = codeBlock.join('\n')
 
       return (
