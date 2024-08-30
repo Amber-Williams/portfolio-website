@@ -1,5 +1,14 @@
-import { Lib } from '@mb3r/component-library'
 import Markdown from 'markdown-to-jsx'
+
+import { PreCode, SyntaxHighlightedCode } from './CodeElements'
+import { Li, Ul } from './ListElements'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from './TableElements'
 
 const createHeaderAncorId = (children: string[]) => {
   return children && children[0] && typeof children[0] === 'string'
@@ -123,66 +132,6 @@ const P = ({ children }: { children: string }) => {
   )
 }
 
-const Ul = ({ children }) => {
-  const breakpointSize = Lib.useGetMediaQuerySize()
-
-  return (
-    <ul
-      style={{
-        listStyleType: 'none',
-        paddingLeft:
-          breakpointSize === 'sm' || breakpointSize === 'md'
-            ? '0.8rem'
-            : '1.5rem',
-        marginLeft:
-          breakpointSize === 'sm' || breakpointSize === 'md' ? '1rem' : '3rem',
-        marginRight:
-          breakpointSize === 'sm' || breakpointSize === 'md'
-            ? '1.2rem'
-            : '4.5rem', // marginLeft + paddingLeft
-        fontFamily: 'var(--font-body)',
-      }}
-    >
-      {children}
-    </ul>
-  )
-}
-
-const Li = ({ children }) => {
-  return (
-    <li
-      style={{
-        position: 'relative',
-        marginBottom: '0.5rem',
-        fontFamily: 'var(--font-body)',
-      }}
-    >
-      <span
-        style={{
-          position: 'absolute',
-          left: '-1.5rem',
-          top: '0.5rem',
-          width: '0.5rem',
-          height: '0.5rem',
-          backgroundColor: 'var(--accent-color)',
-          borderRadius: '50%',
-        }}
-      />
-      <p
-        style={{
-          color: 'var(--primary-color)',
-          margin: '0',
-          fontSize: '1.2rem',
-          lineHeight: '1.8rem',
-          fontFamily: 'var(--font-body)',
-        }}
-      >
-        {children}
-      </p>
-    </li>
-  )
-}
-
 const Ahref = (props: any) => {
   if (props.className && props.className.includes('button')) {
     return (
@@ -217,150 +166,28 @@ const Ahref = (props: any) => {
       rel="noreferrer"
       href={props.href}
       style={{
-        textDecoration: 'none',
+        textDecoration: 'underline',
+        textDecorationColor: 'var(--tri-color)',
+        textDecorationThickness: '3px',
+        textDecorationSkipInk: 'none',
         color: 'var(--tri-color)',
-        fontWeight: 700,
         fontFamily: 'var(--font-body)',
+        paddingBottom: '0.1rem',
+        fontWeight: 500,
+      }}
+      onMouseOver={(e: any) => {
+        e.target.style.textDecoration = 'none'
+        e.target.style.fontWeight = 600
+      }}
+      onMouseOut={(e: any) => {
+        e.target.style.textDecoration = 'underline'
+        e.target.style.textDecorationColor = 'var(--tri-color)'
+        e.target.style.textDecorationThickness = '3px'
+        e.target.style.fontWeight = 500
       }}
     >
       {props.children}
     </a>
-  )
-}
-
-const InlineCode = ({ children }: { children: string }) => {
-  const isMultiLine = children.includes('\n')
-  if (isMultiLine) {
-    const fencedLangs = [
-      'json',
-      'yaml',
-      'bash',
-      'shell',
-      'python',
-      'js',
-      'ts',
-      'html',
-      'css',
-      'sql',
-      'graphql',
-      'javascript',
-      'typescript',
-      'rust',
-      'c',
-      'tsx',
-      'jsx',
-      'elixir',
-      'make',
-      'nginx',
-      'vue',
-      'go',
-    ]
-    const lang = children.split('\n')[0]
-
-    if (fencedLangs.includes(lang)) {
-      let codeBlock: any = children.split('\n')
-      codeBlock.shift()
-      if (lang === 'json') {
-        codeBlock = codeBlock.map((line: string) => line.replace(/ {4}/g, '  '))
-      }
-      codeBlock = codeBlock.join('\n')
-
-      return (
-        <div
-          style={{
-            position: 'relative',
-          }}
-        >
-          <p
-            style={{
-              position: 'absolute',
-              top: '0.2rem',
-              left: '0.4rem',
-              color: 'var(--accent-color)',
-              borderRadius: '4px',
-              padding: '0.2rem 0.4rem',
-              border: '1px solid var(--accent-color)',
-              fontSize: '0.9em',
-            }}
-          >
-            {lang}
-          </p>
-          <pre
-            style={{
-              backgroundColor: '#f4f4f4',
-              borderRadius: '4px',
-              padding: '1rem',
-              marginTop: '1.5rem',
-              marginBottom: '1.5rem',
-              overflowX: 'auto',
-            }}
-          >
-            <code
-              style={{
-                display: 'block',
-                fontSize: '1rem',
-                lineHeight: '1.5',
-                fontFamily: 'monospace',
-                color: 'var(--primary-color-80)',
-                marginTop: '2rem',
-              }}
-            >
-              {codeBlock}
-            </code>
-          </pre>
-        </div>
-      )
-    }
-  }
-
-  return (
-    <code
-      style={{
-        backgroundColor: '#f4f4f4',
-        borderRadius: '4px',
-        padding: '0.2rem 0.4rem',
-        fontSize: '0.9em',
-        fontFamily: 'monospace',
-        color: 'var(--primary-color-80)',
-      }}
-    >
-      {children}
-    </code>
-  )
-}
-
-const CodeBlock = ({ children }: { children: any }) => {
-  if (children.props.className === 'lang-mermaid') {
-    return (
-      <pre>
-        <code className={'lang-mermaid'}>{children.props.children}</code>
-      </pre>
-    )
-  }
-
-  return (
-    <pre
-      style={{
-        backgroundColor: '#f4f4f4',
-        borderRadius: '4px',
-        padding: '1rem',
-        marginTop: '1.5rem',
-        marginBottom: '1.5rem',
-        overflowX: 'auto',
-      }}
-    >
-      <code
-        style={{
-          display: 'block',
-          fontSize: '1rem',
-          lineHeight: '1.5',
-          fontFamily: 'monospace',
-          color: 'var(--primary-color-80)',
-        }}
-      >
-        {children}
-      </code>
-    </pre>
   )
 }
 
@@ -405,11 +232,21 @@ const CustomMarkdown = ({
           a: {
             component: Ahref,
           },
-          code: {
-            component: InlineCode,
-          },
           pre: {
-            component: CodeBlock,
+            component: PreCode,
+          },
+          code: {
+            component: SyntaxHighlightedCode,
+          },
+          table: { component: Table },
+          thead: { component: TableHead },
+          tbody: { component: TableBody },
+          tr: { component: TableRow },
+          th: {
+            component: (props) => <TableCell isHeader={true} {...props} />,
+          },
+          td: {
+            component: (props) => <TableCell isHeader={false} {...props} />,
           },
         },
       }}
