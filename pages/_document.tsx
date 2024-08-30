@@ -20,6 +20,11 @@ export default function Document() {
           }}
         />
         <link
+          rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/night-owl.min.css"
+        />
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+        <link
           href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap"
           rel="stylesheet"
         />

@@ -1,8 +1,7 @@
 import { Lib } from '@mb3r/component-library'
 import type { NextPage } from 'next'
-import React, { useEffect } from 'react'
 
-import CustomMarkdown from '../components/CustomMarkdown'
+import Link from 'next/link'
 import Footer from '../components/Footer/Footer'
 import NavBar from '../components/NavBar/NavBar'
 import PageContainer from '../components/PageContainer/PageContainer'
@@ -23,30 +22,13 @@ interface IBlogs {
 
 const Blogs: NextPage<IBlogs> = ({ blogs }) => {
   const breakpointSize = Lib.useGetMediaQuerySize()
-  const contentRef = React.useRef<HTMLDivElement>(null)
-  const [openedContentId, setOpenedContentId] = React.useState<string | null>(
-    null
-  )
-
-  useEffect(() => {
-    BlogLib.parseMermaidCodeBlock(contentRef)
-    BlogLib.parseLinks(contentRef)
-  }, [openedContentId])
-
-  const onBlogClick = (id: string) => {
-    if (openedContentId === id) {
-      setOpenedContentId(null)
-    } else {
-      setOpenedContentId(id)
-    }
-  }
 
   if (!blogs) {
     return <div>loading</div>
   }
 
   return (
-    <React.Fragment>
+    <>
       <style jsx>
         {`
           .Blog {
@@ -83,35 +65,16 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
         <main>
           <PageContainer>
             {blogs.map((blog) => (
-              <div key={blog.id} className="Blog__card">
-                <div onClick={() => onBlogClick(blog.id)}>
+              <Link href={{ pathname: `blogs/${blog.id}` }} key={blog.id}>
+                <div className="Blog__card">
                   <h4>{blog.title}</h4>
                   <p>
                     By Amber Williams | Last updated on{' '}
                     {BlogLib.formatDate(blog.date_updated)}
                   </p>
-                  {openedContentId === blog.id ? (
-                    <>
-                      <p className="text-uppercase text-right">
-                        &#8592; Close{' '}
-                      </p>
-                      <hr />
-                    </>
-                  ) : (
-                    <p className="text-uppercase text-right">
-                      Read more &#8594;
-                    </p>
-                  )}
+                  <p className="text-uppercase text-right">Read more &#8594;</p>
                 </div>
-                {openedContentId === blog.id && (
-                  <div ref={contentRef}>
-                    <CustomMarkdown hideH1={true}>
-                      {blog.content}
-                    </CustomMarkdown>
-                    <br />
-                  </div>
-                )}
-              </div>
+              </Link>
             ))}
           </PageContainer>
         </main>
@@ -121,7 +84,7 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
           </div>
         )}
       </div>
-    </React.Fragment>
+    </>
   )
 }
 
@@ -152,6 +115,20 @@ export async function getServerSideProps() {
   }
 
   const blogs = data.data
+    .map((blog: any) => {
+      return {
+        id: blog.id,
+        name: blog.name,
+        title: blog.title,
+        date_created: blog.date_created,
+        date_updated: blog.date_updated,
+      }
+    })
+    .sort((a: any, b: any) => {
+      return (
+        new Date(b.date_created).getTime() - new Date(a.date_created).getTime()
+      )
+    })
 
   return {
     props: { blogs },
