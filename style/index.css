@@ -8,6 +8,7 @@
     --secondary-color: #a2facf;
     --accent-color: #ffb370;
     --tri-color: #6105ff;
+    --quad-color: #eb3483;
     /* colors text */
     --primary-text-color: rgb(161 160 160);
     --secondary-text-color: rgba(255,255,255, 0.8);
@@ -117,4 +118,9 @@ h3 {
 
 .right-0 {
     left: 0;
+}
+
+
+#graphDiv p {
+    color: var(--primary-color);
 }

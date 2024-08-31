@@ -31,9 +31,9 @@ const InlineCode = ({ children }: { children: string }) => {
         backgroundColor: '#f4f4f4',
         borderRadius: '4px',
         padding: '0.2rem 0.4rem',
-        fontSize: '0.9em',
+        fontSize: '0.9rem',
         fontFamily: 'monospace',
-        color: 'var(--primary-color-80)',
+        color: 'var(--quad-color)',
       }}
     >
       {children}

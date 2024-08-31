@@ -19,11 +19,19 @@ export default function Document() {
             `,
           }}
         />
+
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="a90554e7-9b2c-4115-90fc-47259bc9bd82"
+        ></script>
+
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
         <link
           rel="stylesheet"
           href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/night-owl.min.css"
         />
-        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+
         <link
           href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap"
           rel="stylesheet"
@@ -32,6 +40,7 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
           rel="stylesheet"
         />
+
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -53,9 +62,9 @@ export default function Document() {
         <link
           rel="mask-icon"
           href="images/favicon/safari-pinned-tab.svg"
-          color="#5bbad5"
+          color="#ffffff"
         />
-        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <body>
