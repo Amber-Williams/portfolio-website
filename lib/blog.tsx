@@ -19,7 +19,10 @@ const Mermaid = ({ graphDefinition }: { graphDefinition: string }) => {
   }, [graphDefinition])
 
   return graphDefinition ? (
-    <div dangerouslySetInnerHTML={{ __html: html }} />
+    <div
+      dangerouslySetInnerHTML={{ __html: html }}
+      style={{ color: 'var(--primary-color)' }}
+    />
   ) : null
 }
 

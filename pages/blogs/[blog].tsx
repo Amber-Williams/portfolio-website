@@ -75,7 +75,7 @@ const Blog: NextPage<IBlogProps> = ({ blog }) => {
               </div>
               <hr />
               <div className="Blog__content">
-                <CustomMarkdown>{blog.content}</CustomMarkdown>
+                <CustomMarkdown hideH1={true}>{blog.content}</CustomMarkdown>
               </div>
               <br />
             </div>

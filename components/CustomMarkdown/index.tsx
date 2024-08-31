@@ -162,7 +162,7 @@ const Ahref = (props: any) => {
 
   return (
     <a
-      target="_blank"
+      target={props.href.includes('https://') ? '_blank' : '_self'}
       rel="noreferrer"
       href={props.href}
       style={{
@@ -177,13 +177,11 @@ const Ahref = (props: any) => {
       }}
       onMouseOver={(e: any) => {
         e.target.style.textDecoration = 'none'
-        e.target.style.fontWeight = 600
       }}
       onMouseOut={(e: any) => {
         e.target.style.textDecoration = 'underline'
         e.target.style.textDecorationColor = 'var(--tri-color)'
         e.target.style.textDecorationThickness = '3px'
-        e.target.style.fontWeight = 500
       }}
     >
       {props.children}
