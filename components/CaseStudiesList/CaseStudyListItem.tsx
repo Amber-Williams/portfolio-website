@@ -2,6 +2,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { gsap } from 'gsap/dist/gsap'
 import Link from 'next/link'
 import React, { useEffect } from 'react'
+
 import { CaseStudyProps } from '../../types/case-study-types'
 import Tags from '../Tags/Tags'
 
@@ -34,7 +35,6 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
           trigger: `.CaseStudyListItem__${path}`,
           start: '-=200 center',
           end: `center center`,
-          markers: process.env.NODE_ENV === 'development' ? true : false,
           scrub: true,
         },
         duration: 0.5,
@@ -98,9 +98,7 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
             }
 
             .CaseStudyListItem__preview {
-              border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-              display: flex;
-              justify-content: center;
+              display: none;
             }
 
             .CaseStudyListItem__card-bottom {
@@ -110,9 +108,6 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
             .CaseStudyListItem__card-bottom p {
               margin: 6px 0;
               text-align: left !important;
-            }
-            .CaseStudyListItem__preview img {
-              width: 100%;
             }
           }
         `}

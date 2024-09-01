@@ -67,7 +67,7 @@ const BlogsSection: React.FC = () => {
         <PageContainer>
           <div className="BlogSection">
             <div className="BlogSection__content d-flex flex-column justify-content-center">
-              <h3 className="text-gradient-green">Blogs</h3>
+              <h3 className="h2 text-gradient-green">Blogs</h3>
               <a href="/blog">
                 <p>
                   My personal blog, where I share my thoughts, experiences, and

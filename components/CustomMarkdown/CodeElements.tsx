@@ -1,7 +1,9 @@
+import { Lib } from '@mb3r/component-library'
 import React from 'react'
 
 const SyntaxHighlightedCode = (props: any) => {
   const ref = React.useRef<HTMLElement>(null)
+  const breakpointSize = Lib.useGetMediaQuerySize()
 
   React.useEffect(() => {
     const highlight = (window as any).hljs
@@ -21,17 +23,27 @@ const SyntaxHighlightedCode = (props: any) => {
     return <InlineCode>{props.children}</InlineCode>
   }
 
-  return <code {...props} ref={ref} />
+  return (
+    <code
+      style={{
+        fontSize: breakpointSize === 'sm' ? '80%' : '100%',
+      }}
+      {...props}
+      ref={ref}
+    />
+  )
 }
 
 const InlineCode = ({ children }: { children: string }) => {
+  const breakpointSize = Lib.useGetMediaQuerySize()
+
   return (
     <code
       style={{
         backgroundColor: '#f4f4f4',
         borderRadius: '4px',
         padding: '0.2rem 0.4rem',
-        fontSize: '0.9rem',
+        fontSize: breakpointSize === 'sm' ? '0.8rem' : '0.9rem',
         fontFamily: 'monospace',
         color: 'var(--quad-color)',
       }}

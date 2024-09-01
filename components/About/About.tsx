@@ -75,7 +75,7 @@ const About: React.FC = () => {
         <PageContainer>
           <div className="About">
             <div className="d-flex flex-column justify-content-center">
-              <h3 className="text-gradient-blue">About me</h3>
+              <h3 className="h2 text-gradient-blue">About me</h3>
               <p>
                 I&apos;ve been professionally programming for{' '}
                 <span className="developer_since"></span>. During this period, I
