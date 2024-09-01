@@ -48,7 +48,7 @@ const CaseStudiesList: React.FC<CaseStudyListProps> = ({ allCaseStudies }) => {
       </style>
       <PageContainer>
         <div className="CaseStudiesList">
-          <h3 className="text-gradient-orange text-left">
+          <h3 className="h2 text-gradient-orange text-left">
             Some things I&apos;ve built
           </h3>
           {list ? list : 'loading...'}

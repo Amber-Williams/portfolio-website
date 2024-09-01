@@ -1,3 +1,4 @@
+import { Lib } from '@mb3r/component-library'
 import { GetServerSidePropsContext, NextPage } from 'next'
 import React, { useEffect } from 'react'
 
@@ -23,6 +24,7 @@ interface IBlogProps {
 
 const Blog: NextPage<IBlogProps> = ({ blog }) => {
   const contentRef = React.useRef<HTMLDivElement>(null)
+  const breakpointSize = Lib.useGetMediaQuerySize()
 
   useEffect(() => {
     BlogLib.parseMermaidCodeBlock(contentRef)
@@ -40,10 +42,11 @@ const Blog: NextPage<IBlogProps> = ({ blog }) => {
           .Blog {
             background-color: var(--primary-color);
           }
+
           .Blog main {
             background-color: white;
-            margin: 0 2rem;
-            padding: 2rem;
+            margin: ${breakpointSize === 'sm' ? '0 1rem' : '0 2rem'};
+            padding: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
             border-radius: 6px;
           }
 

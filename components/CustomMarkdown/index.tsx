@@ -1,3 +1,4 @@
+import { Lib } from '@mb3r/component-library'
 import Markdown from 'markdown-to-jsx'
 
 import { PreCode, SyntaxHighlightedCode } from './CodeElements'
@@ -31,6 +32,7 @@ const H1 = ({ children }: { children: string }) => {
 }
 
 const H2 = ({ children }: { children: string[] }) => {
+  const breakpointSize = Lib.useGetMediaQuerySize()
   const childrenStringList = children.join(' ').split(' ')
 
   return (
@@ -38,7 +40,7 @@ const H2 = ({ children }: { children: string[] }) => {
       id={createHeaderAncorId(children)}
       style={{
         color: 'var(--primary-color)',
-        fontSize: 'var(--font-size-h2)',
+        fontSize: breakpointSize === 'sm' ? '1.5rem' : 'var(--font-size-h2)',
         margin: '2rem 0 1rem 0',
         fontFamily: 'var(--font-header)',
       }}
@@ -116,14 +118,16 @@ const H6 = ({ children }: { children: string }) => {
 }
 
 const P = ({ children }: { children: string }) => {
+  const breakpointSize = Lib.useGetMediaQuerySize()
+
   return (
     <p
       style={{
         color: 'var(--primary-color)',
         marginTop: '0',
         marginBottom: '1.4rem',
-        fontSize: '1.2rem',
-        lineHeight: '1.8rem',
+        fontSize: breakpointSize === 'sm' ? '1rem' : '1.2rem',
+        lineHeight: breakpointSize === 'sm' ? '1.5rem' : '1.8rem',
         fontFamily: 'var(--font-body)',
       }}
     >

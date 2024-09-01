@@ -142,6 +142,10 @@ const Hero: React.FC = () => {
             .Hero h1 {
               font-size: 3rem;
             }
+
+            .Hero__page-curve {
+              width: 500vw;
+            }
           }
 
           @media only screen and (max-width: 768px) {

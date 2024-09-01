@@ -26,6 +26,8 @@ const Ul = ({ children }) => {
 }
 
 const Li = ({ children }) => {
+  const breakpointSize = Lib.useGetMediaQuerySize()
+
   return (
     <li
       style={{
@@ -48,9 +50,10 @@ const Li = ({ children }) => {
       <p
         style={{
           color: 'var(--primary-color)',
-          margin: '0',
-          fontSize: '1.2rem',
-          lineHeight: '1.8rem',
+          marginTop: '0',
+          marginBottom: '0',
+          fontSize: breakpointSize === 'sm' ? '1rem' : '1.2rem',
+          lineHeight: breakpointSize === 'sm' ? '1.5rem' : '1.8rem',
           fontFamily: 'var(--font-body)',
         }}
       >

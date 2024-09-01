@@ -37,21 +37,11 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
             position: relative;
           }
 
-          .BlogFooter {
-            position: absolute;
-            bottom: 0;
-            pointer-events: none;
-          }
-
           .Blog__card {
             background-color: white;
             margin: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
             padding: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
             border-radius: 6px;
-          }
-
-          h4 {
-            color: var(--primary-color);
           }
 
           .text-right {
@@ -78,11 +68,7 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
             ))}
           </PageContainer>
         </main>
-        {['md', 'lg', 'xl'].includes(breakpointSize) && (
-          <div className="BlogFooter">
-            <Footer reversed />
-          </div>
-        )}
+        {['md', 'lg', 'xl'].includes(breakpointSize) && <Footer reversed />}
       </div>
     </>
   )
