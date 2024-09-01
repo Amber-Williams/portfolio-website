@@ -4,9 +4,13 @@ import PageContainer from '../PageContainer/PageContainer'
 import CaseStudyListItem from './CaseStudyListItem'
 
 const CaseStudiesList: React.FC<CaseStudyListProps> = ({ allCaseStudies }) => {
-  const list = allCaseStudies.map((study, index) => (
-    <CaseStudyListItem study={study} key={index} index={index} />
-  ))
+  const list = allCaseStudies.reduce((acc, study, index) => {
+    if (Boolean(study.archived) === false) {
+      acc.push(<CaseStudyListItem study={study} key={index} index={index} />)
+    }
+
+    return acc
+  }, [])
 
   return (
     <React.Fragment>

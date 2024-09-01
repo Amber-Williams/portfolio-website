@@ -12,6 +12,7 @@ tags:
 subtitle: A continuous project to showcase my skills and expertise in a professional and polished portfolio website
 preview_image: /images/portfolio/portfolio-preview.png
 tech_stack: NextJS, TypeScript, React
+archived: true
 content:
   - |
     ## Introduction

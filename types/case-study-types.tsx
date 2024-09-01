@@ -9,6 +9,7 @@ export interface CaseStudyProps {
   preview_image: string
   tech_stack: string
   content: Array<string>
+  archived?: true
 }
 
 export interface CaseStudyListProps {
