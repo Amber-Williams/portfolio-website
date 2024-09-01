@@ -10,6 +10,7 @@ tags:
 subtitle: A platform for JavaScript developers to ask and answer questions for rewards
 preview_image: /images/js-questions/preview.gif
 tech_stack: React, React-Spring, Nodejs
+archived: true
 content:
   - |
     ## Introduction
