@@ -1,64 +1,89 @@
+import { Lib } from '@mb3r/component-library'
 import React from 'react'
+
 import { FooterTypes } from '../../types/footer-types'
 import PageContainer from '../PageContainer/PageContainer'
+import { Github, TwitterX } from './../Socials'
 
-const Footer: React.FC<FooterTypes> = ({ reversed }) => (
-  <React.Fragment>
-    <style jsx>
-      {`
-        .Footer {
-          background-color: var(--primary-color);
-          margin-top: 12rem;
-          padding: 16px;
-          text-align: center;
-          width: 100vw;
-          padding-top: 4rem;
-          position: relative;
-        }
+const Footer: React.FC<FooterTypes> = ({ reversed }) => {
+  const breakpointSize = Lib.useGetMediaQuerySize()
 
-        .Footer img {
-          width: 100%;
-          transform: rotate(180deg);
-          right: 0;
-          top: -1px;
-        }
+  return (
+    <>
+      <style jsx>
+        {`
+          .Footer {
+            background-color: ${reversed ? 'white' : 'var(--primary-color)'};
+            margin-top: 0;
+            padding: ${breakpointSize === 'sm' ? '2rem 1rem' : '2rem'};
+            text-align: center;
+            width: 100vw;
+            padding-top: 4rem;
+            position: relative;
+          }
 
-        .Footer p {
-          width: 100%;
-          color: white;
-          text-align: center;
-          margin-top: 20px;
-        }
+          .Footer__curve {
+            width: 100%;
+            right: 0;
+            top: -1px;
+            position: absolute;
+          }
 
-        .Footer--reversed {
-          background-color: #fff;
-        }
+          .Footer__curve path {
+            fill: ${reversed ? 'var(--primary-color)' : 'white'};
+          }
 
-        .Footer--reversed p {
-          color: var(--primary-color);
-        }
-      `}
-    </style>
-    <footer className={reversed ? 'Footer Footer--reversed' : 'Footer'}>
-      {reversed ? (
-        <img
-          className="position-absolute z-1"
-          src="/images/vectors/page-curve--dark.svg"
-        />
-      ) : (
-        <img
-          className="position-absolute z-1"
-          src="/images/vectors/page-curve.svg"
-        />
-      )}
+          .Footer__content {
+            margin-top: ${breakpointSize === 'sm' ? '2rem' : '4rem'};
+            color: ${reversed ? 'var(--primary-color)' : 'white'};
+          }
 
-      <PageContainer>
-        <p>
-          Made by <br /> Amber with ☕️
-        </p>
-      </PageContainer>
-    </footer>
-  </React.Fragment>
-)
+          .Footer p {
+            margin: 0;
+          }
+        `}
+      </style>
+      <footer className={'Footer'}>
+        <svg
+          className="Footer__curve"
+          width="500"
+          height="80"
+          viewBox="0 0 500 80"
+          preserveAspectRatio="none"
+        >
+          <path d="M0,0 L0,40 Q250,80 500,40 L500,0 Z"></path>
+        </svg>
+        <div className="Footer__content">
+          <PageContainer>
+            <div className="d-flex justify-content-between">
+              <p className="text-secondary" style={{ width: 'fit-content' }}>
+                &copy; {new Date().getFullYear()} Amber Williams. All rights
+                reserved.
+              </p>
+              <div className="d-flex justify-content-end align-items-center">
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://twitter.com/not_not_amber/"
+                  className="me-3 text-secondary hover-text-white mr-3"
+                >
+                  <TwitterX size={breakpointSize === 'sm' ? 24 : 32} />
+                </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/amber-Williams/"
+                  className="me-3 text-secondary hover-text-white"
+                >
+                  <Github size={breakpointSize === 'sm' ? 24 : 32} />
+                </a>
+              </div>
+            </div>
+          </PageContainer>
+        </div>
+      </footer>
+    </>
+  )
+}
 
 export default Footer
