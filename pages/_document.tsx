@@ -10,7 +10,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
