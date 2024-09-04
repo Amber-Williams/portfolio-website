@@ -1,28 +1,25 @@
 import moment from 'moment'
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 
 const Mermaid = ({ graphDefinition }: { graphDefinition: string }) => {
-  const [html, setHtml] = React.useState('')
+  const mermaidRef = React.useRef(null)
   React.useEffect(() => {
+    const _m = (window as any).mermaid
+
     if (graphDefinition) {
       try {
-        const _m = (window as any).mermaid
         _m.render('graphDiv', graphDefinition).then(({ svg }) => {
-          setHtml(svg)
+          mermaidRef.current.innerHTML = svg
         })
       } catch (e) {
-        setHtml('')
         console.error(e)
       }
     }
   }, [graphDefinition])
 
   return graphDefinition ? (
-    <div
-      dangerouslySetInnerHTML={{ __html: html }}
-      style={{ color: 'var(--primary-color)' }}
-    />
+    <div ref={mermaidRef} style={{ color: 'var(--primary-color)' }} />
   ) : null
 }
 
@@ -35,10 +32,8 @@ export const parseMermaidCodeBlock = async (
       const replacementDiv = document.createElement('div')
       replacementDiv.style.margin = '0 auto'
       replacementDiv.style.width = 'fit-content'
-      ReactDOM.render(
-        <Mermaid graphDefinition={el.textContent} />,
-        replacementDiv
-      )
+      const root = createRoot(replacementDiv)
+      root.render(<Mermaid graphDefinition={el.textContent} />)
 
       el.replaceWith(replacementDiv)
     })
