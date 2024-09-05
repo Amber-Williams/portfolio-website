@@ -1,8 +1,10 @@
+import { Lib } from '@mb3r/component-library'
 import React, { useEffect } from 'react'
 
 import PageContainer from '../PageContainer/PageContainer'
 
 const Hero: React.FC = () => {
+  const breakpointSize = Lib.useGetMediaQuerySize()
   const nouns = [
     'things',
     'apps',
@@ -128,9 +130,13 @@ const Hero: React.FC = () => {
             opacity: 0.8;
           }
 
-          .Hero__page-curve {
-            bottom: -1px;
+          .Hero__curve {
             width: 100%;
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            transform: rotate(180deg);
+            fill: white;
           }
 
           @media only screen and (max-width: 1080px) {
@@ -141,10 +147,6 @@ const Hero: React.FC = () => {
             .Hero h2,
             .Hero h1 {
               font-size: 3rem;
-            }
-
-            .Hero__page-curve {
-              width: 500vw;
             }
           }
 
@@ -213,10 +215,28 @@ const Hero: React.FC = () => {
             </div>
           </div>
         </PageContainer>
-        <img
-          className="Hero__page-curve position-absolute width-full z-1"
-          src="/images/vectors/page-curve.svg"
-        />
+        {breakpointSize === "sm" ?
+          <svg
+            className="Hero__curve"
+            width="500"
+            height="80"
+            viewBox="0 0 500 80"
+            preserveAspectRatio="none"
+          >
+            <path d="M0,0 L0,40 Q250,80 500,40 L500,0 Z"></path>
+          </svg>
+          :
+          <svg
+            className="Hero__curve"
+            width="500"
+            height="150"
+            viewBox="0 0 500 150"
+          preserveAspectRatio="none"
+        >
+          <path d="M0,0 L0,100 Q250,200 500,100 L500,0 Z"></path>
+        </svg>
+      }
+
       </div>
     </React.Fragment>
   )
