@@ -108,7 +108,7 @@ const Hero: React.FC = () => {
 
           .Hero button {
             border: 1px solid var(--secondary-color);
-            border-radius: 6px;
+            border-radius: var(--radius);
             padding: 1rem;
             width: 11rem;
           }

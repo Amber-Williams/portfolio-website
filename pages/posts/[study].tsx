@@ -60,11 +60,10 @@ const CaseStudy: NextPage<Props> = ({ study }) => {
           }
           .CaseStudy__content {
             background-color: white;
-            margin: 0;
-            margin-left: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
-            margin-right: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
+            margin: ${breakpointSize === 'sm' ? '1rem' : '2rem'} auto;
             padding: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
-            border-radius: 6px;
+            border-radius: var(--radius);
+            max-width: calc(var(--main-width) + var(--gap)* 2);
           }
         `}
       </style>

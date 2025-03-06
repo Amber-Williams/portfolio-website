@@ -1,3 +1,4 @@
+import { Lib } from '@mb3r/component-library'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { gsap } from 'gsap/dist/gsap'
 import Link from 'next/link'
@@ -15,6 +16,8 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
   study: { path, title, preview_image, subtitle, tags },
   index,
 }) => {
+  const breakpointSize = Lib.useGetMediaQuerySize()
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
@@ -44,7 +47,7 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
     )
 
     gsap.fromTo(
-      `.CaseStudyListItem__${path} .card`,
+      `.CaseStudyListItem__${path} .CaseStudyListItem__card`,
       { ['box-shadow']: 'none' },
       {
         scrollTrigger: {
@@ -68,13 +71,22 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
             margin: 3rem auto;
           }
 
+          .CaseStudyListItem__card {
+            background-color: white;
+            margin: ${breakpointSize === 'sm' ? '1rem' : '2rem'} auto;
+            padding: 0;
+            border-radius: var(--radius);
+            max-width: calc(var(--nav-width) + var(--gap)* 2);
+          }
+
           .CaseStudyListItem p,
           .CaseStudyListItem h4 {
             color: var(--primary-color);
           }
 
           .CaseStudyListItem__preview img {
-            width: 300px;
+            border-radius: var(--radius);
+            max-height: 200px;
           }
 
           .CaseStudyListItem__text {
@@ -87,8 +99,13 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
             cursor: pointer;
           }
 
+          .CaseStudyListItem__card-top {
+            padding: var(--gap);
+          }
+
           .CaseStudyListItem__card-bottom {
             border-top: 1px solid rgba(0, 0, 0, 0.125);
+            padding: var(--gap);
           }
 
           @media only screen and (max-width: 790px) {
@@ -117,8 +134,8 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
         id={title}
       >
         <Link href={{ pathname: `posts/${path}` }}>
-          <div className="card">
-            <div className="d-flex flex-column flex-md-row">
+          <div className="CaseStudyListItem__card">
+            <div className="CaseStudyListItem__card-top d-flex flex-column flex-md-row">
               <div className="CaseStudyListItem__preview p-3">
                 <img src={`${preview_image}`} />
               </div>
@@ -128,9 +145,9 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
               </div>
             </div>
 
-            <div className="CaseStudyListItem__card-bottom d-flex col-12 p-3 w-100 justify-content-between">
-              <Tags tags={tags} className="d-none d-md-flex" />
-              <p className="text-right text-uppercase">Read more &#8594;</p>
+            <div className="CaseStudyListItem__card-bottom d-flex col-12 w-100 justify-content-between">
+              <Tags tags={tags} className="d-none d-md-flex mb-0" />
+              <p className="text-right text-uppercase mb-0">Read more &#8594;</p>
             </div>
           </div>
         </Link>

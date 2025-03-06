@@ -11,9 +11,9 @@ const NavBar: React.FC = () => {
       <style jsx>
         {`
           .NavBar {
-            width: fit-content;
-            margin-left: ${breakpointSize === 'sm' ? '0' : '2rem'};
-            padding: 1rem;
+            max-width: calc(var(--nav-width) + var(--gap)* 2);
+            margin: 0 auto;
+            padding: var(--gap);
           }
           .NavBar__logo {
             width: 50px;
@@ -23,7 +23,8 @@ const NavBar: React.FC = () => {
           .NavBar__logo-wrapper {
             padding: 10px;
             background-color: #ffffff;
-            border-radius: 3px;
+            border-radius: var(--radius);
+            width: fit-content;
           }
         `}
       </style>
