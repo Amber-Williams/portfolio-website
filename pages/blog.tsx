@@ -39,9 +39,10 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
 
           .Blog__card {
             background-color: white;
-            margin: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
+            margin: ${breakpointSize === 'sm' ? '1rem' : '2rem'} auto;
             padding: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
-            border-radius: 6px;
+            border-radius: var(--radius);
+            max-width: calc(var(--main-width) + var(--gap)* 2);
           }
 
           .text-right {
