@@ -1,5 +1,6 @@
 import { Lib } from '@mb3r/component-library'
 import { GetServerSidePropsContext, NextPage } from 'next'
+import Head from 'next/head'
 import React, { useEffect } from 'react'
 
 import Avatar from '../../components/Avatar'
@@ -16,6 +17,9 @@ interface IBlog {
   content: string
   date_created: string
   date_updated: string
+  slug?: string
+  description?: string
+  cover_img?: string
 }
 
 interface IBlogProps {
@@ -35,28 +39,113 @@ const Blog: NextPage<IBlogProps> = ({ blog }) => {
     return <div>loading</div>
   }
 
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://amberwilliams.io'
+  const postUrl = `${baseUrl}/blogs/${blog.slug ? blog.slug : blog.id}`
+  const imageUrl = blog.cover_img || `${baseUrl}/images/default-blog-image.jpg`
+
   return (
-    <React.Fragment>
-      <style jsx>
-        {`
-          .Blog {
-            background-color: var(--primary-color);
-          }
+    <>
+      <Head>
+        {/* Character Encoding */}
+        <meta charSet="utf-8" />
 
-          .Blog main {
-            background-color: white;
-            margin: ${breakpointSize === 'sm' ? '1rem' : '2rem'} auto;
-            padding: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
-            border-radius: var(--radius);
-            max-width: calc(var(--main-width) + var(--gap)* 2);
-          }
+        {/* IE Compatibility */}
+        <meta httpEquiv="x-ua-compatible" content="IE=edge" />
 
-          .Blog h1 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-          }
-        `}
-      </style>
+        {/* Responsive Design */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        {/* SEO - Search Engine Indexing */}
+        <meta name="robots" content="index, follow" />
+
+        {/* Page Title */}
+        <title>{`${blog.title}`}</title>
+
+        {/* SEO - Description (displays in search results) */}
+        {blog.description && <meta name="description" content={blog.description} />}
+
+        {/* Author Information */}
+        <meta name="author" content="Amber Williams" />
+
+        <link rel="canonical" href={postUrl} />
+
+        {/* Open Graph Protocol (for social media sharing) */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={blog.title} />
+        <meta property="og:description" content={blog.description} />
+        <meta property="og:image" content={imageUrl} />
+        <meta property="og:url" content={postUrl} />
+        <meta property="og:site_name" content="Amber Williams' Blog" />
+
+        {/* Twitter Card (for Twitter sharing) */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@not_not_amber" />
+        <meta name="twitter:title" content={blog.title} />
+        <meta name="twitter:description" content={blog.description} />
+        <meta name="twitter:image" content={imageUrl} />
+
+        {/* Publish dates for SEO */}
+        <meta property="article:published_time" content={blog.date_created} />
+        <meta property="article:modified_time" content={blog.date_updated} />
+
+        {/* JSON-LD for structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BlogPosting',
+              'headline': blog.title,
+              'image': imageUrl,
+              'datePublished': blog.date_created,
+              'dateModified': blog.date_updated,
+              'author': {
+                '@type': 'Person',
+                'name': 'Amber Williams'
+              },
+              'publisher': {
+                '@type': 'Organization',
+                'name': 'Amber Williams',
+                'logo': {
+                  '@type': 'ImageObject',
+                  'url': `${baseUrl}/images/logo.gif`
+                }
+              },
+              'description': blog.description
+            })
+          }}
+        />
+      </Head>
+      <style jsx>{`
+        .Blog {
+          background-color: var(--primary-color);
+        }
+
+        .Blog main {
+          background-color: white;
+          margin: ${breakpointSize === 'sm' ? '1rem' : '2rem'} auto;
+          padding: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
+          border-radius: var(--radius);
+          max-width: calc(var(--main-width) + var(--gap)* 2);
+        }
+
+        .Blog h1 {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+
+        .Blog__cover-image {
+          margin: 1rem 0 2rem 0;
+          width: 100%;
+        }
+
+        .Blog__cover-image img {
+          width: 100%;
+          border-radius: var(--radius);
+          max-height: 60vh;
+          object-fit: contain;
+        }
+      `}</style>
 
       <div className="Blog">
         <NavBar />
@@ -73,11 +162,20 @@ const Blog: NextPage<IBlogProps> = ({ blog }) => {
                     <b>Amber Williams</b>
                   </p>
                   <p className="mb-0">
-                    Last edited - {BlogLib.formatDate(blog.date_updated)}
+                    {BlogLib.formatDate(blog.date_created)}
                   </p>
                 </div>
               </div>
               <hr />
+              {blog.cover_img && (
+                <div className="Blog__cover-image">
+                  <img
+                    src={blog.cover_img}
+                    alt={`Cover image for ${blog.title}`}
+                    className="img-fluid"
+                  />
+                </div>
+              )}
               <div className="Blog__content">
                 <CustomMarkdown hideH1={true}>{blog.content}</CustomMarkdown>
               </div>
@@ -87,7 +185,9 @@ const Blog: NextPage<IBlogProps> = ({ blog }) => {
         </PageContainer>
         <Footer reversed />
       </div>
-    </React.Fragment>
+
+
+    </>
   )
 }
 
@@ -97,7 +197,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const blogId = context.resolvedUrl.replace('/blogs/', '')
 
   const res = await fetch(
-    `${process.env.CMS_SERVER}/items/posts/${blogId}?filter={ "status": { "_eq": "published" }}`,
+    `${process.env.CMS_SERVER}/items/posts?filter={ "status": { "_eq": "published" }, "slug": { "_eq": "${blogId}" }}`,
     {
       headers: {
         'Content-Type': 'application/json',
@@ -119,7 +219,20 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     }
   }
 
-  const blog = data.data
+  const blogData = data.data[0];
+
+  const blog = {
+    id: blogData.id,
+    name: blogData.name,
+    title: blogData.title,
+    content: blogData.content,
+    date_created: blogData.date_created,
+    date_updated: blogData.date_updated,
+    slug: blogData.slug,
+    description: blogData.description,
+    cover_img: blogData.cover_img ? `${process.env.CMS_SERVER}/assets/${blogData.cover_img}` : null
+  };
+
 
   return {
     props: { blog },
