@@ -1,5 +1,6 @@
 import { Lib } from '@mb3r/component-library'
 import type { NextPage } from 'next'
+import React from 'react'
 
 import Link from 'next/link'
 import Footer from '../components/Footer/Footer'
@@ -7,17 +8,19 @@ import NavBar from '../components/NavBar/NavBar'
 import PageContainer from '../components/PageContainer/PageContainer'
 import * as BlogLib from '../lib/blog'
 
-interface IBlog {
+interface IBlogsListItem {
   id: string
   name: string
   title: string
-  content: string
   date_created: string
   date_updated: string
+  slug?: string
+  description?: string
+  cover_img?: string
 }
 
 interface IBlogs {
-  blogs: IBlog[]
+  blogs: IBlogsListItem[]
 }
 
 const Blogs: NextPage<IBlogs> = ({ blogs }) => {
@@ -33,20 +36,28 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
         {`
           .Blog {
             background-color: var(--primary-color);
-            min-height: 100vh;
-            position: relative;
+          }
+
+          .Blog__title {
+            max-width: var(--main-width);
+            margin: 0 auto;
+            font-size: 2rem;
           }
 
           .Blog__card {
             background-color: white;
-            margin: ${breakpointSize === 'sm' ? '1rem' : '2rem'} auto;
-            padding: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
+            margin: 0 auto;
+            padding: ${breakpointSize === 'sm' ? '1rem' : '1.5rem'};
             border-radius: var(--radius);
-            max-width: calc(var(--main-width) + var(--gap)* 2);
+            max-width: var(--main-width);
+
+            &:not(:last-child) {
+              margin-bottom: 1.5rem;
+            }
           }
 
-          .text-right {
-            color: var(--primary-color);
+          .Blog__card img {
+            border-radius: var(--radius);
           }
         `}
       </style>
@@ -55,18 +66,47 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
         <NavBar />
         <main>
           <PageContainer>
-            {blogs.map((blog) => (
-              <Link href={{ pathname: `blogs/${blog.id}` }} key={blog.id}>
-                <div className="Blog__card">
-                  <h4>{blog.title}</h4>
-                  <p>
-                    By Amber Williams | Last updated on{' '}
-                    {BlogLib.formatDate(blog.date_updated)}
-                  </p>
-                  <p className="text-uppercase text-right">Read more &#8594;</p>
-                </div>
-              </Link>
-            ))}
+            <h1 className="Blog__title mb-3 text-light" >Blog posts</h1>
+            <div>
+              {blogs.map((blog) => {
+                const blogUrl = `/blogs/${blog.slug ? blog.slug : blog.id}`
+
+                return (
+                  <div key={blog.id} className="Blog__card">
+                    <Link href={blogUrl}>
+                        {blog.cover_img && (
+                          <div >
+                            <img
+                              src={blog.cover_img}
+                              alt={`Cover image for ${blog.title}`}
+                              className="img-fluid"
+                            />
+                          </div>
+                        )}
+
+                        <div >
+                          <h2 className="text-dark mt-3">{blog.title}</h2>
+
+
+                          {blog.description && (
+                            <div >
+                              <p>{blog.description}</p>
+                            </div>
+                          )}
+                          <div className="d-flex flex-row justify-content-between">
+
+                            <p className="mb-2">
+                            {BlogLib.formatDate(blog.date_created)} · Amber Williams
+                          </p>
+                          <div className="text-uppercase text-dark">Read more →</div>
+                          </div>
+                        </div>
+
+                    </Link>
+                  </div>
+                )
+              })}
+            </div>
           </PageContainer>
         </main>
         {['md', 'lg', 'xl'].includes(breakpointSize) && <Footer reversed />}
@@ -79,7 +119,7 @@ export default Blogs
 
 export async function getServerSideProps() {
   const res = await fetch(
-    `${process.env.CMS_SERVER}/items/posts?filter={ "status": { "_eq": "published" }}`,
+    `${process.env.CMS_SERVER}/items/posts?filter={"status":{"_eq":"published"}}&sort=-date_created`,
     {
       headers: {
         'Content-Type': 'application/json',
@@ -105,16 +145,14 @@ export async function getServerSideProps() {
     .map((blog: any) => {
       return {
         id: blog.id,
+        slug: blog.slug,
         name: blog.name,
         title: blog.title,
         date_created: blog.date_created,
         date_updated: blog.date_updated,
+        description: blog.description,
+        cover_img: blog.cover_img ? `${process.env.CMS_SERVER}/assets/${blog.cover_img}` : null,
       }
-    })
-    .sort((a: any, b: any) => {
-      return (
-        new Date(b.date_created).getTime() - new Date(a.date_created).getTime()
-      )
     })
 
   return {
