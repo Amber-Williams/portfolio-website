@@ -80,7 +80,7 @@ export const estimateReadTime = (content: string): string | undefined => {
     const codeBlockMatches = content.match(/```[\s\S]*?```/g) || [];
     const codeBlockCount = codeBlockMatches.length;
 
-    let readTimeMinutes = wordCount / WORDS_PER_MINUTE;
+    const readTimeMinutes = wordCount / WORDS_PER_MINUTE;
 
     const imageTimeMinutes = (imageCount * SECONDS_PER_IMAGE) / 60;
     const codeBlockTimeMinutes = (codeBlockCount * SECONDS_PER_CODE_BLOCK) / 60;
