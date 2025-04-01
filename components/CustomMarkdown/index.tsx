@@ -171,7 +171,7 @@ const Ahref = (props: any) => {
       href={props.href}
       style={{
         textDecoration: 'underline',
-        textDecorationColor: 'color-mix(in srgb, var(--tri-color) 30%, transparent) ',
+        textDecorationColor: 'color-mix(in srgb, var(--tri-color) 50%, transparent) ',
         textDecorationThickness: '3px',
         textDecorationSkipInk: 'none',
         color: 'var(--primary-color)',
@@ -183,7 +183,7 @@ const Ahref = (props: any) => {
       }}
       onMouseOut={(e: any) => {
         e.target.style.textDecoration = 'underline'
-        e.target.style.textDecorationColor = 'color-mix(in srgb, var(--tri-color) 30%, transparent) '
+        e.target.style.textDecorationColor = 'color-mix(in srgb, var(--tri-color) 50%, transparent) '
         e.target.style.textDecorationThickness = '3px'
         e.target.style.color = 'var(--primary-color)'
       }}
