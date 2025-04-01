@@ -35,6 +35,14 @@ const Blog: NextPage<IBlogProps> = ({ blog }) => {
     BlogLib.parseLinks(contentRef)
   }, [contentRef])
 
+  const estimateReadTime = () => {
+    const readTime = BlogLib.estimateReadTime(blog.content)
+    if (!readTime) {
+      return ''
+    }
+    return ` · ${readTime}`
+  }
+
   if (!blog) {
     return <div>loading</div>
   }
@@ -162,7 +170,7 @@ const Blog: NextPage<IBlogProps> = ({ blog }) => {
                     <b>Amber Williams</b>
                   </p>
                   <p className="mb-0">
-                    {BlogLib.formatDate(blog.date_created)}
+                    {BlogLib.formatDate(blog.date_created)} {estimateReadTime()}
                   </p>
                 </div>
               </div>
