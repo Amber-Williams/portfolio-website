@@ -1,17 +1,15 @@
-import { Lib } from '@mb3r/component-library'
 import Link from 'next/link'
 import React from 'react'
 
 import PageContainer from '../PageContainer/PageContainer'
 
 const NavBar: React.FC = () => {
-  const breakpointSize = Lib.useGetMediaQuerySize()
   return (
     <React.Fragment>
       <style jsx>
         {`
           .NavBar {
-            max-width: calc(var(--nav-width) + var(--gap)* 2);
+            max-width: calc(var(--nav-width) + var(--gap) * 2);
             margin: 0 auto;
             padding: var(--gap);
           }
