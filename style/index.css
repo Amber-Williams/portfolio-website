@@ -6,7 +6,7 @@
     /* colors */
     --primary-color: #040d21;
     --secondary-color: #a2facf;
-    --accent-color: #ffb370;
+    --accent-color: #ffb366;
     --tri-color: #6105ff;
     --quad-color: #eb3483;
     /* colors text */
@@ -55,6 +55,10 @@
     :root {
         --gap: 10px;
     }
+}
+
+[data-darkreader-inline-bgimage] {
+    background-image: none !important;
 }
 
 a:link {

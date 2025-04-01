@@ -171,21 +171,21 @@ const Ahref = (props: any) => {
       href={props.href}
       style={{
         textDecoration: 'underline',
-        textDecorationColor: 'var(--tri-color)',
+        textDecorationColor: 'color-mix(in srgb, var(--tri-color) 30%, transparent) ',
         textDecorationThickness: '3px',
         textDecorationSkipInk: 'none',
-        color: 'var(--tri-color)',
+        color: 'var(--primary-color)',
         fontFamily: 'var(--font-body)',
         paddingBottom: '0.1rem',
-        fontWeight: 500,
       }}
       onMouseOver={(e: any) => {
-        e.target.style.textDecoration = 'none'
+        e.target.style.color = 'var(--tri-color)'
       }}
       onMouseOut={(e: any) => {
         e.target.style.textDecoration = 'underline'
-        e.target.style.textDecorationColor = 'var(--tri-color)'
+        e.target.style.textDecorationColor = 'color-mix(in srgb, var(--tri-color) 30%, transparent) '
         e.target.style.textDecorationThickness = '3px'
+        e.target.style.color = 'var(--primary-color)'
       }}
     >
       {props.children}
