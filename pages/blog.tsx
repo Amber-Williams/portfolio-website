@@ -66,7 +66,7 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
         <NavBar />
         <main>
           <PageContainer>
-            <h1 className="Blog__title mb-3 text-light" >Blog posts</h1>
+            <h1 className="Blog__title mb-3 text-light">Blog posts</h1>
             <div>
               {blogs.map((blog) => {
                 const blogUrl = `/blogs/${blog.slug ? blog.slug : blog.id}`
@@ -74,34 +74,34 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
                 return (
                   <div key={blog.id} className="Blog__card">
                     <Link href={blogUrl}>
-                        {blog.cover_img && (
-                          <div >
-                            <img
-                              src={blog.cover_img}
-                              alt={`Cover image for ${blog.title}`}
-                              className="img-fluid"
-                            />
+                      {blog.cover_img && (
+                        <div>
+                          <img
+                            src={blog.cover_img}
+                            alt={`Cover image for ${blog.title}`}
+                            className="img-fluid"
+                          />
+                        </div>
+                      )}
+
+                      <div>
+                        <h2 className="text-dark mt-3">{blog.title}</h2>
+
+                        {blog.description && (
+                          <div>
+                            <p>{blog.description}</p>
                           </div>
                         )}
-
-                        <div >
-                          <h2 className="text-dark mt-3">{blog.title}</h2>
-
-
-                          {blog.description && (
-                            <div >
-                              <p>{blog.description}</p>
-                            </div>
-                          )}
-                          <div className="d-flex flex-row justify-content-between">
-
-                            <p className="mb-2">
-                            {BlogLib.formatDate(blog.date_created)} · Amber Williams
+                        <div className="d-flex flex-row justify-content-between">
+                          <p className="mb-2">
+                            {BlogLib.formatDate(blog.date_created)} · Amber
+                            Williams
                           </p>
-                          <div className="text-uppercase text-dark">Read more →</div>
+                          <div className="text-uppercase text-dark">
+                            Read more →
                           </div>
                         </div>
-
+                      </div>
                     </Link>
                   </div>
                 )
@@ -141,19 +141,20 @@ export async function getServerSideProps() {
     }
   }
 
-  const blogs = data.data
-    .map((blog: any) => {
-      return {
-        id: blog.id,
-        slug: blog.slug,
-        name: blog.name,
-        title: blog.title,
-        date_created: blog.date_created,
-        date_updated: blog.date_updated,
-        description: blog.description,
-        cover_img: blog.cover_img ? `${process.env.CMS_SERVER}/assets/${blog.cover_img}` : null,
-      }
-    })
+  const blogs = data.data.map((blog: any) => {
+    return {
+      id: blog.id,
+      slug: blog.slug,
+      name: blog.name,
+      title: blog.title,
+      date_created: blog.date_created,
+      date_updated: blog.date_updated,
+      description: blog.description,
+      cover_img: blog.cover_img
+        ? `${process.env.CMS_SERVER}/assets/${blog.cover_img}`
+        : null,
+    }
+  })
 
   return {
     props: { blogs },
