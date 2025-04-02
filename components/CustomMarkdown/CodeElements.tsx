@@ -80,6 +80,16 @@ const PreCode = ({ children }: { children: any }) => {
   ]
 
   const lang = children.props.className.replace('lang-', '')
+  const [copied, setCopied] = React.useState(false)
+
+  const handleCopy = () => {
+    const code = children.props.children;
+    navigator.clipboard.writeText(code)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1000);
+      })
+  }
 
   if (lang === 'mermaid') {
     return (
@@ -97,22 +107,64 @@ const PreCode = ({ children }: { children: any }) => {
         margin: '0 auto',
       }}
     >
-      {fencedLangs.includes(lang) && (
-        <p
+      <div
+        style={{
+          position: 'absolute',
+          top: '0.2rem',
+          right: '0.2rem',
+          display: 'flex',
+          gap: '0.5rem',
+          alignItems: 'center',
+        }}
+      >
+        {fencedLangs.includes(lang) && (
+          <p
+            style={{
+              color: 'var(--accent-color)',
+              borderRadius: '4px',
+              padding: '0.2rem 0.4rem',
+              border: '1px solid var(--accent-color)',
+              fontSize: '0.9em',
+              margin: 0,
+            }}
+          >
+            {lang}
+          </p>
+        )}
+        <button
+          onClick={handleCopy}
           style={{
-            position: 'absolute',
-            top: '0.2rem',
-            right: '0.2rem',
-            color: 'var(--accent-color)',
+            background: 'transparent',
+            border: '1px solid white',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '0.2rem',
             borderRadius: '4px',
-            padding: '0.2rem 0.4rem',
-            border: '1px solid var(--accent-color)',
-            fontSize: '0.9em',
           }}
+          title={copied ? "Copied!" : "Copy to clipboard"}
         >
-          {lang}
-        </p>
-      )}
+          {copied ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              style={{ fill: 'var(--success-color)' }}
+            >
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+          ) : (
+            <img
+              src="/images/icons/copy.svg"
+              alt="Copy"
+              width={20}
+              height={20}
+            />
+          )}
+        </button>
+      </div>
       <pre
         style={{
           backgroundColor: '#011627',
