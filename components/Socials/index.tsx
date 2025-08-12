@@ -97,14 +97,28 @@ const Youtube = ({ className, size }: { className?: string; size: number }) => {
       height={size}
       viewBox="0 0 24 24"
     >
-      {' '}
       <path
         fillRule="evenodd"
         d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
         clipRule="evenodd"
-      ></path>{' '}
+      ></path>
     </svg>
   )
 }
 
-export { Facebook, Github, Instagram, TwitterX, Youtube }
+const Bluesky = ({ className, size }: { className?: string; size: number }) => {
+  return (
+    <svg
+      className={className}
+      fill="currentColor"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M12 2.5c-2.5 0-4.5 2-4.5 4.5 0 1.2.5 2.3 1.3 3.1C6.2 10.7 4.5 12.7 4.5 15c0 2.5 2 4.5 4.5 4.5 1.2 0 2.3-.5 3.1-1.3.8.8 1.9 1.3 3.1 1.3 2.5 0 4.5-2 4.5-4.5 0-2.3-1.7-4.3-4.3-4.9.8-.8 1.3-1.9 1.3-3.1 0-2.5-2-4.5-4.5-4.5zm0 1.5c1.7 0 3 1.3 3 3 0 .8-.3 1.5-.8 2.1-.6.6-1.3.9-2.2.9s-1.6-.3-2.2-.9c-.5-.6-.8-1.3-.8-2.1 0-1.7 1.3-3 3-3zm0 7c2.2 0 4 1.8 4 4 0 1.7-1.3 3-3 3s-3-1.3-3-3c0-2.2 1.8-4 4-4z" />
+    </svg>
+  )
+}
+
+export { Facebook, Github, Instagram, TwitterX, Youtube, Bluesky }
