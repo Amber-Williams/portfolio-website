@@ -3,7 +3,7 @@ import React from 'react'
 
 import { FooterTypes } from '../../types/footer-types'
 import PageContainer from '../PageContainer/PageContainer'
-import { Github, TwitterX } from './../Socials'
+import { Github, TwitterX, Bluesky } from './../Socials'
 
 const Footer: React.FC<FooterTypes> = ({ reversed }) => {
   const breakpointSize = Lib.useGetMediaQuerySize()
@@ -76,6 +76,14 @@ const Footer: React.FC<FooterTypes> = ({ reversed }) => {
                   className="me-3 text-secondary hover-text-white"
                 >
                   <Github size={breakpointSize === 'sm' ? 24 : 32} />
+                </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://bsky.app/profile/notnotamber.bsky.social"
+                  className="me-3 text-secondary hover-text-white"
+                >
+                  <Bluesky size={breakpointSize === 'sm' ? 24 : 32} />
                 </a>
               </div>
             </div>
