@@ -2,6 +2,7 @@ import moment from 'moment'
 import React, { useEffect } from 'react'
 import PageContainer from '../PageContainer/PageContainer'
 import ProfileImage from './ProfileImage'
+import { SectionWrapper, GradientText, ResponsiveContainer } from '../shared'
 
 const About: React.FC = () => {
   useEffect(() => {
@@ -25,10 +26,6 @@ const About: React.FC = () => {
     <React.Fragment>
       <style jsx>
         {`
-          .About__background {
-            background-color: white;
-          }
-
           .About {
             display: grid;
             grid-template-columns: 54% 44%;
@@ -71,11 +68,13 @@ const About: React.FC = () => {
           }
         `}
       </style>
-      <div className="About__background position-relative">
+      <SectionWrapper backgroundColor="white">
         <PageContainer>
           <div className="About">
-            <div className="d-flex flex-column justify-content-center">
-              <h3 className="h2 text-gradient-blue">About me</h3>
+            <ResponsiveContainer direction="column" justify="center" align="start">
+              <GradientText variant="blue" as="h3" className="h2">
+                About me
+              </GradientText>
               <p>
                 I&apos;ve been professionally programming for{' '}
                 <span className="developer_since"></span>. During this period, I
@@ -96,11 +95,11 @@ const About: React.FC = () => {
                 based recipes, travelling as a local and have been learning to
                 draw as well.
               </p>
-            </div>
+            </ResponsiveContainer>
             <ProfileImage />
           </div>
         </PageContainer>
-      </div>
+      </SectionWrapper>
     </React.Fragment>
   )
 }

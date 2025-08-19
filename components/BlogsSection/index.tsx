@@ -1,12 +1,17 @@
 import React from 'react'
 
 import PageContainer from '../PageContainer/PageContainer'
+import { SectionWrapper, GradientText, ResponsiveContainer } from '../shared'
 
 const BlogsSection: React.FC = () => {
   return (
     <React.Fragment>
       <style jsx>
         {`
+          .BlogSection__background {
+            background-color: transparent;
+          }
+
           .BlogSection {
             display: grid;
             grid-template-columns: 40% 60%;
@@ -21,6 +26,7 @@ const BlogsSection: React.FC = () => {
             grid-column-start: 2;
             grid-column-end: 4;
             padding-right: 8rem;
+            text-align: right;
           }
 
           @media only screen and (max-width: 1450px) {
@@ -32,6 +38,7 @@ const BlogsSection: React.FC = () => {
 
             .BlogSection__content {
               padding-right: 5rem;
+              text-align: right;
             }
           }
 
@@ -48,6 +55,7 @@ const BlogsSection: React.FC = () => {
               grid-column-start: 1;
               grid-column-end: 4;
               padding-right: inherit;
+              text-align: right;
             }
           }
 
@@ -63,11 +71,13 @@ const BlogsSection: React.FC = () => {
           }
         `}
       </style>
-      <div className="BlogSection__background position-relative text-right">
+      <div className="BlogSection__background position-relative text-end">
         <PageContainer>
           <div className="BlogSection">
             <div className="BlogSection__content d-flex flex-column justify-content-center">
-              <h3 className="h2 text-gradient-green">Blogs</h3>
+              <GradientText variant="green" as="h3" className="h2">
+                Blogs
+              </GradientText>
               <a href="/blog">
                 <p>
                   My personal blog, where I share my thoughts, experiences, and
@@ -75,9 +85,13 @@ const BlogsSection: React.FC = () => {
                   latest trends, technologies, and best practices in the
                   ever-evolving world of software development.
                 </p>
-                <p className="text-uppercase text-right mt-3 text-gradient-green">
+                <GradientText
+                  variant="green"
+                  as="p"
+                  className="text-uppercase mt-3"
+                >
                   Read more &#8594;
-                </p>
+                </GradientText>
               </a>
             </div>
           </div>
