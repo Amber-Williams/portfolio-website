@@ -81,7 +81,7 @@ const Footer: React.FC<FooterTypes> = ({ reversed }) => {
                   target="_blank"
                   rel="noreferrer"
                   href="https://bsky.app/profile/notnotamber.bsky.social"
-                  className="me-3 text-secondary hover-text-white"
+                  className="ml-3 text-secondary hover-text-white"
                 >
                   <Bluesky size={breakpointSize === 'sm' ? 24 : 32} />
                 </a>
