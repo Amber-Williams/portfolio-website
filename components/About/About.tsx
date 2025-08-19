@@ -35,14 +35,14 @@ const About: React.FC = () => {
             border-top-right-radius: 3rem;
             border-color: 1px solid var(--primary-color);
             background-color: var(--primary-color);
-            margin-top: 5rem;
+            margin-top: 0.5rem;
             width: 100%;
           }
 
           @media only screen and (max-width: 1450px) {
             .About {
               width: calc(100% - 4rem);
-              margin: 5rem auto 0 auto;
+              margin: 0.5rem auto 0 auto;
             }
           }
 
