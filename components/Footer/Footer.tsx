@@ -56,7 +56,7 @@ const Footer: React.FC<FooterTypes> = ({ reversed }) => {
         <div className="Footer__content">
           <PageContainer>
             <div className="d-flex justify-content-between">
-              <p className="text-secondary" style={{ width: 'fit-content' }}>
+              <p className="text-secondary w-auto">
                 &copy; {new Date().getFullYear()} Amber Williams. All rights
                 reserved.
               </p>

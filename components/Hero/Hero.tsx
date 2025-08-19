@@ -2,6 +2,7 @@ import { Lib } from '@mb3r/component-library'
 import React, { useEffect } from 'react'
 
 import PageContainer from '../PageContainer/PageContainer'
+import { SectionWrapper, GradientText, ResponsiveContainer } from '../shared'
 
 const Hero: React.FC = () => {
   const breakpointSize = Lib.useGetMediaQuerySize()
@@ -72,16 +73,6 @@ const Hero: React.FC = () => {
     <React.Fragment>
       <style jsx>
         {`
-          .Hero__background {
-            background-color: var(--primary-color);
-            width: 100vw;
-            height: 90vh;
-            position: relative;
-            overflow: hidden;
-            max-width: 100%;
-            overflow: hidden;
-          }
-
           .Hero {
             max-width: 50vw;
             height: 90vh;
@@ -104,13 +95,6 @@ const Hero: React.FC = () => {
 
           .Hero p {
             max-width: 35vw;
-          }
-
-          .Hero button {
-            border: 1px solid var(--secondary-color);
-            border-radius: var(--radius);
-            padding: 1rem;
-            width: 11rem;
           }
 
           .Hero__bg--1 {
@@ -184,35 +168,53 @@ const Hero: React.FC = () => {
               margin-left: 0.5rem;
             }
 
-            .Hero button {
+            .Hero__button {
               padding: 8px;
             }
           }
         `}
       </style>
-      <div className="Hero__background position-relative">
+      <SectionWrapper
+        backgroundColor="primary"
+        height="90vh"
+        hasCurve={false}
+      >
         <img src="/images/backgrounds/bg-hero-1.svg" className="Hero__bg--1" />
         <img src="/images/backgrounds/bg-hero-2.svg" className="Hero__bg--2" />
         <PageContainer>
           <div className="Hero w-100">
-            <div className="d-flex flex-column justify-content-center position-relative z-2">
-              <p className="text-monospace text-gradient-blue">
+            <ResponsiveContainer
+              direction="column"
+              justify="center"
+              align="start"
+              gap="0"
+              className="position-relative"
+              style={{ zIndex: 2 }}
+            >
+              <GradientText variant="blue" as="p" className="font-monospace">
                 Hi, my name is
-              </p>
+              </GradientText>
               <h1>Amber</h1>
               <h2>
                 and I <span className="Hero__verb">build</span> <span> </span>
                 <span className="Hero__noun">things</span>
               </h2>
               <button
-                className="text-monospace text-gradient-blue mt-5 text-uppercase"
+                className="Hero__button font-monospace text-uppercase mt-5 bg-transparent border border-1 rounded p-3"
+                style={{
+                  borderColor: 'var(--secondary-color)',
+                  width: '11rem',
+                  cursor: 'pointer'
+                }}
                 onClick={() =>
                   (location.href = 'mailto:amberwilliamsdev@gmail.com')
                 }
               >
-                Get in touch
+                <GradientText variant="blue" as="span">
+                  Get in touch
+                </GradientText>
               </button>
-            </div>
+            </ResponsiveContainer>
           </div>
         </PageContainer>
         {breakpointSize === "sm" ?
@@ -231,13 +233,12 @@ const Hero: React.FC = () => {
             width="500"
             height="150"
             viewBox="0 0 500 150"
-          preserveAspectRatio="none"
-        >
-          <path d="M0,0 L0,100 Q250,200 500,100 L500,0 Z"></path>
-        </svg>
-      }
-
-      </div>
+            preserveAspectRatio="none"
+          >
+            <path d="M0,0 L0,100 Q250,200 500,100 L500,0 Z"></path>
+          </svg>
+        }
+      </SectionWrapper>
     </React.Fragment>
   )
 }
