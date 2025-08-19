@@ -19,6 +19,8 @@ const BlogsSection: React.FC = () => {
             padding: 3rem 6rem;
             border-color: 1px solid var(--primary-color);
             background-color: var(--primary-color);
+            border-bottom-left-radius: 3rem;
+            border-bottom-right-radius: 3rem;
             width: 100%;
           }
 
