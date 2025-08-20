@@ -1,7 +1,7 @@
 import React from 'react'
 
 import PageContainer from '../PageContainer/PageContainer'
-import { SectionWrapper, GradientText, ResponsiveContainer } from '../shared'
+import { GradientText } from '../shared'
 
 const BlogsSection: React.FC = () => {
   return (

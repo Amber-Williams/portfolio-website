@@ -1,9 +1,7 @@
 import React from 'react'
 import { CaseStudyListProps } from '../../types/case-study-types'
-import PageContainer from '../PageContainer/PageContainer'
-import CaseStudyListItem from './CaseStudyListItem'
 
-const CaseStudiesList: React.FC<CaseStudyListProps> = ({ allCaseStudies }) => {
+const CaseStudiesList: React.FC<CaseStudyListProps> = ({ allCaseStudies: _allCaseStudies }) => {
   // Hidden: "Some things I've built" section
   return null
 }
