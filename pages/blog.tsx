@@ -1,11 +1,12 @@
 import { Lib } from '@mb3r/component-library'
 import type { NextPage } from 'next'
+import Link from 'next/link'
 import React from 'react'
 
-import Link from 'next/link'
 import Footer from '../components/Footer/Footer'
 import NavBar from '../components/NavBar/NavBar'
 import PageContainer from '../components/PageContainer/PageContainer'
+import GradientText from '../components/shared/GradientText'
 import * as BlogLib from '../lib/blog'
 
 interface IBlogsListItem {
@@ -38,10 +39,9 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
             background-color: var(--primary-color);
           }
 
-          .Blog__title {
+          .Blog main {
             max-width: var(--main-width);
             margin: 0 auto;
-            font-size: 2rem;
           }
 
           .Blog__card {
@@ -66,7 +66,9 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
         <NavBar />
         <main>
           <PageContainer>
-            <h1 className="Blog__title mb-3 text-light">Blog posts</h1>
+            <GradientText variant="green" as="h3" className="h2 mb-3">
+              Blog posts
+            </GradientText>
             <div>
               {blogs.map((blog) => {
                 const blogUrl = `/blogs/${blog.slug ? blog.slug : blog.id}`
