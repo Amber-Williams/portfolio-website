@@ -8,6 +8,7 @@ import CustomMarkdown from '../../components/CustomMarkdown'
 import Footer from '../../components/Footer/Footer'
 import NavBar from '../../components/NavBar/NavBar'
 import PageContainer from '../../components/PageContainer/PageContainer'
+import ReadNextSection from '../../components/ReadNextSection'
 import * as BlogLib from '../../lib/blog'
 
 interface IBlog {
@@ -22,11 +23,23 @@ interface IBlog {
   cover_img?: string
 }
 
-interface IBlogProps {
-  blog: IBlog
+interface IBlogsListItem {
+  id: string
+  name: string
+  title: string
+  date_created: string
+  date_updated: string
+  slug?: string
+  description?: string
+  cover_img?: string
 }
 
-const Blog: NextPage<IBlogProps> = ({ blog }) => {
+interface IBlogProps {
+  blog: IBlog
+  suggestedBlogs?: IBlogsListItem[]
+}
+
+const Blog: NextPage<IBlogProps> = ({ blog, suggestedBlogs }) => {
   const contentRef = React.useRef<HTMLDivElement>(null)
   const breakpointSize = Lib.useGetMediaQuerySize()
 
@@ -61,7 +74,10 @@ const Blog: NextPage<IBlogProps> = ({ blog }) => {
         <meta httpEquiv="x-ua-compatible" content="IE=edge" />
 
         {/* Responsive Design */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
 
         {/* SEO - Search Engine Indexing */}
         <meta name="robots" content="index, follow" />
@@ -70,7 +86,9 @@ const Blog: NextPage<IBlogProps> = ({ blog }) => {
         <title>{`${blog.title}`}</title>
 
         {/* SEO - Description (displays in search results) */}
-        {blog.description && <meta name="description" content={blog.description} />}
+        {blog.description && (
+          <meta name="description" content={blog.description} />
+        )}
 
         {/* Author Information */}
         <meta name="author" content="Amber Williams" />
@@ -103,24 +121,24 @@ const Blog: NextPage<IBlogProps> = ({ blog }) => {
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'BlogPosting',
-              'headline': blog.title,
-              'image': imageUrl,
-              'datePublished': blog.date_created,
-              'dateModified': blog.date_updated,
-              'author': {
+              headline: blog.title,
+              image: imageUrl,
+              datePublished: blog.date_created,
+              dateModified: blog.date_updated,
+              author: {
                 '@type': 'Person',
-                'name': 'Amber Williams'
+                name: 'Amber Williams',
               },
-              'publisher': {
+              publisher: {
                 '@type': 'Organization',
-                'name': 'Amber Williams',
-                'logo': {
+                name: 'Amber Williams',
+                logo: {
                   '@type': 'ImageObject',
-                  'url': `${baseUrl}/images/logo.gif`
-                }
+                  url: `${baseUrl}/images/logo.gif`,
+                },
               },
-              'description': blog.description
-            })
+              description: blog.description,
+            }),
           }}
         />
       </Head>
@@ -128,13 +146,15 @@ const Blog: NextPage<IBlogProps> = ({ blog }) => {
         .Blog {
           background-color: var(--primary-color);
         }
-
         .Blog main {
-          background-color: white;
+          max-width: calc(var(--main-width) + var(--gap) * 2);
           margin: ${breakpointSize === 'sm' ? '1rem' : '2rem'} auto;
+        }
+
+        .Blog__content {
+          background-color: white;
           padding: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
           border-radius: var(--radius);
-          max-width: calc(var(--main-width) + var(--gap)* 2);
         }
 
         .Blog h1 {
@@ -159,7 +179,7 @@ const Blog: NextPage<IBlogProps> = ({ blog }) => {
         <NavBar />
         <PageContainer>
           <main>
-            <div ref={contentRef}>
+            <div ref={contentRef} className="Blog__content">
               <h1 className="text-dark">{blog.title}</h1>
               <div className="d-flex flex-row align-items-center">
                 <div className="mr-3">
@@ -184,17 +204,17 @@ const Blog: NextPage<IBlogProps> = ({ blog }) => {
                   />
                 </div>
               )}
-              <div className="Blog__content">
-                <CustomMarkdown hideH1={true}>{blog.content}</CustomMarkdown>
-              </div>
+              <CustomMarkdown hideH1={true}>{blog.content}</CustomMarkdown>
+
               <br />
             </div>
+            {suggestedBlogs && suggestedBlogs.length > 0 && (
+              <ReadNextSection blogs={suggestedBlogs} />
+            )}
           </main>
         </PageContainer>
         <Footer reversed />
       </div>
-
-
     </>
   )
 }
@@ -227,7 +247,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     }
   }
 
-  const blogData = data.data[0];
+  const blogData = data.data[0]
 
   const blog = {
     id: blogData.id,
@@ -238,11 +258,20 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     date_updated: blogData.date_updated,
     slug: blogData.slug,
     description: blogData.description,
-    cover_img: blogData.cover_img ? `${process.env.CMS_SERVER}/assets/${blogData.cover_img}` : null
-  };
+    cover_img: blogData.cover_img
+      ? `${process.env.CMS_SERVER}/assets/${blogData.cover_img}`
+      : null,
+  }
 
+  const suggestedBlogs = await BlogLib.getSuggestedBlogPosts(
+    blog.id,
+    process.env.CMS_API_KEY
+  )
 
   return {
-    props: { blog },
+    props: {
+      blog,
+      suggestedBlogs,
+    },
   }
 }

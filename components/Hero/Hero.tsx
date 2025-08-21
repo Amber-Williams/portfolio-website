@@ -2,7 +2,7 @@ import { Lib } from '@mb3r/component-library'
 import React, { useEffect } from 'react'
 
 import PageContainer from '../PageContainer/PageContainer'
-import { SectionWrapper, GradientText, ResponsiveContainer } from '../shared'
+import { GradientText, ResponsiveContainer, SectionWrapper } from '../shared'
 
 const Hero: React.FC = () => {
   const breakpointSize = Lib.useGetMediaQuerySize()
@@ -174,11 +174,7 @@ const Hero: React.FC = () => {
           }
         `}
       </style>
-      <SectionWrapper
-        backgroundColor="primary"
-        height="90vh"
-        hasCurve={false}
-      >
+      <SectionWrapper backgroundColor="primary" height="90vh" hasCurve={false}>
         <img src="/images/backgrounds/bg-hero-1.svg" className="Hero__bg--1" />
         <img src="/images/backgrounds/bg-hero-2.svg" className="Hero__bg--2" />
         <PageContainer>
@@ -204,7 +200,7 @@ const Hero: React.FC = () => {
                 style={{
                   borderColor: 'var(--secondary-color)',
                   width: '11rem',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
                 }}
                 onClick={() =>
                   (location.href = 'mailto:amberwilliamsdev@gmail.com')
@@ -217,7 +213,7 @@ const Hero: React.FC = () => {
             </ResponsiveContainer>
           </div>
         </PageContainer>
-        {breakpointSize === "sm" ?
+        {breakpointSize === 'sm' ? (
           <svg
             className="Hero__curve"
             width="500"
@@ -227,17 +223,17 @@ const Hero: React.FC = () => {
           >
             <path d="M0,0 L0,40 Q250,80 500,40 L500,0 Z"></path>
           </svg>
-          :
+        ) : (
           <svg
             className="Hero__curve"
             width="500"
-            height="150"
+            height="80"
             viewBox="0 0 500 150"
             preserveAspectRatio="none"
           >
             <path d="M0,0 L0,100 Q250,200 500,100 L500,0 Z"></path>
           </svg>
-        }
+        )}
       </SectionWrapper>
     </React.Fragment>
   )
