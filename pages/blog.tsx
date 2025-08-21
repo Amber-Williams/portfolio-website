@@ -1,5 +1,6 @@
 import { Lib } from '@mb3r/component-library'
 import type { NextPage } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -8,19 +9,9 @@ import NavBar from '../components/NavBar/NavBar'
 import PageContainer from '../components/PageContainer/PageContainer'
 import GradientText from '../components/shared/GradientText'
 import * as BlogLib from '../lib/blog'
+import { IBlogsListItem } from '../types'
 
-interface IBlogsListItem {
-  id: string
-  name: string
-  title: string
-  date_created: string
-  date_updated: string
-  slug?: string
-  description?: string
-  cover_img?: string
-}
-
-interface IBlogs {
+export interface IBlogs {
   blogs: IBlogsListItem[]
 }
 
@@ -56,8 +47,17 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
             }
           }
 
-          .Blog__card img {
+          .Blog__cover-image-wrapper {
+            margin: 1rem 0 2rem 0;
+            width: 100%;
             border-radius: var(--radius);
+            overflow: hidden;
+          }
+
+          .Blog__cover-image {
+            width: 100%;
+            max-height: 60vh;
+            object-fit: contain;
           }
         `}
       </style>
@@ -77,11 +77,18 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
                   <div key={blog.id} className="Blog__card">
                     <Link href={blogUrl}>
                       {blog.cover_img && (
-                        <div>
-                          <img
+                        <div className="Blog__cover-image-wrapper">
+                          <Image
                             src={blog.cover_img}
                             alt={`Cover image for ${blog.title}`}
-                            className="img-fluid"
+                            className="Blog__cover-image img-fluid"
+                            loading="lazy"
+                            width={1280}
+                            height={720}
+                            placeholder="blur"
+                            blurDataURL={
+                              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOc1OrTCQAFAgHuigYfLgAAAABJRU5ErkJggg=='
+                            }
                           />
                         </div>
                       )}
@@ -120,43 +127,10 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
 export default Blogs
 
 export async function getServerSideProps() {
-  const res = await fetch(
-    `${process.env.CMS_SERVER}/items/posts?filter={"status":{"_eq":"published"}}&sort=-date_created`,
-    {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.CMS_API_KEY}`,
-      },
-    }
+  const blogs = await BlogLib.getAllBlogs(
+    process.env.CMS_SERVER,
+    process.env.CMS_API_KEY
   )
-  if (res.status === 401) {
-    console.error('Unauthorized access to API.')
-    return {
-      notFound: true,
-    }
-  }
-  const data = await res.json()
-
-  if (!data) {
-    return {
-      notFound: true,
-    }
-  }
-
-  const blogs = data.data.map((blog: any) => {
-    return {
-      id: blog.id,
-      slug: blog.slug,
-      name: blog.name,
-      title: blog.title,
-      date_created: blog.date_created,
-      date_updated: blog.date_updated,
-      description: blog.description,
-      cover_img: blog.cover_img
-        ? `${process.env.CMS_SERVER}/assets/${blog.cover_img}`
-        : null,
-    }
-  })
 
   return {
     props: { blogs },

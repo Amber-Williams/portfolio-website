@@ -1,16 +1,10 @@
 import { Lib } from '@mb3r/component-library'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
+import { IBlogsListItem } from '../../types'
 import GradientText from '../shared/GradientText'
-
-interface IBlogsListItem {
-  id: string
-  name: string
-  title: string
-  slug?: string
-  description?: string
-}
 
 interface IReadNextSectionProps {
   blogs: IBlogsListItem[]
@@ -42,12 +36,12 @@ const ReadNextSection: React.FC<IReadNextSectionProps> = ({ blogs }) => {
 
           .ReadNext__card {
             background-color: #f8f9fa;
-            padding: 1.5rem;
             border-radius: var(--radius);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border: 1px solid #e9ecef;
+            border: 1px solid var(--primary-color);
             height: 100%;
             position: relative;
+            overflow: hidden;
           }
 
           .ReadNext__card:hover {
@@ -55,19 +49,14 @@ const ReadNextSection: React.FC<IReadNextSectionProps> = ({ blogs }) => {
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
           }
 
-          .ReadNext__card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: var(--radius);
-            margin-bottom: 1rem;
-          }
-
           .ReadNext__card h3 {
             font-size: 1.1rem;
             margin-bottom: 0.75rem;
             color: var(--text-dark);
             line-height: 1.3;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            margin-top: 1.5rem;
           }
 
           .ReadNext__card p {
@@ -77,6 +66,9 @@ const ReadNextSection: React.FC<IReadNextSectionProps> = ({ blogs }) => {
             line-height: 1.4;
             overflow: hidden;
             flex-grow: 1;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            padding-bottom: 1.5rem;
           }
 
           .ReadNext__meta {
@@ -111,6 +103,20 @@ const ReadNextSection: React.FC<IReadNextSectionProps> = ({ blogs }) => {
             bottom: 1.5rem;
             left: 1.5rem;
           }
+
+          .ReadNext__cover-image-wrapper {
+            width: 100%;
+            height: ${breakpointSize === 'sm' ? '200px' : '150px'};
+            object-fit: cover;
+            overflow: hidden;
+          }
+
+          .ReadNext__cover-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            transform: scale(1.5);
+          }
         `}
       </style>
 
@@ -126,6 +132,23 @@ const ReadNextSection: React.FC<IReadNextSectionProps> = ({ blogs }) => {
               <div key={blog.id} className="ReadNext__card">
                 <Link href={blogUrl} className="ReadNext__link">
                   <div className="ReadNext__content">
+                    {blog.cover_img && (
+                      <div className="ReadNext__cover-image-wrapper">
+                        <Image
+                          src={blog.cover_img}
+                          alt={`Cover image for ${blog.title}`}
+                          className="ReadNext__cover-image img-fluid"
+                          loading="lazy"
+                          width={1280}
+                          height={720}
+                          sizes="(max-width: 768px) 100vw, 300px"
+                          placeholder="blur"
+                          blurDataURL={
+                            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOc1OrTCQAFAgHuigYfLgAAAABJRU5ErkJggg=='
+                          }
+                        />
+                      </div>
+                    )}
                     <h3>{blog.title}</h3>
                     {blog.description && <p>{blog.description}</p>}
                   </div>
