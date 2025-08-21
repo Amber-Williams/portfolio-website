@@ -2,6 +2,9 @@ import moment from 'moment'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 
+import { IBlogsListItem } from '../types'
+import { getCache, setCache } from './cache'
+
 const Mermaid = ({ graphDefinition }: { graphDefinition: string }) => {
   const mermaidRef = React.useRef(null)
   React.useEffect(() => {
@@ -106,26 +109,40 @@ export const estimateReadTime = (content: string): string | undefined => {
   }
 }
 
-const blogCache = new Map<string, { data: any[]; timestamp: number }>()
-const CACHE_DURATION = 60 * 60 * 1000 * 24 // 24 hours
-
 export const getSuggestedBlogPosts = async (
   excludeId: string,
+  apiUrl: string,
   apiKey: string
 ): Promise<any[]> => {
   try {
-    const cacheKey = `suggested-blogs-${excludeId}`
-    const now = Date.now()
-    const cached = blogCache.get(cacheKey)
     const BLOG_LIMIT = 3
-    const BLOG_PAGE = Math.floor(Math.random() * 2) + 1
+    const blogs = await getAllBlogs(apiUrl, apiKey)
 
-    if (cached && now - cached.timestamp < CACHE_DURATION) {
-      return cached.data
-    }
+    return blogs
+      .filter((blog: any) => blog.id !== excludeId)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, BLOG_LIMIT)
+      .map((blog: any) => ({
+        id: blog.id,
+        slug: blog.slug,
+        name: blog.name,
+        title: blog.title,
+        description: blog.description,
+        cover_img: blog.cover_img,
+      }))
+  } catch (error) {
+    console.error('Error fetching suggested blog posts:', error)
+    return []
+  }
+}
 
-    const response = await fetch(
-      `${process.env.CMS_SERVER}/items/posts?fields=id,slug,name,title,description&filter={ "status": { "_eq": "published" }, "id": { "_neq": "${excludeId}" }}&limit=${BLOG_LIMIT}&page=${BLOG_PAGE}`,
+export const getAllBlogs = async (apiUrl: string, apiKey: string) => {
+  const cacheKey = 'blog-posts'
+  let blogs = (getCache(cacheKey) as unknown) as IBlogsListItem[]
+
+  if (!blogs) {
+    const res = await fetch(
+      `${apiUrl}/items/posts?fields=id,slug,name,title,description,date_created,date_updated,cover_img&filter={"status":{"_eq":"published"}}&sort=-date_created`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -133,39 +150,32 @@ export const getSuggestedBlogPosts = async (
         },
       }
     )
-
-    if (!response.ok) {
-      throw new Error(`HTTP error status: ${response.status}`)
+    if (res.status === 401) {
+      console.error('Unauthorized access to API.')
+      return []
     }
+    const data = await res.json()
 
-    const data = await response.json()
-
-    if (!data.data || data.data.length === 0) {
+    if (!data) {
       return []
     }
 
-    const result = data.data.map((blog: any) => ({
-      id: blog.id,
-      slug: blog.slug,
-      name: blog.name,
-      title: blog.title,
-      description: blog.description,
-    }))
-
-    blogCache.set(cacheKey, {
-      data: result,
-      timestamp: now,
-    })
-
-    blogCache.forEach((value, key) => {
-      if (now - value.timestamp > CACHE_DURATION * 2) {
-        blogCache.delete(key)
+    blogs = data.data.map((blog: any) => {
+      return {
+        id: blog.id,
+        slug: blog.slug,
+        name: blog.name,
+        title: blog.title,
+        date_created: blog.date_created,
+        date_updated: blog.date_updated,
+        description: blog.description,
+        cover_img: blog.cover_img
+          ? `${process.env.CMS_SERVER}/assets/${blog.cover_img}`
+          : null,
       }
     })
 
-    return result
-  } catch (error) {
-    console.error('Error fetching suggested blog posts:', error)
-    return []
+    setCache(cacheKey, blogs)
   }
+  return blogs
 }

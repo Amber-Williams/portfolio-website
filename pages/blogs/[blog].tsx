@@ -1,6 +1,7 @@
 import { Lib } from '@mb3r/component-library'
 import { GetServerSidePropsContext, NextPage } from 'next'
 import Head from 'next/head'
+import Image from 'next/image'
 import React, { useEffect } from 'react'
 
 import Avatar from '../../components/Avatar'
@@ -10,6 +11,7 @@ import NavBar from '../../components/NavBar/NavBar'
 import PageContainer from '../../components/PageContainer/PageContainer'
 import ReadNextSection from '../../components/ReadNextSection'
 import * as BlogLib from '../../lib/blog'
+import { getCache, setCache } from '../../lib/cache'
 
 interface IBlog {
   id: string
@@ -162,14 +164,15 @@ const Blog: NextPage<IBlogProps> = ({ blog, suggestedBlogs }) => {
           margin-bottom: 1rem;
         }
 
-        .Blog__cover-image {
+        .Blog__cover-image-wrapper {
           margin: 1rem 0 2rem 0;
           width: 100%;
+          border-radius: var(--radius);
+          overflow: hidden;
         }
 
-        .Blog__cover-image img {
+        .Blog__cover-image {
           width: 100%;
-          border-radius: var(--radius);
           max-height: 60vh;
           object-fit: contain;
         }
@@ -196,11 +199,18 @@ const Blog: NextPage<IBlogProps> = ({ blog, suggestedBlogs }) => {
               </div>
               <hr />
               {blog.cover_img && (
-                <div className="Blog__cover-image">
-                  <img
+                <div className="Blog__cover-image-wrapper">
+                  <Image
                     src={blog.cover_img}
                     alt={`Cover image for ${blog.title}`}
-                    className="img-fluid"
+                    className="Blog__cover-image img-fluid"
+                    loading="lazy"
+                    width={1280}
+                    height={720}
+                    placeholder="blur"
+                    blurDataURL={
+                      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOc1OrTCQAFAgHuigYfLgAAAABJRU5ErkJggg=='
+                    }
                   />
                 </div>
               )}
@@ -223,48 +233,54 @@ export default Blog
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const blogId = context.resolvedUrl.replace('/blogs/', '')
+  const cacheKey = `blog-${blogId}`
+  let blog = (getCache(cacheKey) as unknown) as IBlog
 
-  const res = await fetch(
-    `${process.env.CMS_SERVER}/items/posts?filter={ "status": { "_eq": "published" }, "slug": { "_eq": "${blogId}" }}`,
-    {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.CMS_API_KEY}`,
-      },
+  if (!blog) {
+    const res = await fetch(
+      `${process.env.CMS_SERVER}/items/posts?filter={ "status": { "_eq": "published" }, "slug": { "_eq": "${blogId}" }}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.CMS_API_KEY}`,
+        },
+      }
+    )
+    if (res.status === 401) {
+      console.error('Unauthorized access to API.')
+      return {
+        notFound: true,
+      }
     }
-  )
-  if (res.status === 401) {
-    console.error('Unauthorized access to API.')
-    return {
-      notFound: true,
+    const data = await res.json()
+
+    if (!data || data.errors) {
+      return {
+        notFound: true,
+      }
     }
-  }
-  const data = await res.json()
 
-  if (!data || data.errors) {
-    return {
-      notFound: true,
+    const blogData = data.data[0]
+
+    blog = {
+      id: blogData.id,
+      name: blogData.name,
+      title: blogData.title,
+      content: blogData.content,
+      date_created: blogData.date_created,
+      date_updated: blogData.date_updated,
+      slug: blogData.slug,
+      description: blogData.description,
+      cover_img: blogData.cover_img
+        ? `${process.env.CMS_SERVER}/assets/${blogData.cover_img}`
+        : null,
     }
-  }
-
-  const blogData = data.data[0]
-
-  const blog = {
-    id: blogData.id,
-    name: blogData.name,
-    title: blogData.title,
-    content: blogData.content,
-    date_created: blogData.date_created,
-    date_updated: blogData.date_updated,
-    slug: blogData.slug,
-    description: blogData.description,
-    cover_img: blogData.cover_img
-      ? `${process.env.CMS_SERVER}/assets/${blogData.cover_img}`
-      : null,
+    setCache(cacheKey, blog)
   }
 
   const suggestedBlogs = await BlogLib.getSuggestedBlogPosts(
     blog.id,
+    process.env.CMS_SERVER,
     process.env.CMS_API_KEY
   )
 
