@@ -98,11 +98,13 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
 
                         {blog.description && (
                           <div>
-                            <p>{blog.description}</p>
+                            <p className="text-dark-secondary">
+                              {blog.description}
+                            </p>
                           </div>
                         )}
                         <div className="d-flex flex-row justify-content-between">
-                          <p className="mb-2">
+                          <p className="mb-2 text-dark-secondary">
                             {BlogLib.formatDate(blog.date_created)} · Amber
                             Williams
                           </p>
