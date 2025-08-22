@@ -1,14 +1,12 @@
 import moment from 'moment'
 import React, { useEffect } from 'react'
 import PageContainer from '../PageContainer/PageContainer'
+import { GradientText, ResponsiveContainer, SectionWrapper } from '../shared'
 import ProfileImage from './ProfileImage'
-import { SectionWrapper, GradientText, ResponsiveContainer } from '../shared'
 
 const About: React.FC = () => {
   useEffect(() => {
-    const developer_since = document.querySelector(
-      '.developer_since'
-    ) as HTMLElement
+    const years_exp = document.querySelector('.years_exp') as HTMLElement
 
     const start = moment('2017-04-19T08:30:00+0000')
 
@@ -16,7 +14,9 @@ const About: React.FC = () => {
       const now = moment()
       const diff = now.diff(start)
       const diffDuration = moment.duration(diff)
-      developer_since.innerText = `${diffDuration.years()} years, ${diffDuration.days()} days, ${diffDuration.hours()} hours, ${diffDuration.minutes()} minutes and ${diffDuration.seconds()} seconds`
+      years_exp.innerText = `${
+        diffDuration.days() ? '+' : ''
+      }${diffDuration.years()} years`
     }, 1000)
 
     return () => clearInterval(interval)
@@ -71,29 +71,25 @@ const About: React.FC = () => {
       <SectionWrapper backgroundColor="white">
         <PageContainer>
           <div className="About">
-            <ResponsiveContainer direction="column" justify="center" align="start">
+            <ResponsiveContainer
+              direction="column"
+              justify="center"
+              align="start"
+            >
               <GradientText variant="blue" as="h3" className="h2">
                 About me
               </GradientText>
               <p>
-                I&apos;ve been professionally programming for{' '}
-                <span className="developer_since"></span>. During this period, I
-                have dedicated myself to the art of programming, honing my
-                skills in creative problem-solving and continually seeking out
-                complex challenges to enhance my expertise.
+                Hello! I’m Amber, a software engineer living in London with{' '}
+                <span className="years_exp"></span> of experience. For my day
+                job, I work on full-stack systems that bring AI/ML/NLP into real
+                products.
                 <br />
                 <br />
-                I&apos;ve concentrated on integrating machine learning into
-                full-stack projects, deploying them cost-effectively while
-                ensuring fault tolerance. Recently, I&apos;ve been blogging
-                about my experiences to demystify tech and make the project code
-                accessible to all. It&apos;s an exciting journey, pushing the
-                boundaries of technology and sharing insights along the way.
-                <br />
-                <br />
-                When I&apos;m not coding, I enjoy bouldering, learning new plant
-                based recipes, travelling as a local and have been learning to
-                draw as well.
+                On this website you’ll find my blog, where I share thoughts
+                shaped by <b>side projects</b>
+                and interests like 3D printing, productivity, and home
+                automation.
               </p>
             </ResponsiveContainer>
             <ProfileImage />
