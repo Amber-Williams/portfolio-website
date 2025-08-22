@@ -14,8 +14,10 @@
     --warning-color: #ff9800;
     --info-color: #2196f3;
     /* colors text */
-    --primary-text-color: rgb(161 160 160);
-    --secondary-text-color: rgba(255, 255, 255, 0.8);
+    --primary-text-color-light: #e6eaf2;
+    --secondary-text-color-light: #9aa3b8;
+    --primary-text-color-dark: #040d21;
+    --secondary-text-color-dark: #757883;
     /* colors extended */
     --primary-color-100: #040d21;
     --primary-color-90: #040d2190;
@@ -85,6 +87,22 @@ a:active {
     text-decoration: none;
 }
 
+.text-dark {
+    color: var(--primary-text-color-dark);
+}
+
+.text-light {
+    color: var(--primary-text-color-light);
+}
+
+.text-dark-secondary {
+    color: var(--secondary-text-color-dark);
+}
+
+.text-light-secondary {
+    color: var(--secondary-text-color-light);
+}
+
 .text-dark p,
 .text-dark h1,
 .text-dark h2,
@@ -93,7 +111,7 @@ a:active {
 .text-dark h5,
 .text-dark h6,
 .text-dark li {
-    color: var(--primary-color);
+    color: var(--primary-text-color-dark);
 }
 
 p,
@@ -104,7 +122,7 @@ h4,
 h5,
 h6,
 li {
-    color: var(--primary-text-color);
+    color: var(--primary-text-color-light);
     font-family: var(--font-body);
 }
 
