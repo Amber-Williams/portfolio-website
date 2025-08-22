@@ -7,19 +7,13 @@ import ProfileImage from './ProfileImage'
 const About: React.FC = () => {
   useEffect(() => {
     const years_exp = document.querySelector('.years_exp') as HTMLElement
-
     const start = moment('2017-04-19T08:30:00+0000')
-
-    const interval = setInterval(() => {
-      const now = moment()
-      const diff = now.diff(start)
-      const diffDuration = moment.duration(diff)
-      years_exp.innerText = `${
-        diffDuration.days() ? '+' : ''
-      }${diffDuration.years()} years`
-    }, 1000)
-
-    return () => clearInterval(interval)
+    const now = moment()
+    const diff = now.diff(start)
+    const diffDuration = moment.duration(diff)
+    years_exp.innerText = `${
+      diffDuration.days() ? '+' : ''
+    }${diffDuration.years()} years`
   }, [])
 
   return (
@@ -35,8 +29,12 @@ const About: React.FC = () => {
             border-top-right-radius: 3rem;
             border-color: 1px solid var(--primary-color);
             background-color: var(--primary-color);
-            margin-top: 0.5rem;
             width: 100%;
+            margin-top: 2rem;
+          }
+
+          .About p {
+            line-height: 1.5;
           }
 
           @media only screen and (max-width: 1450px) {
@@ -68,7 +66,7 @@ const About: React.FC = () => {
           }
         `}
       </style>
-      <SectionWrapper backgroundColor="white">
+      <SectionWrapper>
         <PageContainer>
           <div className="About">
             <ResponsiveContainer
@@ -79,7 +77,7 @@ const About: React.FC = () => {
               <GradientText variant="blue" as="h3" className="h2">
                 About me
               </GradientText>
-              <p>
+              <p className="h5 text-light lh-lg">
                 Hello! I’m Amber, a software engineer living in London with{' '}
                 <span className="years_exp"></span> of experience. For my day
                 job, I work on full-stack systems that bring AI/ML/NLP into real
@@ -87,9 +85,8 @@ const About: React.FC = () => {
                 <br />
                 <br />
                 On this website you’ll find my blog, where I share thoughts
-                shaped by <b>side projects</b>
-                and interests like 3D printing, productivity, and home
-                automation.
+                shaped by <b>side projects</b> and interests like 3D printing,
+                productivity, and home automation.
               </p>
             </ResponsiveContainer>
             <ProfileImage />
