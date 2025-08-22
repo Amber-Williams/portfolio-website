@@ -20,6 +20,7 @@ const Footer: React.FC<FooterTypes> = ({ reversed }) => {
             width: 100vw;
             padding-top: 4rem;
             position: relative;
+            ${reversed ? 'overflow: hidden;' : ''}
           }
 
           .Footer__curve {
@@ -29,8 +30,14 @@ const Footer: React.FC<FooterTypes> = ({ reversed }) => {
             position: absolute;
           }
 
-          .Footer__curve path {
-            fill: ${reversed ? 'var(--primary-color)' : 'white'};
+          .Footer__curve .background-fill {
+            fill: var(--primary-color);
+          }
+
+          .Footer__curve .curve-line {
+            fill: none;
+            stroke: var(--secondary-text-color-light);
+            stroke-width: 2;
           }
 
           .Footer__content {
@@ -67,7 +74,14 @@ const Footer: React.FC<FooterTypes> = ({ reversed }) => {
           viewBox="0 0 500 80"
           preserveAspectRatio="none"
         >
-          <path d="M0,0 L0,40 Q250,80 500,40 L500,0 Z"></path>
+          {reversed ? (
+            <path
+              className="background-fill"
+              d="M0,40 Q250,80 500,40 L500,0 L0,0 Z"
+            />
+          ) : (
+            <path className="curve-line" d="M0,40 Q250,80 500,40" />
+          )}
         </svg>
         <div className="Footer__content">
           <PageContainer>

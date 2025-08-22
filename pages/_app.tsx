@@ -7,7 +7,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <React.Fragment>
       <Head>
-        <title>Amber&apos;s portfolio</title>
+        <title>amberwilliams.io</title>
       </Head>
       <div className="App">
         <Component {...pageProps} />
