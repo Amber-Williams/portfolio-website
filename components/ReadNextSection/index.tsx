@@ -110,13 +110,6 @@ const ReadNextSection: React.FC<IReadNextSectionProps> = ({ blogs }) => {
             object-fit: cover;
             overflow: hidden;
           }
-
-          .ReadNext__cover-image {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            transform: scale(1.5);
-          }
         `}
       </style>
 
@@ -137,7 +130,7 @@ const ReadNextSection: React.FC<IReadNextSectionProps> = ({ blogs }) => {
                         <Image
                           src={blog.cover_img}
                           alt={`Cover image for ${blog.title}`}
-                          className="ReadNext__cover-image img-fluid"
+                          className="img-fluid"
                           loading="lazy"
                           width={1280}
                           height={720}
@@ -146,6 +139,9 @@ const ReadNextSection: React.FC<IReadNextSectionProps> = ({ blogs }) => {
                           blurDataURL={
                             'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOc1OrTCQAFAgHuigYfLgAAAABJRU5ErkJggg=='
                           }
+                          style={{
+                            transform: 'scale(1.3)',
+                          }}
                         />
                       </div>
                     )}
