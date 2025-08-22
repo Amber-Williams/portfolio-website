@@ -75,7 +75,7 @@ const About: React.FC = () => {
               align="start"
             >
               <GradientText variant="blue" as="h3" className="h2">
-                About me
+                About
               </GradientText>
               <p className="h5 text-light lh-lg">
                 Hello! I’m Amber, a software engineer living in London with{' '}
