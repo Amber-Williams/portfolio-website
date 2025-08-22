@@ -81,7 +81,7 @@ const BlogsSection: React.FC = () => {
                 Blogs
               </GradientText>
               <a href="/blog">
-                <p>
+                <p className="text-light text-right">
                   My personal blog, where I share my thoughts, experiences, and
                   insights as a software engineer. Join me as I explore the
                   latest trends, technologies, and best practices in the

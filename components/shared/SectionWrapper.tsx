@@ -46,7 +46,9 @@ const SectionWrapper: React.FC<SectionWrapperProps> = ({
         ${curveDirection === 'top' ? 'top: -1px;' : 'bottom: 0;'}
         position: absolute;
         ${curveDirection === 'bottom' ? 'transform: rotate(180deg);' : ''}
-        fill: ${backgroundColor === 'primary' ? 'white' : 'var(--primary-color)'};
+        fill: ${
+          backgroundColor === 'primary' ? 'white' : 'var(--primary-color)'
+        };
       }
     `
   }
@@ -65,8 +67,10 @@ const SectionWrapper: React.FC<SectionWrapperProps> = ({
           ${getCurveStyles()}
         `}
       </style>
-      <div 
-        className={`SectionWrapper overflow-hidden ${hasPositionRelative ? 'position-relative' : ''} ${className}`} 
+      <div
+        className={`SectionWrapper overflow-hidden ${
+          hasPositionRelative ? 'position-relative' : ''
+        } ${className}`}
         style={style}
       >
         {hasCurve && (
