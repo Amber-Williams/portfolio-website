@@ -189,10 +189,10 @@ const Blog: NextPage<IBlogProps> = ({ blog, suggestedBlogs }) => {
                   <Avatar />
                 </div>
                 <div className="d-flex flex-column">
-                  <p className="mb-0">
+                  <p className="mb-0 text-dark">
                     <b>Amber Williams</b>
                   </p>
-                  <p className="mb-0">
+                  <p className="mb-0 text-dark">
                     {BlogLib.formatDate(blog.date_created)} {estimateReadTime()}
                   </p>
                 </div>

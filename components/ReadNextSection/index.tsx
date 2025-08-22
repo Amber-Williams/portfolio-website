@@ -52,7 +52,7 @@ const ReadNextSection: React.FC<IReadNextSectionProps> = ({ blogs }) => {
           .ReadNext__card h3 {
             font-size: 1.1rem;
             margin-bottom: 0.75rem;
-            color: var(--text-dark);
+            color: var(--primary-text-color-dark);
             line-height: 1.3;
             padding-left: 1.5rem;
             padding-right: 1.5rem;
