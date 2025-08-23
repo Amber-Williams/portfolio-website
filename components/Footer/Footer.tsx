@@ -27,7 +27,7 @@ const Footer: React.FC<FooterTypes> = ({ reversed }) => {
         <footer className="Footer">
           <div className="Footer__content">
             <PageContainer>
-              <div className="d-flex justify-content-between">
+              <div className="Footer__content-wrapper d-flex justify-content-between">
                 <p className="w-auto">
                   &copy; {new Date().getFullYear()} Amber Williams. All rights
                   reserved.
@@ -73,7 +73,6 @@ const Footer: React.FC<FooterTypes> = ({ reversed }) => {
           filter: ${reversed ? 'brightness(1)' : 'brightness(0.8)'};
           margin-top: 0;
           padding: ${breakpointSize === 'sm' ? '2rem 1rem' : '2rem'};
-          text-align: center;
           width: 100vw;
           padding-top: 4rem;
           position: relative;
@@ -119,6 +118,15 @@ const Footer: React.FC<FooterTypes> = ({ reversed }) => {
             color: ${reversed
               ? 'var(--secondary-text-color-light)'
               : 'var(--primary-text-color-dark)'};
+          }
+        }
+        @media only screen and (max-width: 768px) {
+          .Footer__content-wrapper {
+            flex-direction: column-reverse;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+            gap: 1rem;
           }
         }
       `}</style>
