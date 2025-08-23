@@ -1,4 +1,3 @@
-import { Lib } from '@mb3r/component-library'
 import { GetServerSidePropsContext, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -43,7 +42,6 @@ interface IBlogProps {
 
 const Blog: NextPage<IBlogProps> = ({ blog, suggestedBlogs }) => {
   const contentRef = React.useRef<HTMLDivElement>(null)
-  const breakpointSize = Lib.useGetMediaQuerySize()
 
   useEffect(() => {
     BlogLib.parseMermaidCodeBlock(contentRef)
@@ -144,55 +142,22 @@ const Blog: NextPage<IBlogProps> = ({ blog, suggestedBlogs }) => {
           }}
         />
       </Head>
-      <style jsx>{`
-        .Blog {
-          background-color: var(--primary-color);
-        }
-        .Blog main {
-          max-width: calc(var(--main-width) + var(--gap) * 2);
-          margin: ${breakpointSize === 'sm' ? '1rem' : '2rem'} auto;
-        }
-
-        .Blog__content {
-          background-color: white;
-          padding: ${breakpointSize === 'sm' ? '1rem' : '2rem'};
-          border-radius: var(--radius);
-        }
-
-        .Blog h1 {
-          font-size: 2rem;
-          margin-bottom: 1rem;
-        }
-
-        .Blog__cover-image-wrapper {
-          margin: 1rem 0 2rem 0;
-          width: 100%;
-          border-radius: var(--radius);
-          overflow: hidden;
-        }
-
-        .Blog__cover-image {
-          width: 100%;
-          max-height: 60vh;
-          object-fit: contain;
-        }
-      `}</style>
 
       <div className="Blog">
         <NavBar />
         <PageContainer>
           <main>
             <div ref={contentRef} className="Blog__content">
-              <h1 className="text-dark">{blog.title}</h1>
+              <h1 className="h3">{blog.title}</h1>
               <div className="d-flex flex-row align-items-center">
                 <div className="mr-3">
                   <Avatar />
                 </div>
                 <div className="d-flex flex-column">
-                  <p className="mb-0 text-dark">
+                  <p className="mb-0 text-dark-secondary">
                     <b>Amber Williams</b>
                   </p>
-                  <p className="mb-0 text-dark">
+                  <p className="mb-0 text-dark-secondary">
                     {BlogLib.formatDate(blog.date_created)} {estimateReadTime()}
                   </p>
                 </div>
@@ -225,6 +190,50 @@ const Blog: NextPage<IBlogProps> = ({ blog, suggestedBlogs }) => {
         </PageContainer>
         <Footer reversed />
       </div>
+
+      <style jsx>{`
+        .Blog {
+          background-color: var(--primary-color);
+        }
+
+        .Blog main {
+          max-width: calc(var(--main-width) + var(--gap) * 2);
+          margin: 0 auto;
+        }
+
+        .Blog__content {
+          background-color: var(--paper-color-light);
+          padding: 1rem 2rem;
+          border-radius: var(--radius);
+        }
+
+        .Blog h1 {
+          margin-bottom: 1rem;
+        }
+
+        .Blog__cover-image-wrapper {
+          margin: 1rem 0 2rem 0;
+          width: 100%;
+          border-radius: var(--radius);
+          overflow: hidden;
+        }
+
+        .Blog__cover-image {
+          width: 100%;
+          max-height: 60vh;
+          object-fit: contain;
+        }
+
+        @media only screen and (max-width: 790px) {
+          .Blog main {
+            padding: 1.5rem 2rem;
+          }
+
+          .Blog__content {
+            padding: 1rem 0.5rem;
+          }
+        }
+      `}</style>
     </>
   )
 }
