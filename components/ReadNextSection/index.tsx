@@ -35,7 +35,7 @@ const ReadNextSection: React.FC<IReadNextSectionProps> = ({ blogs }) => {
           }
 
           .ReadNext__card {
-            background-color: #f8f9fa;
+            background-color: var(--paper-color-light);
             border-radius: var(--radius);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             border: 1px solid var(--primary-color);
@@ -50,10 +50,7 @@ const ReadNextSection: React.FC<IReadNextSectionProps> = ({ blogs }) => {
           }
 
           .ReadNext__card h3 {
-            font-size: 1.1rem;
             margin-bottom: 0.75rem;
-            color: var(--primary-text-color-dark);
-            line-height: 1.3;
             padding-left: 1.5rem;
             padding-right: 1.5rem;
             margin-top: 1.5rem;
@@ -114,7 +111,7 @@ const ReadNextSection: React.FC<IReadNextSectionProps> = ({ blogs }) => {
       </style>
 
       <div className="ReadNext">
-        <GradientText variant="green" as="h3" className="h2">
+        <GradientText variant="green" as="p" className="h2 mb-3">
           Read Next
         </GradientText>
         <div className="ReadNext__grid">
@@ -145,7 +142,7 @@ const ReadNextSection: React.FC<IReadNextSectionProps> = ({ blogs }) => {
                         />
                       </div>
                     )}
-                    <h3>{blog.title}</h3>
+                    <h3 className="h5">{blog.title}</h3>
                     {blog.description && <p>{blog.description}</p>}
                   </div>
                   <div className="ReadNext__read-more">Read more →</div>

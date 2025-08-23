@@ -34,6 +34,10 @@ const About: React.FC = () => {
           }
 
           .About p {
+          }
+
+          .About__text {
+            font-size: var(--font-size-h5);
             line-height: 1.5;
           }
 
@@ -48,20 +52,12 @@ const About: React.FC = () => {
             .About {
               grid-template-columns: 100%;
             }
-
-            .About h3 {
-              font-size: 3rem;
-            }
           }
 
           @media only screen and (max-width: 768px) {
             .About {
               width: calc(100% - 2rem);
               padding: 2rem 2rem;
-            }
-
-            .About h3 {
-              font-size: 2rem;
             }
           }
         `}
@@ -74,10 +70,10 @@ const About: React.FC = () => {
               justify="center"
               align="start"
             >
-              <GradientText variant="blue" as="h3" className="h2">
+              <GradientText variant="blue" as="h1" className="h2">
                 About
               </GradientText>
-              <p className="h5 text-light lh-lg">
+              <p className="About__text text-light lh-lg">
                 Hello! I’m Amber, a software engineer living in London with{' '}
                 <span className="years_exp"></span> of experience. For my day
                 job, I work on full-stack systems that bring AI/ML/NLP into real
