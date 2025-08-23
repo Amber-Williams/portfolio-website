@@ -135,6 +135,11 @@ const BlogsSection: React.FC<BlogsSectionProps> = ({ blogs }) => {
             grid-column-end: 12;
             padding: 0;
           }
+
+          .BlogSection__link {
+            grid-column-start: 1;
+            grid-column-end: 12;
+          }
         }
       `}</style>
     </React.Fragment>
