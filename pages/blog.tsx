@@ -95,7 +95,7 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
         }
 
         .Blog__card {
-          background-color: white;
+          background-color: var(--paper-color-light);
           margin: 0 auto;
           padding: ${breakpointSize === 'sm' ? '1rem' : '1.5rem'};
           border-radius: var(--radius);

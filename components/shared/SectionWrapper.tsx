@@ -26,13 +26,13 @@ const SectionWrapper: React.FC<SectionWrapperProps> = ({
   const getBackgroundColor = () => {
     switch (backgroundColor) {
       case 'primary':
-        return 'var(--primary-color)'
+        return 'var(--paper-color-dark)'
       case 'white':
-        return 'white'
+        return 'var(--paper-color-light)'
       case 'transparent':
         return 'transparent'
       default:
-        return 'var(--primary-color)'
+        return 'var(--paper-color-dark)'
     }
   }
 
