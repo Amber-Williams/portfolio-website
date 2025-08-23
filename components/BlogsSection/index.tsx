@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 import { IBlogsListItem } from '../../types'
@@ -23,7 +24,7 @@ const BlogsSection: React.FC<BlogsSectionProps> = ({ blogs }) => {
 
               <div className="mt-3">
                 {latestBlogs.map((blog) => (
-                  <a key={blog.id} href={`/blogs/${blog.slug}`}>
+                  <Link key={blog.id} href={`/blogs/${blog.slug}`}>
                     <div className="BlogItem mb-3">
                       <h3 className="BlogItem__title h5">{blog.title}</h3>
                       {blog.description && (
@@ -32,13 +33,15 @@ const BlogsSection: React.FC<BlogsSectionProps> = ({ blogs }) => {
                         </div>
                       )}
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
-            <a href="/blog" className="BlogSection__link">
-              Read more &#8594;
-            </a>
+            <div className="BlogSection__link-wrapper">
+              <Link href="/blog">
+                <p className="BlogSection__link"> Read more &#8594;</p>
+              </Link>
+            </div>
           </div>
         </PageContainer>
       </div>
@@ -106,9 +109,7 @@ const BlogsSection: React.FC<BlogsSectionProps> = ({ blogs }) => {
           margin-bottom: 1rem;
         }
 
-        .BlogSection__link {
-          color: #eafd96;
-          text-transform: uppercase;
+        .BlogSection__link-wrapper {
           grid-column-start: 1;
           display: flex;
           grid-column-end: 10;
@@ -118,6 +119,12 @@ const BlogsSection: React.FC<BlogsSectionProps> = ({ blogs }) => {
             transform: translateX(10px);
             color: #eafd96;
           }
+        }
+
+        .BlogSection__link {
+          text-decoration: none;
+          color: #eafd96 !important;
+          text-transform: uppercase;
         }
 
         @media only screen and (max-width: 768px) {
