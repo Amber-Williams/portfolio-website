@@ -1,38 +1,87 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
 import PageContainer from '../PageContainer/PageContainer'
 
-const NavBar: React.FC = () => {
+const NavBar = ({ isWide = false }: { isWide?: boolean }) => {
   return (
     <React.Fragment>
       <style jsx>
         {`
           .NavBar {
-            max-width: calc(var(--nav-width) + var(--gap) * 2);
+            max-width: ${isWide
+              ? 'calc(var(--nav-width) + var(--gap) * 10)'
+              : 'calc(var(--nav-width) + var(--gap) * 2)'};
             margin: 0 auto;
             padding: var(--gap);
           }
+          .NavBar__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
           .NavBar__logo {
-            width: 50px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--primary-color, #333);
+            text-decoration: none;
             cursor: pointer;
           }
-
-          .NavBar__logo-wrapper {
-            padding: 10px;
-            background-color: #ffffff;
-            border-radius: var(--radius);
-            width: fit-content;
+          .NavBar__nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+          .NavBar__nav-item {
+            margin: 0;
           }
         `}
       </style>
       <div className="NavBar">
         <PageContainer>
-          <Link href={{ pathname: `/` }}>
-            <div className="NavBar__logo-wrapper">
-              <img className="NavBar__logo" src="/images/logo.gif" />
-            </div>
-          </Link>
+          <div className="NavBar__container">
+            <Link
+              href={{ pathname: `/` }}
+              className="NavBar__logo pr-3 pt-2 pb-2"
+            >
+              <Image
+                src="/images/logo.svg"
+                alt="Logo for amberwilliams.io website"
+                width={200}
+                height={28}
+              />
+            </Link>
+            <nav>
+              <ul className="NavBar__nav">
+                <li className="NavBar__nav-item">
+                  <Link
+                    href={{ pathname: `/` }}
+                    className="h5 text-light pr-3 pl-3 pt-2 pb-2"
+                  >
+                    About
+                  </Link>
+                </li>
+                <li className="NavBar__nav-item">
+                  <Link
+                    href={{ pathname: `/blog` }}
+                    className="h5 text-light pr-3 pl-3 pt-2 pb-2"
+                  >
+                    Blog
+                  </Link>
+                </li>
+                <li className="NavBar__nav-item">
+                  <Link
+                    href={{ pathname: `/projects` }}
+                    className="h5 text-light pl-3 pt-2 pb-2"
+                  >
+                    Projects
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </PageContainer>
       </div>
     </React.Fragment>
