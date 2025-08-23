@@ -75,10 +75,15 @@ const BlogsSection: React.FC<BlogsSectionProps> = ({ blogs }) => {
           }
 
           .BlogSection__link {
-            grid-column-start: 8;
+            grid-column-start: 1;
             display: flex;
             grid-column-end: 10;
             justify-content: end;
+            transition: all 0.3s ease;
+            &:hover {
+              transform: translateX(10px);
+              color: #eafd96;
+            }
           }
 
           @media only screen and (max-width: 1450px) {
@@ -156,7 +161,7 @@ const BlogsSection: React.FC<BlogsSectionProps> = ({ blogs }) => {
               <GradientText
                 variant="green"
                 as="p"
-                className="text-uppercase mt-3"
+                className="text-uppercase mr-3"
               >
                 Read more &#8594;
               </GradientText>
