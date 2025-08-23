@@ -72,11 +72,11 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
           }
 
           .CaseStudyListItem__card {
-            background-color: white;
+            background-color: var(--paper-color-light);
             margin: ${breakpointSize === 'sm' ? '1rem' : '2rem'} auto;
             padding: 0;
             border-radius: var(--radius);
-            max-width: calc(var(--nav-width) + var(--gap)* 2);
+            max-width: calc(var(--nav-width) + var(--gap) * 2);
           }
 
           .CaseStudyListItem p,
@@ -147,7 +147,9 @@ const CaseStudyListItem: React.FC<CaseStudyListItemProps> = ({
 
             <div className="CaseStudyListItem__card-bottom d-flex col-12 w-100 justify-content-between">
               <Tags tags={tags} className="d-none d-md-flex mb-0" />
-              <p className="text-right text-uppercase mb-0">Read more &#8594;</p>
+              <p className="text-right text-uppercase mb-0">
+                Read more &#8594;
+              </p>
             </div>
           </div>
         </Link>
