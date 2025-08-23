@@ -3,9 +3,12 @@ import React from 'react'
 import PageContainer from '../components/PageContainer/PageContainer'
 import { GradientText } from '../components/shared'
 
+import NavBar from '../components/NavBar/NavBar'
+
 const Projects: NextPage = () => {
   return (
     <PageContainer>
+      <NavBar />
       <div className="ProjectsPage">
         <div className="ProjectsPage__header">
           <GradientText variant="blue" as="h3" className="h1">
