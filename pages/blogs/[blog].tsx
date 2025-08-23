@@ -85,7 +85,7 @@ const Blog: NextPage<IBlogProps> = ({ blog, suggestedBlogs }) => {
         <meta name="robots" content="index, follow" />
 
         {/* Page Title */}
-        <title>{`${blog.title}`}</title>
+        <title>{`Blog • ${blog.title}`}</title>
 
         {/* SEO - Description (displays in search results) */}
         {blog.description && (
