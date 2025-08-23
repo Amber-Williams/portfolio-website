@@ -82,7 +82,7 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
             </div>
           </PageContainer>
         </main>
-        {['md', 'lg', 'xl'].includes(breakpointSize) && <Footer reversed />}
+        <Footer reversed />
       </div>
       <style jsx>{`
         .Blog {
