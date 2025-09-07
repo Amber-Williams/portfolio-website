@@ -2,7 +2,7 @@ import { Lib } from '@mb3r/component-library'
 import Markdown from 'markdown-to-jsx'
 
 import { PreCode, SyntaxHighlightedCode } from './CodeElements'
-import { Li, Ul } from './ListElements'
+import { Li, Ul, Ol } from './ListElements'
 import {
   Table,
   TableBody,
@@ -171,7 +171,8 @@ const Ahref = (props: any) => {
       href={props.href}
       style={{
         textDecoration: 'underline',
-        textDecorationColor: 'color-mix(in srgb, var(--tri-color) 50%, transparent) ',
+        textDecorationColor:
+          'color-mix(in srgb, var(--tri-color) 50%, transparent) ',
         textDecorationThickness: '3px',
         textDecorationSkipInk: 'none',
         color: 'var(--primary-color)',
@@ -183,13 +184,104 @@ const Ahref = (props: any) => {
       }}
       onMouseOut={(e: any) => {
         e.target.style.textDecoration = 'underline'
-        e.target.style.textDecorationColor = 'color-mix(in srgb, var(--tri-color) 50%, transparent) '
+        e.target.style.textDecorationColor =
+          'color-mix(in srgb, var(--tri-color) 50%, transparent) '
         e.target.style.textDecorationThickness = '3px'
         e.target.style.color = 'var(--primary-color)'
       }}
     >
       {props.children}
     </a>
+  )
+}
+
+const QuoteIcon = ({ breakpointSize }: { breakpointSize: string }) => (
+  <svg
+    width={breakpointSize === 'sm' ? '24' : '24'}
+    height={breakpointSize === 'sm' ? '24' : '24'}
+    viewBox="0 0 24 24"
+    fill="none"
+    style={{
+      position: 'absolute',
+      top: breakpointSize === 'sm' ? '0.5rem' : '1rem',
+      left: breakpointSize === 'sm' ? '1rem' : '1.5rem',
+      opacity: 0.3,
+    }}
+  >
+    <path
+      d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"
+      fill="var(--tri-color)"
+    />
+  </svg>
+)
+
+const Quote = ({ children }: { children: React.ReactNode }) => {
+  const breakpointSize = Lib.useGetMediaQuerySize()
+
+  const parseQuoteAndAuthor = (content: React.ReactNode) => {
+    const quoteString = content?.[0].props?.children?.[0]
+    if (quoteString && typeof quoteString === 'string') {
+      const hasAuthorDash = quoteString.lastIndexOf(' - ') !== -1
+
+      if (hasAuthorDash) {
+        const lastDashIndex = quoteString.lastIndexOf(' - ')
+        let quote = quoteString.substring(0, lastDashIndex)
+        const author = quoteString.substring(lastDashIndex + 3)
+
+        quote = quote.replace(/["“”]/g, '')
+
+        return { quote, author }
+      }
+
+      let quote = quoteString
+      quote = quote.replace(/["“”]/g, '')
+      return { quote, author: null }
+    }
+    return { quote: content, author: null }
+  }
+
+  const { quote, author } = parseQuoteAndAuthor(children)
+
+  return (
+    <blockquote
+      style={{
+        position: 'relative',
+        margin: 0,
+        padding: breakpointSize === 'sm' ? '1rem 0.5rem' : '1.5rem 1rem',
+        fontSize: breakpointSize === 'sm' ? '1.25rem' : '1.5rem',
+        lineHeight: breakpointSize === 'sm' ? '1.8rem' : '2.2rem',
+        fontFamily: 'var(--font-body)',
+        color: 'var(--primary-text-color-dark)',
+        fontWeight: '400',
+        border: 'none',
+        borderRadius: '8px',
+      }}
+    >
+      <QuoteIcon breakpointSize={breakpointSize} />
+      <div
+        style={{
+          marginBottom: author ? '0.5rem' : '0',
+          fontWeight: '400',
+          paddingLeft: '2.5rem',
+        }}
+      >
+        {quote}
+      </div>
+      {author && (
+        <cite
+          style={{
+            display: 'block',
+            paddingLeft: '2.5rem',
+            fontSize: breakpointSize === 'sm' ? '1rem' : '1.1rem',
+            fontStyle: 'normal',
+            fontWeight: '400',
+            color: 'var(--secondary-text-color-dark)',
+          }}
+        >
+          — {author}
+        </cite>
+      )}
+    </blockquote>
   )
 }
 
@@ -228,6 +320,9 @@ const CustomMarkdown = ({
           ul: {
             component: Ul,
           },
+          ol: {
+            component: Ol,
+          },
           li: {
             component: Li,
           },
@@ -249,6 +344,9 @@ const CustomMarkdown = ({
           },
           td: {
             component: (props) => <TableCell isHeader={false} {...props} />,
+          },
+          blockquote: {
+            component: Quote,
           },
         },
       }}

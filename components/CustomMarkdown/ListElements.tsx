@@ -1,3 +1,4 @@
+import React from 'react'
 import { Lib } from '@mb3r/component-library'
 
 const Ul = ({ children }) => {
@@ -16,7 +17,7 @@ const Ul = ({ children }) => {
         marginRight:
           breakpointSize === 'sm' || breakpointSize === 'md'
             ? '1.2rem'
-            : '4.5rem', // marginLeft + paddingLeft
+            : '4.5rem',
         fontFamily: 'var(--font-body)',
       }}
     >
@@ -25,7 +26,44 @@ const Ul = ({ children }) => {
   )
 }
 
-const Li = ({ children }) => {
+const Ol = ({ children }) => {
+  const breakpointSize = Lib.useGetMediaQuerySize()
+
+  // Add index to each child
+  const numberedChildren = React.Children.map(children, (child, index) => {
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child, {
+        ...child.props,
+        index,
+        isOrdered: true,
+      })
+    }
+    return child
+  })
+
+  return (
+    <ol
+      style={{
+        listStyleType: 'none',
+        paddingLeft:
+          breakpointSize === 'sm' || breakpointSize === 'md'
+            ? '0.8rem'
+            : '1.5rem',
+        marginLeft:
+          breakpointSize === 'sm' || breakpointSize === 'md' ? '2rem' : '3rem',
+        marginRight:
+          breakpointSize === 'sm' || breakpointSize === 'md'
+            ? '1.2rem'
+            : '4.5rem',
+        fontFamily: 'var(--font-body)',
+      }}
+    >
+      {numberedChildren}
+    </ol>
+  )
+}
+
+const Li = ({ children, index, isOrdered, ...props }) => {
   const breakpointSize = Lib.useGetMediaQuerySize()
 
   return (
@@ -36,17 +74,40 @@ const Li = ({ children }) => {
         fontFamily: 'var(--font-body)',
       }}
     >
-      <span
-        style={{
-          position: 'absolute',
-          left: '-1.5rem',
-          top: '0.5rem',
-          width: '0.5rem',
-          height: '0.5rem',
-          backgroundColor: 'var(--accent-color)',
-          borderRadius: '50%',
-        }}
-      />
+      {isOrdered ? (
+        <span
+          style={{
+            position: 'absolute',
+            left: '-2rem',
+            top: '0.3rem',
+            width: '1.2rem',
+            height: '1.2rem',
+            backgroundColor: 'var(--accent-color)',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: breakpointSize === 'sm' ? '0.75rem' : '0.8rem',
+            fontWeight: '700',
+            color: 'white',
+            fontFamily: 'var(--font-body)',
+          }}
+        >
+          {(index || 0) + 1}
+        </span>
+      ) : (
+        <span
+          style={{
+            position: 'absolute',
+            left: '-1.5rem',
+            top: '0.5rem',
+            width: '0.5rem',
+            height: '0.5rem',
+            backgroundColor: 'var(--accent-color)',
+            borderRadius: '50%',
+          }}
+        />
+      )}
       <p
         style={{
           color: 'var(--primary-color)',
@@ -63,4 +124,4 @@ const Li = ({ children }) => {
   )
 }
 
-export { Li, Ul }
+export { Li, Ul, Ol }
