@@ -25,6 +25,8 @@
 
     /* colors extended */
     --accent-color-darker: #bf8451;
+    --code-background-color: #75788320;
+    --code-text-color: var(--quad-color);
 
     /* fonts */
     --font-header: 'Share Tech Mono', monospace, serif;
