@@ -40,6 +40,7 @@ const Projects: NextPage = () => {
                 <a
                   href="https://fluentcheese.com?utm_source=amberwilliams.io"
                   className="ProjectCard__link text-uppercase"
+                  target="_blank"
                 >
                   Website ↗
                 </a>
@@ -63,14 +64,16 @@ const Projects: NextPage = () => {
                 <a
                   href="https://chromewebstore.google.com/detail/queso/cpojjpkakkkhmdopjephddfnnfalfdbd"
                   className="ProjectCard__link text-uppercase"
+                  target="_blank"
                 >
                   Chrome Extension ↗
                 </a>
                 <a
                   href="https://github.com/Amber-Williams/queso-browser-extension"
                   className="ProjectCard__link text-uppercase"
+                  target="_blank"
                 >
-                  Github project ↗
+                  Github ↗
                 </a>
               </div>
             </div>
@@ -91,14 +94,16 @@ const Projects: NextPage = () => {
                 <a
                   href="https://amber-williams.github.io/hackernews-whos-hiring/?utm_source=amberwilliams.io"
                   className="ProjectCard__link text-uppercase"
+                  target="_blank"
                 >
                   Website ↗
                 </a>
                 <a
                   href="https://github.com/Amber-Williams/hackernews-whos-hiring/"
                   className="ProjectCard__link text-uppercase"
+                  target="_blank"
                 >
-                  Github project ↗
+                  Github ↗
                 </a>
               </div>
             </div>
