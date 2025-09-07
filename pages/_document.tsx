@@ -66,6 +66,13 @@ export default function Document() {
         />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="theme-color" content="#ffffff" />
+
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="amberwilliams.io - RSS Feed"
+          href="/api/rss.xml"
+        />
       </Head>
       <body>
         <Main />
