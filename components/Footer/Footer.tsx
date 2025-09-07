@@ -3,7 +3,7 @@ import React from 'react'
 
 import { FooterTypes } from '../../types/footer-types'
 import PageContainer from '../PageContainer/PageContainer'
-import { Bluesky, Github, TwitterX } from './../Socials'
+import { Bluesky, Github, RSS, TwitterX } from './../Socials'
 
 const Footer: React.FC<FooterTypes> = ({ reversed }) => {
   const breakpointSize = Lib.useGetMediaQuerySize()
@@ -38,22 +38,30 @@ const Footer: React.FC<FooterTypes> = ({ reversed }) => {
                     rel="noreferrer"
                     href="https://twitter.com/not_not_amber/"
                   >
-                    <TwitterX size={breakpointSize === 'sm' ? 24 : 32} />
+                    <TwitterX size={breakpointSize === 'sm' ? 24 : 28} />
                   </a>
                   <a
                     target="_blank"
                     rel="noreferrer"
                     href="https://github.com/amber-Williams/"
-                    className="mr-3 ml-3"
+                    className="mr-4 ml-4"
                   >
-                    <Github size={breakpointSize === 'sm' ? 24 : 32} />
+                    <Github size={breakpointSize === 'sm' ? 24 : 28} />
                   </a>
                   <a
                     target="_blank"
                     rel="noreferrer"
                     href="https://bsky.app/profile/notnotamber.bsky.social"
                   >
-                    <Bluesky size={breakpointSize === 'sm' ? 24 : 32} />
+                    <Bluesky size={breakpointSize === 'sm' ? 24 : 28} />
+                  </a>
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href="/api/atom.xml"
+                    className="ml-4"
+                  >
+                    <RSS size={breakpointSize === 'sm' ? 22 : 24} />
                   </a>
                 </div>
               </div>

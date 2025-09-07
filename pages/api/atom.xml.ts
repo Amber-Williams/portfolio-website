@@ -44,7 +44,7 @@ export default async function handler(
 ) {
   try {
     const apiUrl = process.env.CMS_SERVER
-    const apiKey = process.env.CMS_ACCESS_TOKEN
+    const apiKey = process.env.CMS_API_KEY
 
     if (!apiUrl || !apiKey) {
       return res.status(500).json({ error: 'CMS configuration missing' })
