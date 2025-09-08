@@ -19,11 +19,7 @@ const SyntaxHighlightedCode = (props: any) => {
     }
   }, [props.className, props.children])
 
-  if (!Boolean(props.className?.includes('lang'))) {
-    return <InlineCode>{props.children}</InlineCode>
-  }
-
-  if (Boolean(props.className?.includes('lang-txt'))) {
+  if (props.className?.includes('lang-txt')) {
     return (
       <code
         style={{
@@ -41,20 +37,24 @@ const SyntaxHighlightedCode = (props: any) => {
     )
   }
 
-  return (
-    <code
-      style={{
-        paddingTop: '1.5rem !important',
-        paddingBottom: '1.5rem !important',
-        paddingLeft: '1rem',
-        paddingRight: '1rem',
-        fontSize: breakpointSize === 'sm' ? '80%' : '100%',
-        backgroundColor: 'transparent',
-      }}
-      {...props}
-      ref={ref}
-    />
-  )
+  if (props.className?.includes('lang')) {
+    return (
+      <code
+        style={{
+          paddingTop: '1.5rem !important',
+          paddingBottom: '1.5rem !important',
+          paddingLeft: '1rem',
+          paddingRight: '1rem',
+          fontSize: breakpointSize === 'sm' ? '80%' : '100%',
+          backgroundColor: 'transparent',
+        }}
+        {...props}
+        ref={ref}
+      />
+    )
+  }
+
+  return <InlineCode>{props.children}</InlineCode>
 }
 
 const InlineCode = ({ children }: { children: string }) => {

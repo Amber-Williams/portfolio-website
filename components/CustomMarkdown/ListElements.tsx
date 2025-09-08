@@ -1,5 +1,5 @@
-import React from 'react'
 import { Lib } from '@mb3r/component-library'
+import React from 'react'
 
 const Ul = ({ children }) => {
   const breakpointSize = Lib.useGetMediaQuerySize()
@@ -29,11 +29,10 @@ const Ul = ({ children }) => {
 const Ol = ({ children }) => {
   const breakpointSize = Lib.useGetMediaQuerySize()
 
-  // Add index to each child
   const numberedChildren = React.Children.map(children, (child, index) => {
     if (React.isValidElement(child)) {
       return React.cloneElement(child, {
-        ...child.props,
+        ...(child.props as any),
         index,
         isOrdered: true,
       })
@@ -63,7 +62,7 @@ const Ol = ({ children }) => {
   )
 }
 
-const Li = ({ children, index, isOrdered, ...props }) => {
+const Li = ({ children, index, isOrdered }) => {
   const breakpointSize = Lib.useGetMediaQuerySize()
 
   return (
@@ -124,4 +123,4 @@ const Li = ({ children, index, isOrdered, ...props }) => {
   )
 }
 
-export { Li, Ul, Ol }
+export { Li, Ol, Ul }

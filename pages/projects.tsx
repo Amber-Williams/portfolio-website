@@ -41,6 +41,7 @@ const Projects: NextPage = () => {
                   href="https://fluentcheese.com?utm_source=amberwilliams.io"
                   className="ProjectCard__link text-uppercase"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   Website ↗
                 </a>
@@ -65,6 +66,7 @@ const Projects: NextPage = () => {
                   href="https://chromewebstore.google.com/detail/queso/cpojjpkakkkhmdopjephddfnnfalfdbd"
                   className="ProjectCard__link text-uppercase"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   Chrome Extension ↗
                 </a>
@@ -72,6 +74,7 @@ const Projects: NextPage = () => {
                   href="https://github.com/Amber-Williams/queso-browser-extension"
                   className="ProjectCard__link text-uppercase"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   Github ↗
                 </a>
@@ -95,6 +98,7 @@ const Projects: NextPage = () => {
                   href="https://amber-williams.github.io/hackernews-whos-hiring/?utm_source=amberwilliams.io"
                   className="ProjectCard__link text-uppercase"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   Website ↗
                 </a>
@@ -102,6 +106,7 @@ const Projects: NextPage = () => {
                   href="https://github.com/Amber-Williams/hackernews-whos-hiring/"
                   className="ProjectCard__link text-uppercase"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   Github ↗
                 </a>
