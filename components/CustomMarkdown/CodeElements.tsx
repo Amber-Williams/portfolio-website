@@ -145,77 +145,87 @@ const PreCode = ({ children }: { children: any }) => {
 
   return (
     <div
-      style={{
-        position: 'relative',
-        maxWidth: '1200px',
-        margin: '0 auto',
-      }}
+      className="code-example"
+      style={{ maxWidth: '1200px', margin: '16px auto' }}
     >
-      <div
+      <header
         style={{
-          position: 'absolute',
-          top: '0.2rem',
-          right: '0.2rem',
           display: 'flex',
-          gap: '0.5rem',
           alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '0.5rem',
+          fontSize: '0.875rem',
+          borderTopLeftRadius: '6px',
+          borderTopRightRadius: '6px',
+          borderTop: '1px solid var(--border-color, #30363d)',
+          borderLeft: '1px solid var(--border-color, #30363d)',
+          borderRight: '1px solid var(--border-color, #30363d)',
+          backgroundColor: 'var(--header-bg-color, #02111c)',
+          color: 'var(--text-color, #e6edf3)',
         }}
       >
-        {fencedLangs.includes(lang) && (
-          <p
-            style={{
-              color: 'var(--accent-color)',
-              borderRadius: '4px',
-              padding: '0.2rem 0.4rem',
-              border: '1px solid var(--accent-color)',
-              fontSize: '0.9em',
-              margin: 0,
-            }}
-          >
-            {lang}
-          </p>
-        )}
+        <span style={{ flex: 1 }}>
+          {fencedLangs.includes(lang)
+            ? lang.charAt(0).toUpperCase() + lang.slice(1)
+            : 'Code'}
+        </span>
         <button
           onClick={handleCopy}
           style={{
             background: 'transparent',
-            border: '1px solid white',
+            border: 'none',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '0.2rem',
-            borderRadius: '4px',
+            padding: '0.25rem',
+            borderRadius: '6px',
+            color: 'var(--text-color, #e6edf3)',
           }}
           title={copied ? 'Copied!' : 'Copy to clipboard'}
+          aria-label={`Copy ${lang} code to clipboard`}
         >
           {copied ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
-              style={{ fill: 'var(--success-color)' }}
+              style={{ fill: 'var(--text-color, #e6edf3)' }}
             >
               <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
             </svg>
           ) : (
-            <img
-              src="/images/icons/copy.svg"
-              alt="Copy"
-              width={20}
-              height={20}
-            />
+            <svg
+              version="1.1"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              style={{ fill: 'currentColor' }}
+              aria-hidden="true"
+            >
+              <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path>
+              <path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+            </svg>
           )}
         </button>
-      </div>
+        <pre hidden style={{ display: 'none' }}>
+          {children.props.children}
+        </pre>
+      </header>
       <pre
         style={{
           backgroundColor: '#011627',
-          borderRadius: '4px',
+          border: '1px solid var(--border-color, #30363d)',
+          borderTop: 'none',
+          borderBottomLeftRadius: '6px',
+          borderBottomRightRadius: '6px',
           overflowX: 'auto',
           whiteSpace: 'pre-wrap',
           maxHeight: '600px',
+          margin: 0,
+          fontSize: breakpointSize === 'sm' ? '0.8rem' : '0.9rem',
+          fontFamily: 'monospace',
         }}
       >
         {children}
