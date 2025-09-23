@@ -1,6 +1,5 @@
 import { GetServerSidePropsContext, NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import React, { useEffect } from 'react'
 
 import Avatar from '../../components/Avatar'
