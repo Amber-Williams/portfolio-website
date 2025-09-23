@@ -3,7 +3,7 @@ frontend:
   phases:
     preBuild:
       commands:
-        - nvm use 18
+        - nvm use 20
         - echo -e "CMS_API_KEY=$CMS_API_KEY\nCMS_SERVER=$CMS_SERVER" >> .env
         - yarn install --frozen-lockfile
     build:
