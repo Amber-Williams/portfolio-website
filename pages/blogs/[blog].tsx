@@ -163,24 +163,9 @@ const Blog: NextPage<IBlogProps> = ({ blog, suggestedBlogs }) => {
                 </div>
               </div>
               <hr />
-              {blog.cover_img && (
-                <div className="Blog__cover-image-wrapper">
-                  <Image
-                    src={blog.cover_img}
-                    alt={`Cover image for ${blog.title}`}
-                    className="Blog__cover-image img-fluid"
-                    loading="lazy"
-                    width={1280}
-                    height={720}
-                    placeholder="blur"
-                    blurDataURL={
-                      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOc1OrTCQAFAgHuigYfLgAAAABJRU5ErkJggg=='
-                    }
-                  />
-                </div>
-              )}
-              <CustomMarkdown hideH1={true}>{blog.content}</CustomMarkdown>
-
+              <article>
+                <CustomMarkdown hideH1={true}>{blog.content}</CustomMarkdown>
+              </article>
               <br />
             </div>
             {suggestedBlogs && suggestedBlogs.length > 0 && (
