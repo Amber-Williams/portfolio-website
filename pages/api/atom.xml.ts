@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { getAllBlogs } from '../../lib/blog'
 
 const generateAtomXml = (blogs: any[]) => {
-  const siteUrl = 'https://amberwilliams.io/blog'
+  const siteUrl = 'https://amberwilliams.io'
   const feedUpdated =
     blogs.length > 0
       ? new Date(

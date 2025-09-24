@@ -144,10 +144,7 @@ const PreCode = ({ children }: { children: any }) => {
   }
 
   return (
-    <div
-      className="code-example"
-      style={{ maxWidth: '1200px', margin: '16px auto' }}
-    >
+    <div style={{ maxWidth: '1200px', margin: '16px auto' }}>
       <header
         style={{
           display: 'flex',
