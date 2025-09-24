@@ -7,6 +7,7 @@ import React from 'react'
 import Footer from '../components/Footer/Footer'
 import NavBar from '../components/NavBar/NavBar'
 import PageContainer from '../components/PageContainer/PageContainer'
+import BlogCard from '../components/shared/BlogCard'
 import GradientText from '../components/shared/GradientText'
 import * as BlogLib from '../lib/blog'
 import { IBlogsListItem } from '../types'
@@ -36,47 +37,49 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
                 const blogUrl = `/blogs/${blog.slug ? blog.slug : blog.id}`
 
                 return (
-                  <div key={blog.id} className="Blog__card">
-                    <Link href={blogUrl}>
-                      {blog.cover_img && (
-                        <div className="Blog__cover-image-wrapper">
-                          <Image
-                            src={blog.cover_img}
-                            alt={`Cover image for ${blog.title}`}
-                            className="Blog__cover-image img-fluid"
-                            loading="lazy"
-                            width={1280}
-                            height={720}
-                            placeholder="blur"
-                            blurDataURL={
-                              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOc1OrTCQAFAgHuigYfLgAAAABJRU5ErkJggg=='
-                            }
-                          />
-                        </div>
-                      )}
-
-                      <div>
-                        <h2 className="h4 text-dark mt-3">{blog.title}</h2>
-
-                        {blog.description && (
-                          <div>
-                            <p className="text-dark-secondary">
-                              {blog.description}
-                            </p>
+                  <React.Fragment key={blog.id}>
+                    {/* Desktop layout */}
+                    <div className="Blog__card Blog__card--desktop">
+                      <Link href={blogUrl}>
+                        {blog.cover_img && (
+                          <div className="Blog__cover-image-wrapper">
+                            <Image
+                              src={blog.cover_img}
+                              alt={`Cover image for ${blog.title}`}
+                              className="Blog__cover-image"
+                              loading="lazy"
+                              fill
+                              placeholder="blur"
+                              blurDataURL={
+                                'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOc1OrTCQAFAgHuigYfLgAAAABJRU5ErkJggg=='
+                              }
+                            />
                           </div>
                         )}
-                        <div className="d-flex flex-row justify-content-between">
-                          <p className="mb-2 text-dark-secondary">
-                            {BlogLib.formatDate(blog.date_created)} · Amber
-                            Williams
+
+                        <div className="Blog__text-content">
+                          <h2 className="h5 text-dark">{blog.title}</h2>
+
+                          {blog.description && (
+                            <div>
+                              <p className="text-dark-secondary p-0 text-sm">
+                                {blog.description}
+                              </p>
+                            </div>
+                          )}
+
+                          <p className="Blog__text-content-date m-0 text-dark-secondary text-sm">
+                            {BlogLib.formatDate(blog.date_created)}
                           </p>
-                          <div className="text-uppercase text-dark">
-                            Read more →
-                          </div>
                         </div>
-                      </div>
-                    </Link>
-                  </div>
+                      </Link>
+                    </div>
+
+                    {/* Mobile layout */}
+                    <div className="Blog__card--mobile">
+                      <BlogCard blog={blog} isCompact />
+                    </div>
+                  </React.Fragment>
                 )
               })}
             </div>
@@ -97,31 +100,88 @@ const Blogs: NextPage<IBlogs> = ({ blogs }) => {
         .Blog__card {
           background-color: var(--paper-color-light);
           margin: 0 auto;
-          padding: ${breakpointSize === 'sm' ? '1rem' : '1.5rem'};
           border-radius: var(--radius);
           max-width: var(--main-width);
+          overflow: hidden;
+          position: relative;
 
           &:not(:last-child) {
             margin-bottom: 1.5rem;
           }
         }
 
+        .Blog__card--mobile {
+          display: none;
+          margin-bottom: 1.5rem;
+        }
+
+        .Blog__card--desktop {
+          display: block;
+        }
+
         .Blog__cover-image-wrapper {
-          margin: 1rem 0 2rem 0;
-          width: 100%;
-          border-radius: var(--radius);
-          overflow: hidden;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 40%;
+          height: 100%;
+          z-index: 1;
         }
 
         .Blog__cover-image {
           width: 100%;
-          max-height: 60vh;
-          object-fit: contain;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+
+        .Blog__text-content {
+          position: relative;
+          z-index: 2;
+          background-color: var(--paper-color-light);
+          margin-left: 35%;
+          padding: ${breakpointSize === 'sm' ? '1rem' : '1.2rem'};
+          min-height: 200px;
+        }
+
+        .Blog__text-content-date {
+          position: absolute;
+          bottom: 1rem;
+        }
+
+        .text-sm {
+          font-size: 0.875rem;
         }
 
         @media only screen and (max-width: 790px) {
           .Blog main {
             padding: 1.5rem 2rem;
+          }
+
+          .Blog__card--desktop {
+            display: none;
+          }
+
+          .Blog__card--mobile {
+            display: block;
+          }
+
+          .Blog__cover-image-wrapper {
+            position: static;
+            width: 100%;
+            height: 200px;
+          }
+
+          .Blog__cover-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+          }
+
+          .Blog__text-content {
+            margin-left: 0;
+            min-height: auto;
           }
         }
       `}</style>
