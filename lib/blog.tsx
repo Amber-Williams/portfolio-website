@@ -139,7 +139,7 @@ export const getSuggestedBlogPosts = async (
 export const getAllBlogs = async (
   apiUrl: string,
   apiKey: string,
-  shouldAddContent: boolean = false
+  shouldAddContent = false
 ) => {
   const cacheKey = 'blog-posts'
   let blogs = (getCache(cacheKey) as unknown) as IBlogsListItem[]
