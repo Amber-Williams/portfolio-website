@@ -136,13 +136,21 @@ export const getSuggestedBlogPosts = async (
   }
 }
 
-export const getAllBlogs = async (apiUrl: string, apiKey: string) => {
+export const getAllBlogs = async (
+  apiUrl: string,
+  apiKey: string,
+  shouldAddContent: boolean = false
+) => {
   const cacheKey = 'blog-posts'
   let blogs = (getCache(cacheKey) as unknown) as IBlogsListItem[]
 
   if (!blogs) {
     const res = await fetch(
-      `${apiUrl}/items/posts?fields=id,slug,name,title,description,date_created,date_updated,cover_img&filter={"status":{"_eq":"published"}}&sort=-date_created`,
+      `${apiUrl}/items/posts?fields=${
+        shouldAddContent
+          ? 'id,slug,name,title,description,date_created,date_updated,cover_img,content'
+          : 'id,slug,name,title,description,date_created,date_updated,cover_img'
+      }&filter={"status":{"_eq":"published"}}&sort=-date_created`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -172,6 +180,7 @@ export const getAllBlogs = async (apiUrl: string, apiKey: string) => {
         cover_img: blog.cover_img
           ? `${process.env.CMS_SERVER}/assets/${blog.cover_img}`
           : null,
+        content: shouldAddContent ? blog.content : null,
       }
     })
 
