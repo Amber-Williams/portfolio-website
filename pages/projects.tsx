@@ -31,9 +31,8 @@ const Projects: NextPage = () => {
                 </div>
 
                 <p className="ProjectCard__description">
-                  Language learning platform that puts you in the driver seat.
-                  Built with spaced repetition algorithms to keep lessons
-                  focused.
+                  Language learning platform with real sounding text-to-speech
+                  and spaced repetition algorithm.
                 </p>
               </div>
               <div className="ProjectCard__links">
@@ -56,27 +55,17 @@ const Projects: NextPage = () => {
                 </div>
 
                 <p className="ProjectCard__description">
-                  Queso browser extension is an advanced bookmark manager.
-                  Enables article snapshots to Markdown, save web clippings and
-                  notes for bookmarks.
+                  Open-source self-hosted bookmark and web clipping manager.
                 </p>
               </div>
               <div className="ProjectCard__links">
                 <a
-                  href="https://chromewebstore.google.com/detail/queso/cpojjpkakkkhmdopjephddfnnfalfdbd"
+                  href="https://quesobookmarks.com"
                   className="ProjectCard__link text-uppercase"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Chrome Extension ↗
-                </a>
-                <a
-                  href="https://github.com/Amber-Williams/queso-browser-extension"
-                  className="ProjectCard__link text-uppercase"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Github ↗
+                  Website ↗
                 </a>
               </div>
             </div>
@@ -90,7 +79,7 @@ const Projects: NextPage = () => {
 
                 <p className="ProjectCard__description">
                   Interactive database to query Hacker News Who&apos;s Hiring
-                  job threads.
+                  job postings.
                 </p>
               </div>
               <div className="ProjectCard__links">
@@ -101,14 +90,6 @@ const Projects: NextPage = () => {
                   rel="noreferrer"
                 >
                   Website ↗
-                </a>
-                <a
-                  href="https://github.com/Amber-Williams/hackernews-whos-hiring/"
-                  className="ProjectCard__link text-uppercase"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Github ↗
                 </a>
               </div>
             </div>
