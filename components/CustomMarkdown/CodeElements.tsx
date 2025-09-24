@@ -209,9 +209,6 @@ const PreCode = ({ children }: { children: any }) => {
             </svg>
           )}
         </button>
-        <pre hidden style={{ display: 'none' }}>
-          {children.props.children}
-        </pre>
       </header>
       <pre
         style={{
